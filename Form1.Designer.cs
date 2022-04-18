@@ -1,4 +1,4 @@
-﻿namespace Snake {
+﻿namespace PacMan {
     partial class Form1 {
         /// <summary>
         ///  Required designer variable.

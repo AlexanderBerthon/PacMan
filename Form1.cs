@@ -1,14 +1,20 @@
-namespace Snake {
+namespace PacMan {
     public partial class Form1 : Form {
         //global variables :(
         int currentIndex;
-        int lastIndex;
         int trajectory;
-        List<int> snake;
+        int score; 
         Random random = new Random();
         Button[] btnArray;
 
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+
+        /// cells with borders are walls, if player collides with a wall, stop, no movement but game continues
+        /// empty cells get an orb
+        /// player moves cell to cell, clearing orbs, earning points
+        /// every cell the player moves to gets background overriden with player pic, then empty when they leave.
+        /// every cell the enemy moves to gets background overriden with enemy pic, then replaced when they leave.
+
 
         private void TimerEventProcessor(Object anObject, EventArgs eventArgs) {
             //reset event clock
@@ -17,7 +23,7 @@ namespace Snake {
                 timer.Start();
             }
             else {
-                ScoreLabel.Text = "Final Score: " + (snake.Count-1).ToString();
+                ScoreLabel.Text = "Final Score: " + score;
                 //GameOverPanel.Visible = true;
             }
         }
@@ -25,104 +31,45 @@ namespace Snake {
         public Form1() {
             InitializeComponent();
 
-            timer.Interval = 100;
+            timer.Interval = 500;
             timer.Start();
             timer.Tick += new EventHandler(TimerEventProcessor);
 
-            snake = new List<int>();
+            score = 0;
 
-            currentIndex = 18;
-            lastIndex = 200;
-            trajectory = +16;
+            currentIndex = 121;
+            trajectory = 0;
             btnArray = new Button[256];
             flowLayoutPanel1.Controls.CopyTo(btnArray, 0);
 
-            spawn();
         }
 
-        /// <summary>
-        /// This function moves the player snake based on user input gathered by the movement_keypressed action listener
-        /// Also checks for collisions with the border / snake and ends the game on collision 
-        /// </summary>
-        /// <returns></returns>
         private Boolean move() {
             Boolean runGame = true;
-            snake.Add(currentIndex);
-            lastIndex = snake[0];
-            btnArray[lastIndex].BackColor = Color.PeachPuff; //remove last
-            // start here
-            //check left border
-            if (currentIndex % 16 == 0 && trajectory == -1) {
-                //Border Collision: game over
-                runGame = false;
+
+            if (btnArray[currentIndex + trajectory].BackColor == Color.DarkSlateBlue) {
+                trajectory = 0;
             }
-            //check right border
-            else if (currentIndex % 16 == 15 && trajectory == +1) {
-                //Border Collision: game over
-                runGame = false;
-            }
-            //check bottom border
-            else if (currentIndex >= 239 && trajectory == +16) {
-                //Border Collision: game over
-                runGame = false;
-            }
-            //check top border
-            else if (currentIndex <= 15 && trajectory == -16) {
-                //Border Collision: game over
+            else if (btnArray[currentIndex + trajectory].BackgroundImage != null) {
+                //enemy collision
                 runGame = false;
             }
             else {
+                btnArray[currentIndex].BackColor = Color.PeachPuff;
+                currentIndex += trajectory;
 
-            currentIndex += trajectory;
+                //if point gathered
+                if (btnArray[currentIndex].BackgroundImage == null) {
+                    //score++
+                }
 
-            if (btnArray[currentIndex].BackColor == Color.Firebrick) {
-                snake.Add(currentIndex);
-                ScoreLabel.Text = (snake.Count-1).ToString();
-                spawn();
-            }
-            else if (btnArray[currentIndex].BackColor == Color.Black) {
-                runGame = false;
-            }
+                btnArray[currentIndex].BackColor = Color.Black;
 
-            btnArray[currentIndex].BackColor = Color.Black;
-
-            snake.RemoveAt(0);
             }
 
             return runGame;
         }
 
-        /// <summary>
-        /// This function spawns the orbs for the player to collect.
-        /// 
-        /// the function is called after the previous orb has been collected. 
-        /// 
-        /// the player recieves one point for each orb collected.
-        /// 
-        /// the location of the orb is random, however, if the orb would have spawned on top of the player
-        /// the location will be re-randomized until it does not. 
-        /// </summary>
-        private void spawn() {
-            int location = 0;
-            Boolean valid = false;
-            while (!valid) {
-                valid = true;
-                location = random.Next(0, btnArray.Length);
-                foreach (int i in snake) {
-                    if (location == i) {
-                        valid = false;
-                    }
-                }
-            }
-            btnArray[location].BackColor = Color.Firebrick;
-        }
-
-        /// <summary>
-        /// This function sets the direction of the snake at the given "game tick"
-        /// which is then fed into the move function to move the snake in the right direction.
-        /// </summary>
-        /// <param name="sender"></param> 
-        /// <param name="e"></param>
         private void movement_KeyPress(object sender, KeyPressEventArgs e) {
             if (e.KeyChar == 'w') {
                 trajectory = -16;
@@ -148,11 +95,8 @@ namespace Snake {
                 btn.BackColor = Color.PeachPuff;
             }
             trajectory = 16;
-            snake.Clear();
             ScoreLabel.Text = "0";
             currentIndex = 18;
-            lastIndex = 200;
-            spawn();
 
             timer.Start();
 
