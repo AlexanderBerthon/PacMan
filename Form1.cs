@@ -50,19 +50,25 @@ namespace PacMan {
             if (btnArray[currentIndex + trajectory].BackColor == Color.DarkSlateBlue) {
                 trajectory = 0;
             }
-            else if (btnArray[currentIndex + trajectory].BackgroundImage != null) {
+            else if (btnArray[currentIndex + trajectory].BackgroundImage == Properties.Resources.Icon) {
                 //enemy collision
                 runGame = false;
             }
             else {
-                btnArray[currentIndex].BackColor = Color.PeachPuff;
+                btnArray[currentIndex].BackColor = Color.PeachPuff; //don't need once you convert to image
                 currentIndex += trajectory;
 
                 //if point gathered
-                if (btnArray[currentIndex].BackgroundImage == null) {
-                    //score++
+                if (btnArray[currentIndex].Tag == "1") {
+                    btnArray[currentIndex].BackgroundImage = null;
+                    btnArray[currentIndex].Tag = "0";
+                    //flowLayoutPanel1.Controls[currentIndex].BackgroundImage = null;
+                    score++;
+                    ScoreLabel.Text = score.ToString();
+                    this.Refresh();
                 }
 
+                //placeholder, convert to pacman later
                 btnArray[currentIndex].BackColor = Color.Black;
 
             }
