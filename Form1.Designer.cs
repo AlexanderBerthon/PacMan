@@ -1474,6 +1474,8 @@
             // button72
             // 
             this.button72.BackColor = System.Drawing.Color.PeachPuff;
+            this.button72.BackgroundImage = global::PacMan.Properties.Resources.Icon;
+            this.button72.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button72.FlatAppearance.BorderSize = 0;
             this.button72.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button72.Location = new System.Drawing.Point(140, 80);
@@ -2696,6 +2698,8 @@
             // button166
             // 
             this.button166.BackColor = System.Drawing.Color.PeachPuff;
+            this.button166.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button166.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button166.FlatAppearance.BorderSize = 0;
             this.button166.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button166.Location = new System.Drawing.Point(100, 200);
@@ -2703,12 +2707,15 @@
             this.button166.Name = "button166";
             this.button166.Size = new System.Drawing.Size(20, 20);
             this.button166.TabIndex = 165;
+            this.button166.Tag = "1";
             this.button166.UseVisualStyleBackColor = false;
             this.button166.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
             // button167
             // 
             this.button167.BackColor = System.Drawing.Color.PeachPuff;
+            this.button167.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button167.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button167.FlatAppearance.BorderSize = 0;
             this.button167.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button167.Location = new System.Drawing.Point(120, 200);
@@ -2716,6 +2723,7 @@
             this.button167.Name = "button167";
             this.button167.Size = new System.Drawing.Size(20, 20);
             this.button167.TabIndex = 166;
+            this.button167.Tag = "1";
             this.button167.UseVisualStyleBackColor = false;
             this.button167.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2917,6 +2925,8 @@
             // button183
             // 
             this.button183.BackColor = System.Drawing.Color.PeachPuff;
+            this.button183.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button183.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button183.FlatAppearance.BorderSize = 0;
             this.button183.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button183.Location = new System.Drawing.Point(120, 220);
@@ -2924,6 +2934,7 @@
             this.button183.Name = "button183";
             this.button183.Size = new System.Drawing.Size(20, 20);
             this.button183.TabIndex = 182;
+            this.button183.Tag = "1";
             this.button183.UseVisualStyleBackColor = false;
             this.button183.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3112,6 +3123,8 @@
             // button198
             // 
             this.button198.BackColor = System.Drawing.Color.PeachPuff;
+            this.button198.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button198.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button198.FlatAppearance.BorderSize = 0;
             this.button198.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button198.Location = new System.Drawing.Point(100, 240);
@@ -3119,12 +3132,15 @@
             this.button198.Name = "button198";
             this.button198.Size = new System.Drawing.Size(20, 20);
             this.button198.TabIndex = 197;
+            this.button198.Tag = "1";
             this.button198.UseVisualStyleBackColor = false;
             this.button198.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
             // button199
             // 
             this.button199.BackColor = System.Drawing.Color.PeachPuff;
+            this.button199.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button199.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button199.FlatAppearance.BorderSize = 0;
             this.button199.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button199.Location = new System.Drawing.Point(120, 240);
@@ -3132,12 +3148,15 @@
             this.button199.Name = "button199";
             this.button199.Size = new System.Drawing.Size(20, 20);
             this.button199.TabIndex = 198;
+            this.button199.Tag = "1";
             this.button199.UseVisualStyleBackColor = false;
             this.button199.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
             // button200
             // 
             this.button200.BackColor = System.Drawing.Color.PeachPuff;
+            this.button200.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button200.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button200.FlatAppearance.BorderSize = 0;
             this.button200.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button200.Location = new System.Drawing.Point(140, 240);
@@ -3145,6 +3164,7 @@
             this.button200.Name = "button200";
             this.button200.Size = new System.Drawing.Size(20, 20);
             this.button200.TabIndex = 199;
+            this.button200.Tag = "1";
             this.button200.UseVisualStyleBackColor = false;
             this.button200.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3320,6 +3340,8 @@
             // button214
             // 
             this.button214.BackColor = System.Drawing.Color.PeachPuff;
+            this.button214.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button214.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button214.FlatAppearance.BorderSize = 0;
             this.button214.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button214.Location = new System.Drawing.Point(100, 260);
@@ -3327,6 +3349,7 @@
             this.button214.Name = "button214";
             this.button214.Size = new System.Drawing.Size(20, 20);
             this.button214.TabIndex = 213;
+            this.button214.Tag = "1";
             this.button214.UseVisualStyleBackColor = false;
             this.button214.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3346,6 +3369,8 @@
             // button216
             // 
             this.button216.BackColor = System.Drawing.Color.PeachPuff;
+            this.button216.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button216.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button216.FlatAppearance.BorderSize = 0;
             this.button216.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button216.Location = new System.Drawing.Point(140, 260);
@@ -3353,12 +3378,15 @@
             this.button216.Name = "button216";
             this.button216.Size = new System.Drawing.Size(20, 20);
             this.button216.TabIndex = 215;
+            this.button216.Tag = "1";
             this.button216.UseVisualStyleBackColor = false;
             this.button216.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
             // button217
             // 
             this.button217.BackColor = System.Drawing.Color.PeachPuff;
+            this.button217.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button217.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button217.FlatAppearance.BorderSize = 0;
             this.button217.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button217.Location = new System.Drawing.Point(160, 260);
@@ -3366,12 +3394,15 @@
             this.button217.Name = "button217";
             this.button217.Size = new System.Drawing.Size(20, 20);
             this.button217.TabIndex = 216;
+            this.button217.Tag = "1";
             this.button217.UseVisualStyleBackColor = false;
             this.button217.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
             // button218
             // 
             this.button218.BackColor = System.Drawing.Color.PeachPuff;
+            this.button218.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button218.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button218.FlatAppearance.BorderSize = 0;
             this.button218.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button218.Location = new System.Drawing.Point(180, 260);
@@ -3379,6 +3410,7 @@
             this.button218.Name = "button218";
             this.button218.Size = new System.Drawing.Size(20, 20);
             this.button218.TabIndex = 217;
+            this.button218.Tag = "1";
             this.button218.UseVisualStyleBackColor = false;
             this.button218.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3502,6 +3534,8 @@
             // button228
             // 
             this.button228.BackColor = System.Drawing.Color.PeachPuff;
+            this.button228.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button228.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button228.FlatAppearance.BorderSize = 0;
             this.button228.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button228.Location = new System.Drawing.Point(60, 280);
@@ -3509,12 +3543,15 @@
             this.button228.Name = "button228";
             this.button228.Size = new System.Drawing.Size(20, 20);
             this.button228.TabIndex = 227;
+            this.button228.Tag = "1";
             this.button228.UseVisualStyleBackColor = false;
             this.button228.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
             // button229
             // 
             this.button229.BackColor = System.Drawing.Color.PeachPuff;
+            this.button229.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button229.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button229.FlatAppearance.BorderSize = 0;
             this.button229.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button229.Location = new System.Drawing.Point(80, 280);
@@ -3522,12 +3559,15 @@
             this.button229.Name = "button229";
             this.button229.Size = new System.Drawing.Size(20, 20);
             this.button229.TabIndex = 228;
+            this.button229.Tag = "1";
             this.button229.UseVisualStyleBackColor = false;
             this.button229.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
             // button230
             // 
             this.button230.BackColor = System.Drawing.Color.PeachPuff;
+            this.button230.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button230.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button230.FlatAppearance.BorderSize = 0;
             this.button230.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button230.Location = new System.Drawing.Point(100, 280);
@@ -3535,12 +3575,15 @@
             this.button230.Name = "button230";
             this.button230.Size = new System.Drawing.Size(20, 20);
             this.button230.TabIndex = 229;
+            this.button230.Tag = "1";
             this.button230.UseVisualStyleBackColor = false;
             this.button230.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
             // button231
             // 
             this.button231.BackColor = System.Drawing.Color.PeachPuff;
+            this.button231.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button231.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button231.FlatAppearance.BorderSize = 0;
             this.button231.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button231.Location = new System.Drawing.Point(120, 280);
@@ -3548,12 +3591,15 @@
             this.button231.Name = "button231";
             this.button231.Size = new System.Drawing.Size(20, 20);
             this.button231.TabIndex = 230;
+            this.button231.Tag = "1";
             this.button231.UseVisualStyleBackColor = false;
             this.button231.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
             // button232
             // 
             this.button232.BackColor = System.Drawing.Color.PeachPuff;
+            this.button232.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button232.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button232.FlatAppearance.BorderSize = 0;
             this.button232.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button232.Location = new System.Drawing.Point(140, 280);
@@ -3561,6 +3607,7 @@
             this.button232.Name = "button232";
             this.button232.Size = new System.Drawing.Size(20, 20);
             this.button232.TabIndex = 231;
+            this.button232.Tag = "1";
             this.button232.UseVisualStyleBackColor = false;
             this.button232.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
