@@ -31,7 +31,7 @@ namespace PacMan {
         public Form1() {
             InitializeComponent();
 
-            timer.Interval = 500;
+            timer.Interval = 250;
             timer.Start();
             timer.Tick += new EventHandler(TimerEventProcessor);
 
@@ -50,26 +50,25 @@ namespace PacMan {
             if (btnArray[currentIndex + trajectory].BackColor == Color.DarkSlateBlue) {
                 trajectory = 0;
             }
-            else if (btnArray[currentIndex + trajectory].BackgroundImage == Properties.Resources.Icon) {
+            else if (btnArray[currentIndex].Tag == "AI") {
                 //enemy collision
                 runGame = false;
             }
             else {
-                btnArray[currentIndex].BackColor = Color.PeachPuff; //don't need once you convert to image
+                btnArray[currentIndex].BackColor = Color.Black; //don't need once you convert to image
                 currentIndex += trajectory;
 
                 //if point gathered
                 if (btnArray[currentIndex].Tag == "1") {
                     btnArray[currentIndex].BackgroundImage = null;
                     btnArray[currentIndex].Tag = "0";
-                    //flowLayoutPanel1.Controls[currentIndex].BackgroundImage = null;
                     score++;
                     ScoreLabel.Text = score.ToString();
                     this.Refresh();
                 }
-
+                btnArray[currentIndex].Tag = "Player";
                 //placeholder, convert to pacman later
-                btnArray[currentIndex].BackColor = Color.Black;
+                btnArray[currentIndex].BackColor = Color.Yellow;
 
             }
 
