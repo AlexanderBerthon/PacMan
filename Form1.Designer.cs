@@ -1577,6 +1577,8 @@
             // button73
             // 
             this.button73.BackColor = System.Drawing.Color.Black;
+            this.button73.BackgroundImage = global::PacMan.Properties.Resources.Icon;
+            this.button73.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button73.FlatAppearance.BorderSize = 0;
             this.button73.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button73.Location = new System.Drawing.Point(160, 80);
@@ -1590,6 +1592,7 @@
             // button74
             // 
             this.button74.BackColor = System.Drawing.Color.Black;
+            this.button74.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button74.FlatAppearance.BorderSize = 0;
             this.button74.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button74.Location = new System.Drawing.Point(180, 80);

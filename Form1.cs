@@ -6,8 +6,11 @@ namespace PacMan {
         int score; 
         Random random = new Random();
         Button[] btnArray;
+        Boolean animation = true;
 
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+        System.Windows.Forms.Timer AnimationTimer = new System.Windows.Forms.Timer();
+
 
         /// cells with borders are walls, if player collides with a wall, stop, no movement but game continues
         /// empty cells get an orb
@@ -17,14 +20,37 @@ namespace PacMan {
 
 
         private void TimerEventProcessor(Object anObject, EventArgs eventArgs) {
-            //reset event clock
-            timer.Stop();
-            if (move()) {
-                timer.Start();
+            if (trajectory != 0) {
+                btnArray[currentIndex].BackgroundImage = null;
+                btnArray[currentIndex].Tag = "";
+            }
+            move();
+        }
+
+        private void TimerEventProcessor2(Object anObject, EventArgs eventArgs) {
+            if (animation) {
+                switch (trajectory) {
+                    case 1:
+                        btnArray[currentIndex].BackgroundImage = Properties.Resources.Right;
+                        break;
+                    case -1:
+                        btnArray[currentIndex].BackgroundImage = Properties.Resources.Left;
+                        break;
+                    case 16:
+                        btnArray[currentIndex].BackgroundImage = Properties.Resources.Down;
+                        break;
+                    case -16:
+                        btnArray[currentIndex].BackgroundImage = Properties.Resources.Up;
+                        break;
+                    default:
+                        btnArray[currentIndex].BackgroundImage = Properties.Resources.Right;
+                        break;
+                }
+                animation = false;
             }
             else {
-                ScoreLabel.Text = "Final Score: " + score;
-                //GameOverPanel.Visible = true;
+                btnArray[currentIndex].BackgroundImage = Properties.Resources.Closed;
+                animation = true;
             }
         }
 
@@ -34,6 +60,10 @@ namespace PacMan {
             timer.Interval = 250;
             timer.Start();
             timer.Tick += new EventHandler(TimerEventProcessor);
+
+            AnimationTimer.Interval = 150;
+            AnimationTimer.Start();
+            AnimationTimer.Tick += new EventHandler(TimerEventProcessor2);
 
             score = 0;
 
@@ -55,21 +85,13 @@ namespace PacMan {
                 runGame = false;
             }
             else {
-                btnArray[currentIndex].BackColor = Color.Black; //don't need once you convert to image
                 currentIndex += trajectory;
-
                 //if point gathered
                 if (btnArray[currentIndex].Tag == "1") {
-                    btnArray[currentIndex].BackgroundImage = null;
-                    btnArray[currentIndex].Tag = "0";
                     score++;
                     ScoreLabel.Text = score.ToString();
-                    this.Refresh();
                 }
                 btnArray[currentIndex].Tag = "Player";
-                //placeholder, convert to pacman later
-                btnArray[currentIndex].BackColor = Color.Yellow;
-
             }
 
             return runGame;
