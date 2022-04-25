@@ -1,4 +1,10 @@
 namespace PacMan {
+
+    /* BUGS
+     * Pacman flashes when stopped, hits a wall, etc. 
+     * 
+    */
+
     public partial class Form1 : Form {
         //global variables :(
         int currentIndex;
@@ -42,9 +48,6 @@ namespace PacMan {
                     case -16:
                         btnArray[currentIndex].BackgroundImage = Properties.Resources.Up;
                         break;
-                    default:
-                        btnArray[currentIndex].BackgroundImage = Properties.Resources.Right;
-                        break;
                 }
                 animation = false;
             }
@@ -57,7 +60,7 @@ namespace PacMan {
         public Form1() {
             InitializeComponent();
 
-            timer.Interval = 250;
+            timer.Interval = 300;
             timer.Start();
             timer.Tick += new EventHandler(TimerEventProcessor);
 
@@ -126,10 +129,6 @@ namespace PacMan {
             currentIndex = 18;
 
             timer.Start();
-
-        }
-
-        private void button4_Click(object sender, EventArgs e) {
 
         }
     }
