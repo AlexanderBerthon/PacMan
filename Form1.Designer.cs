@@ -1788,6 +1788,7 @@
             // button88
             // 
             this.button88.BackColor = System.Drawing.Color.Black;
+            this.button88.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button88.FlatAppearance.BorderSize = 0;
             this.button88.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button88.Location = new System.Drawing.Point(140, 100);
@@ -1801,6 +1802,7 @@
             // button89
             // 
             this.button89.BackColor = System.Drawing.Color.Black;
+            this.button89.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button89.FlatAppearance.BorderSize = 0;
             this.button89.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button89.Location = new System.Drawing.Point(160, 100);
@@ -1814,6 +1816,7 @@
             // button90
             // 
             this.button90.BackColor = System.Drawing.Color.Black;
+            this.button90.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button90.FlatAppearance.BorderSize = 0;
             this.button90.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button90.Location = new System.Drawing.Point(180, 100);
