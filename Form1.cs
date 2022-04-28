@@ -78,11 +78,10 @@ namespace PacMan {
             btnArray = new Button[256];
             flowLayoutPanel1.Controls.CopyTo(btnArray, 0);
 
-            ghosts = new Ghost[1]; //[6]
+            ghosts = new Ghost[2]; //[6]
 
-            ghosts[0] = new Ghost(40);
-            //ghosts[0] = new Ghost(71);
-            //ghosts[1] = new Ghost(72);
+            ghosts[0] = new Ghost(71);
+            ghosts[1] = new Ghost(72);
             //ghosts[2] = new Ghost(73);
             //ghosts[3] = new Ghost(87);
             //ghosts[4] = new Ghost(88);
@@ -96,8 +95,6 @@ namespace PacMan {
 
             //every tick, calculate all valid moves
             //randomly select a move from the pool (3 max choices, often only 1 choice)
-
-
 
             //error because length is 6, but not filled. change temporarily while testing
             for (int i = 0; i<ghosts.Length; i++){
