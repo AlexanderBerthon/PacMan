@@ -78,14 +78,14 @@ namespace PacMan {
             btnArray = new Button[256];
             flowLayoutPanel1.Controls.CopyTo(btnArray, 0);
 
-            ghosts = new Ghost[2]; //[6]
+            ghosts = new Ghost[6]; //[6]
 
             ghosts[0] = new Ghost(71);
             ghosts[1] = new Ghost(72);
-            //ghosts[2] = new Ghost(73);
-            //ghosts[3] = new Ghost(87);
-            //ghosts[4] = new Ghost(88);
-            //ghosts[5] = new Ghost(89);
+            ghosts[2] = new Ghost(73);
+            ghosts[3] = new Ghost(87);
+            ghosts[4] = new Ghost(88);
+            ghosts[5] = new Ghost(89);
             timer.Start();
             AnimationTimer.Start();
         }
@@ -118,7 +118,7 @@ namespace PacMan {
                 }
 
                 ghosts[i].update(validMoves[random.Next(0, validMoves.Count)]);
-                btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Icon;
+                btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.G1;
                 //validMoves.Clear(); //clears automatically since it goes out of scope?
             }
         }
