@@ -58,6 +58,17 @@ namespace PacMan {
                 btnArray[currentIndex].BackgroundImage = Properties.Resources.Closed;
                 animation = true;
             }
+            /*
+            //Random random = new Random();
+            for (int i = 0; i < ghosts.Length; i++) {
+                if (animation){
+                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
+                }
+                else {
+                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost2;
+                }
+            }
+            */
         }
 
         public Form1() {
@@ -118,8 +129,10 @@ namespace PacMan {
                 }
 
                 ghosts[i].update(validMoves[random.Next(0, validMoves.Count)]);
-                btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.G1;
+                //btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.G11;
                 //validMoves.Clear(); //clears automatically since it goes out of scope?
+
+
             }
         }
 
