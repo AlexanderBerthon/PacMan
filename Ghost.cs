@@ -8,9 +8,11 @@ namespace PacMan {
     internal class Ghost {
         int index;
         int trajectory;
+        int delay;
 
-       public Ghost(int startIndex) {
+        public Ghost(int startIndex, int startDelay) {
             index = startIndex;
+            delay = startDelay;
             trajectory = 1;
         }
 
@@ -58,6 +60,15 @@ namespace PacMan {
             return index;
         }
 
+        public int getDelay() {
+            return delay;
+        }
+
+        public void reduceDelay() {
+            if (delay > 0) {
+                delay--;
+            }
+        }
     }
 
 
