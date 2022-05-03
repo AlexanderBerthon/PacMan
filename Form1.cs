@@ -4,6 +4,10 @@ namespace PacMan {
      * Pacman flashes when stopped, hits a wall, etc. 
      * No Idle animation 
      * MOST RECENT UPDATE HAS BRICKED THE GAME. GHOSTS TELEPORTING AROUND LIKE CRAZY AND IGNORING PHYSICS
+     *  first ghost is fine, normal movement and all other ghosts are frozen / delayed as planned
+     *  as soon as the second ghost is unlocked, movement for both the first and second become sporatic
+     *  the first moved backwards then started teleporting around
+     *  this kind of behavior should not occur, perhaps the index's are getting mixed up? 
     */
 
     public partial class Form1 : Form {
@@ -52,6 +56,9 @@ namespace PacMan {
                     case -16:
                         btnArray[currentIndex].BackgroundImage = Properties.Resources.Up;
                         break;
+                    default:
+                        btnArray[currentIndex].BackgroundImage = Properties.Resources.Right;
+                        break;
                 }
                 animation = false;
             }
@@ -76,11 +83,9 @@ namespace PacMan {
             InitializeComponent();
 
             timer.Interval = 300;
-            //timer.Start();
             timer.Tick += new EventHandler(TimerEventProcessor);
 
             AnimationTimer.Interval = 150;
-            //AnimationTimer.Start();
             AnimationTimer.Tick += new EventHandler(TimerEventProcessor2);
 
             score = 0;
@@ -90,14 +95,14 @@ namespace PacMan {
             btnArray = new Button[256];
             flowLayoutPanel1.Controls.CopyTo(btnArray, 0);
 
-            ghosts = new Ghost[6]; //[6]
+            ghosts = new Ghost[6]; //[6] = number of ghosts
 
-            ghosts[0] = new Ghost(71, 5);
+            ghosts[0] = new Ghost(71, 30); //start index, delay(# of game tick cycles)
             ghosts[1] = new Ghost(72, 0);
-            ghosts[2] = new Ghost(73, 10);
-            ghosts[3] = new Ghost(87, 15);
-            ghosts[4] = new Ghost(88, 20);
-            ghosts[5] = new Ghost(89, 25);
+            ghosts[2] = new Ghost(73, 60);
+            ghosts[3] = new Ghost(87, 90);
+            ghosts[4] = new Ghost(88, 120);
+            ghosts[5] = new Ghost(89, 150);
 
             for (int i = 0; i < ghosts.Length; i++) {
                 btnArray[ghosts[i].getIndex()].Tag = "AI";
@@ -108,7 +113,7 @@ namespace PacMan {
         }
 
         private void AIMove() {
-            Boolean check = false;
+            //Boolean check = false;    //unused?
 
             //every tick, calculate all valid moves
             //randomly select a move from the pool (3 max choices, often only 1 choice)
@@ -117,7 +122,7 @@ namespace PacMan {
 
             //error because length is 6, but not filled. change temporarily while testing
             for (int i = 0; i < ghosts.Length; i++) {
-                if (ghosts[i].getDelay() > 0){
+                if (ghosts[i].getDelay() <= 0){
                     btnArray[ghosts[i].getIndex()].BackgroundImage = null;
                     btnArray[ghosts[i].getIndex()].Tag = "";
 
@@ -135,9 +140,10 @@ namespace PacMan {
                     }
 
                     ghosts[i].update(validMoves[random.Next(0, validMoves.Count)]);
-                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
-                    btnArray[ghosts[i].getIndex()].Tag = "AI";
                 }
+                btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
+                btnArray[ghosts[i].getIndex()].Tag = "AI";
+                validMoves.Clear();
             }
             for (int i = 0; i < ghosts.Length; i++) {
                 if(ghosts[i].getDelay() > 0){
