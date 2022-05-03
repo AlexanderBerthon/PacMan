@@ -3,6 +3,7 @@ namespace PacMan {
     /* BUGS
      * Pacman flashes when stopped, hits a wall, etc. 
      * No Idle animation 
+     * MOST RECENT UPDATE HAS BRICKED THE GAME. GHOSTS TELEPORTING AROUND LIKE CRAZY AND IGNORING PHYSICS
     */
 
     public partial class Form1 : Form {
@@ -91,12 +92,17 @@ namespace PacMan {
 
             ghosts = new Ghost[6]; //[6]
 
-            ghosts[0] = new Ghost(71);
-            ghosts[1] = new Ghost(72);
-            ghosts[2] = new Ghost(73);
-            ghosts[3] = new Ghost(87);
-            ghosts[4] = new Ghost(88);
-            ghosts[5] = new Ghost(89);
+            ghosts[0] = new Ghost(71, 5);
+            ghosts[1] = new Ghost(72, 0);
+            ghosts[2] = new Ghost(73, 10);
+            ghosts[3] = new Ghost(87, 15);
+            ghosts[4] = new Ghost(88, 20);
+            ghosts[5] = new Ghost(89, 25);
+
+            for (int i = 0; i < ghosts.Length; i++) {
+                btnArray[ghosts[i].getIndex()].Tag = "AI";
+            }
+
             timer.Start();
             AnimationTimer.Start();
         }
@@ -106,33 +112,37 @@ namespace PacMan {
 
             //every tick, calculate all valid moves
             //randomly select a move from the pool (3 max choices, often only 1 choice)
+            Random random = new Random();
+            List<int> validMoves = new List<int>();
 
             //error because length is 6, but not filled. change temporarily while testing
-            for (int i = 0; i<ghosts.Length; i++){
-                Random random = new Random();
-                List<int> validMoves = new List<int>();
+            for (int i = 0; i < ghosts.Length; i++) {
+                if (ghosts[i].getDelay() > 0){
+                    btnArray[ghosts[i].getIndex()].BackgroundImage = null;
+                    btnArray[ghosts[i].getIndex()].Tag = "";
 
-                btnArray[ghosts[i].getIndex()].BackgroundImage = null;
-                btnArray[ghosts[i].getIndex()].Tag = "";
+                    if (btnArray[ghosts[i].getIndex() + 1].BackColor != Color.DarkSlateBlue && ghosts[i].getTrajectory() != -1) {
+                        validMoves.Add(1);
+                    }
+                    if (btnArray[ghosts[i].getIndex() - 1].BackColor != Color.DarkSlateBlue && ghosts[i].getTrajectory() != +1) {
+                        validMoves.Add(-1);
+                    }
+                    if (btnArray[ghosts[i].getIndex() + 16].BackColor != Color.DarkSlateBlue && ghosts[i].getTrajectory() != -16) {
+                        validMoves.Add(16);
+                    }
+                    if (btnArray[ghosts[i].getIndex() - 16].BackColor != Color.DarkSlateBlue && ghosts[i].getTrajectory() != +16) {
+                        validMoves.Add(-16);
+                    }
 
-                if (btnArray[ghosts[i].getIndex() + 1].BackColor != Color.DarkSlateBlue && ghosts[i].getTrajectory() != -1) {
-                    validMoves.Add(1);
+                    ghosts[i].update(validMoves[random.Next(0, validMoves.Count)]);
+                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
+                    btnArray[ghosts[i].getIndex()].Tag = "AI";
                 }
-                if (btnArray[ghosts[i].getIndex() - 1].BackColor != Color.DarkSlateBlue && ghosts[i].getTrajectory() != +1) {
-                    validMoves.Add(-1);
+            }
+            for (int i = 0; i < ghosts.Length; i++) {
+                if(ghosts[i].getDelay() > 0){
+                    ghosts[i].reduceDelay();
                 }
-                if (btnArray[ghosts[i].getIndex() + 16].BackColor != Color.DarkSlateBlue && ghosts[i].getTrajectory() != -16) {
-                    validMoves.Add(16);
-                }
-                if (btnArray[ghosts[i].getIndex() - 16].BackColor != Color.DarkSlateBlue && ghosts[i].getTrajectory() != +16) {
-                    validMoves.Add(-16);
-                }
-
-                ghosts[i].update(validMoves[random.Next(0, validMoves.Count)]);
-                //btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.G11;
-                //validMoves.Clear(); //clears automatically since it goes out of scope?
-
-
             }
         }
 
@@ -144,8 +154,8 @@ namespace PacMan {
             }
             else if (btnArray[currentIndex].Tag == "AI") {
                 //enemy collision
-                runGame = false;
-                Application.Exit();
+                //runGame = false;
+                //Application.Exit();
             }
             else {
                 currentIndex += trajectory;
