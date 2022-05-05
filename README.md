@@ -6,33 +6,35 @@
   <section>
     <ul>To Do for MVP:
       <ul>Front End
-        <ul>Button Grid</ul>
-        <ul>Pacman Icons</ul>
+        <ul><s>Button Grid</s></ul>
+        <ul><s>Pacman Icons</s></ul>
         <ul>Ghost Icons</ul>
         <ul>Orb Icons</ul>
         <ul>Player Animations
-          <ul>Idle Animation</ul>
-          <ul>Directional Movement Animation</ul>
+          <ul><s>Idle Animation</s></ul>
+          <ul><s>Directional Movement Animation</s></ul>
         </ul>
         <ul>AI Animations</ul>
         <ul>Game Over Animation</ul>
+        <ul>Game Over Screen</ul>
       </ul>
       <ul>Gameplay
         <ul>Player Controls
-          <ul>movement</ul>
-          <ul>Wall Collision</ul>
+          <ul><s>movement</s></ul>
+          <ul><s>Wall Collision</s></ul>
           <ul>Ghost Collision</ul>
-          <ul>Player Points</ul>
+          <ul><s>Player Points</s></ul>
       </ul>
-      <ul><AI Controls
-        <ul>AI Movement</ul>
+      <ul>AI Controls
+        <ul><s>AI Movement</s></ul>
         <ul>AI Pathing</ul>
         <ul>Player Collision</ul>
       </ul>
       <ul>Main Game Loop
         <ul>Game over</ul>
         <ul>Win condition</ul>
-        <ul>Turn loop</ul>
+        <ul><s>Turn loop</s></ul>
+        <ul>Restart</ul>
         </ul>
         Testing
   </section>
