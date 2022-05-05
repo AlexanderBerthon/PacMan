@@ -9,10 +9,12 @@ namespace PacMan {
         int index;
         int trajectory;
         int delay;
+        Boolean _stuck; //stuck is a reserved word...............................
 
         public Ghost(int startIndex, int startDelay) {
             index = startIndex;
             delay = startDelay;
+            _stuck = false;
             trajectory = -16;
         }
 
@@ -69,6 +71,20 @@ namespace PacMan {
                 delay--;
             }
         }
+
+        public Boolean stuck() {
+            return _stuck;
+        }
+
+        public void isStuck() {
+            _stuck = true;
+        }
+
+        public void unStuck() {
+            _stuck = false;
+        }
+
+
     }
 
 
