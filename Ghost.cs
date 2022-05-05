@@ -13,7 +13,7 @@ namespace PacMan {
         public Ghost(int startIndex, int startDelay) {
             index = startIndex;
             delay = startDelay;
-            trajectory = 1;
+            trajectory = -16;
         }
 
         public void update(int trajectory) {
