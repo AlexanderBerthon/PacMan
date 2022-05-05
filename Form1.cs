@@ -2,12 +2,26 @@ namespace PacMan {
 
     /* BUGS
      * Pacman flashes when stopped, hits a wall, etc. 
-     * No Idle animation 
-     * MOST RECENT UPDATE HAS BRICKED THE GAME. GHOSTS TELEPORTING AROUND LIKE CRAZY AND IGNORING PHYSICS
-     *  first ghost is fine, normal movement and all other ghosts are frozen / delayed as planned
-     *  as soon as the second ghost is unlocked, movement for both the first and second become sporatic
-     *  the first moved backwards then started teleporting around
-     *  this kind of behavior should not occur, perhaps the index's are getting mixed up? 
+     * ghost collision is kind of necessary.. otherwise they like stack up and dissapear and it looks janky
+     * especially at the start
+     * 
+     * how to fix ghosts from colliding..
+     * check tag, if destination tag = ai, then you can't go there
+     * but it isn't that simple, because all ai move in the same tick. 
+     * so they can still both move to the same empty spot in the same tick, and be overlapping 
+     * they could also be next to eachother and both move in the same direction and not overlap
+     * but that logic wouldn't work if you checked by tag, they would not account for the next move.
+     * 
+     * it might work for the beginning? which is all that really matters? is it ok if they still overlap during the acutal
+     * game?
+     * 
+     * 
+     *works.. sort of? first 2 can get out on time but the they sometimes overlap and get stuck until the last one is unlocked
+     *im not sure why they are overlapping at all since they shouldn't with the tag condition
+     *
+     *
+     *
+     *
     */
 
     public partial class Form1 : Form {
@@ -29,6 +43,40 @@ namespace PacMan {
         /// every cell the player moves to gets background overriden with player pic, then empty when they leave.
         /// every cell the enemy moves to gets background overriden with enemy pic, then replaced when they leave.
 
+        public Form1() {
+            InitializeComponent();
+
+            timer.Interval = 300;
+            timer.Tick += new EventHandler(TimerEventProcessor);
+
+            AnimationTimer.Interval = 150;
+            AnimationTimer.Tick += new EventHandler(TimerEventProcessor2);
+
+            score = 0;
+
+            currentIndex = 121;
+            trajectory = 0;
+            btnArray = new Button[256];
+            flowLayoutPanel1.Controls.CopyTo(btnArray, 0);
+
+            ghosts = new Ghost[6]; //[6] = number of ghosts
+
+            ghosts[0] = new Ghost(71, 30); //start index, delay(# of game tick cycles)
+            ghosts[1] = new Ghost(72, 0);
+            ghosts[2] = new Ghost(73, 60);
+            ghosts[3] = new Ghost(87, 90);
+            ghosts[4] = new Ghost(88, 120);
+            ghosts[5] = new Ghost(89, 150);
+
+            for (int i = 0; i < ghosts.Length; i++) {
+                btnArray[ghosts[i].getIndex()].Tag = "AI";
+            }
+
+
+            timer.Start();
+            AnimationTimer.Start();
+        }
+
 
         //movement clock
         private void TimerEventProcessor(Object anObject, EventArgs eventArgs) {
@@ -38,6 +86,20 @@ namespace PacMan {
             }
             move();
             AIMove();
+            //testing pls remove after
+            /*
+            foreach(Button btn in btnArray){
+                if (btn.Tag == "AI") {
+                    btn.BackColor = Color.Firebrick;
+                }
+                else if(btn.BackColor == Color.DarkSlateBlue){
+                    //don't do anything
+                }
+                else {
+                    btn.BackColor = Color.Black;
+                }
+            }
+            */
         }
 
         //animation clock
@@ -79,42 +141,9 @@ namespace PacMan {
             */
         }
 
-        public Form1() {
-            InitializeComponent();
 
-            timer.Interval = 300;
-            timer.Tick += new EventHandler(TimerEventProcessor);
-
-            AnimationTimer.Interval = 150;
-            AnimationTimer.Tick += new EventHandler(TimerEventProcessor2);
-
-            score = 0;
-
-            currentIndex = 121;
-            trajectory = 0;
-            btnArray = new Button[256];
-            flowLayoutPanel1.Controls.CopyTo(btnArray, 0);
-
-            ghosts = new Ghost[6]; //[6] = number of ghosts
-
-            ghosts[0] = new Ghost(71, 30); //start index, delay(# of game tick cycles)
-            ghosts[1] = new Ghost(72, 0);
-            ghosts[2] = new Ghost(73, 60);
-            ghosts[3] = new Ghost(87, 90);
-            ghosts[4] = new Ghost(88, 120);
-            ghosts[5] = new Ghost(89, 150);
-
-            for (int i = 0; i < ghosts.Length; i++) {
-                btnArray[ghosts[i].getIndex()].Tag = "AI";
-            }
-
-            timer.Start();
-            AnimationTimer.Start();
-        }
 
         private void AIMove() {
-            //Boolean check = false;    //unused?
-
             //every tick, calculate all valid moves
             //randomly select a move from the pool (3 max choices, often only 1 choice)
             Random random = new Random();
@@ -122,24 +151,38 @@ namespace PacMan {
 
             //error because length is 6, but not filled. change temporarily while testing
             for (int i = 0; i < ghosts.Length; i++) {
-                if (ghosts[i].getDelay() <= 0){
+                if (ghosts[i].getDelay() <= 0){ //issue here
                     btnArray[ghosts[i].getIndex()].BackgroundImage = null;
                     btnArray[ghosts[i].getIndex()].Tag = "";
 
-                    if (btnArray[ghosts[i].getIndex() + 1].BackColor != Color.DarkSlateBlue && ghosts[i].getTrajectory() != -1) {
+                    if (btnArray[ghosts[i].getIndex() + 1].BackColor != Color.DarkSlateBlue &&
+                        btnArray[ghosts[i].getIndex() + 1].Tag != "AI" &&
+                        ghosts[i].getTrajectory() != -1) {
+                        ScoreLabel.Text = "A1";
                         validMoves.Add(1);
                     }
-                    if (btnArray[ghosts[i].getIndex() - 1].BackColor != Color.DarkSlateBlue && ghosts[i].getTrajectory() != +1) {
+                    if (btnArray[ghosts[i].getIndex() - 1].BackColor != Color.DarkSlateBlue &&
+                        btnArray[ghosts[i].getIndex() - 1].Tag != "AI" &&
+                        ghosts[i].getTrajectory() != +1) {
+                        ScoreLabel.Text = "A-1";
                         validMoves.Add(-1);
                     }
-                    if (btnArray[ghosts[i].getIndex() + 16].BackColor != Color.DarkSlateBlue && ghosts[i].getTrajectory() != -16) {
+                    if (btnArray[ghosts[i].getIndex() + 16].BackColor != Color.DarkSlateBlue &&
+                        btnArray[ghosts[i].getIndex() + 16].Tag != "AI" &&
+                        ghosts[i].getTrajectory() != -16) {
+                        ScoreLabel.Text = "A16";
                         validMoves.Add(16);
                     }
-                    if (btnArray[ghosts[i].getIndex() - 16].BackColor != Color.DarkSlateBlue && ghosts[i].getTrajectory() != +16) {
+                    if (btnArray[ghosts[i].getIndex() - 16].BackColor != Color.DarkSlateBlue &&
+                        btnArray[ghosts[i].getIndex() - 16].Tag != "AI" &&
+                        ghosts[i].getTrajectory() != +16) {
+                        ScoreLabel.Text = "A-16";
                         validMoves.Add(-16);
                     }
-
-                    ghosts[i].update(validMoves[random.Next(0, validMoves.Count)]);
+                    if (validMoves.Count > 0) {
+                        ScoreLabel.Text = "B";
+                        ghosts[i].update(validMoves[random.Next(0, validMoves.Count)]); 
+                    }
                 }
                 btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
                 btnArray[ghosts[i].getIndex()].Tag = "AI";
@@ -191,6 +234,7 @@ namespace PacMan {
             }
         }
 
+        //ganeover panel can overlap the AI starting area since there are no orbs in there anyway
         //placeholder / old code
         private void ExitButton_Click(object sender, EventArgs e) {
             Application.Exit();

@@ -1355,7 +1355,7 @@
             this.button57.Name = "button57";
             this.button57.Size = new System.Drawing.Size(20, 20);
             this.button57.TabIndex = 56;
-            this.button57.Tag = "0";
+            this.button57.Tag = "";
             this.button57.UseVisualStyleBackColor = false;
             this.button57.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
