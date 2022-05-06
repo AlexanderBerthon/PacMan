@@ -9,18 +9,28 @@ namespace PacMan {
         int index;
         int trajectory;
         int delay;
-        Boolean _stuck; //stuck is a reserved word...............................
+        Boolean orb;
+        Boolean isStuck;
 
         public Ghost(int startIndex, int startDelay) {
             index = startIndex;
             delay = startDelay;
-            _stuck = false;
+            isStuck = false;
+            orb = false;
             trajectory = -16;
         }
 
         public void update(int trajectory) {
             this.trajectory = trajectory;
             index += trajectory;
+        }
+
+        public Boolean replaceOrb() {
+            return orb;
+        }
+
+        public void replaceOrb(Boolean status) {
+            orb = status;
         }
 
         //should never go backwards
@@ -73,15 +83,11 @@ namespace PacMan {
         }
 
         public Boolean stuck() {
-            return _stuck;
+            return isStuck;
         }
 
-        public void isStuck() {
-            _stuck = true;
-        }
-
-        public void unStuck() {
-            _stuck = false;
+        public void stuck(Boolean status) {
+            isStuck = status;
         }
 
 
