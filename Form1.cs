@@ -199,7 +199,30 @@ namespace PacMan {
                         ghosts[i].isStuck();
                     }
                 }
-                btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
+
+
+
+                //btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
+                switch (i) {
+                    case 0:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
+                        break;
+                    case 1:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost2;
+                        break;
+                    case 2:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost3;
+                        break;
+                    case 3:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost4;
+                        break;
+                    case 4:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost5;
+                        break;
+                    case 5:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost6;
+                        break;
+                }
                 btnArray[ghosts[i].getIndex()].Tag = "AI";
                 validMoves.Clear();
             }
