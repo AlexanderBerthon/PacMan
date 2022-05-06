@@ -8,7 +8,7 @@
       <ul>Front End
         <ul><s>Button Grid</s></ul>
         <ul><s>Pacman Icons</s></ul>
-        <ul>Ghost Icons</ul>
+        <ul><s>Ghost Icons</s></ul>
         <ul>Orb Icons</ul>
         <ul>Player Animations
           <ul><s>Idle Animation</s></ul>
