@@ -771,7 +771,7 @@
             // button18
             // 
             this.button18.BackColor = System.Drawing.Color.Black;
-            this.button18.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button18.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button18.FlatAppearance.BorderSize = 0;
             this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -787,7 +787,7 @@
             // button19
             // 
             this.button19.BackColor = System.Drawing.Color.Black;
-            this.button19.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button19.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button19.FlatAppearance.BorderSize = 0;
             this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -803,7 +803,7 @@
             // button20
             // 
             this.button20.BackColor = System.Drawing.Color.Black;
-            this.button20.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button20.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button20.FlatAppearance.BorderSize = 0;
             this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -819,7 +819,7 @@
             // button21
             // 
             this.button21.BackColor = System.Drawing.Color.Black;
-            this.button21.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button21.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button21.FlatAppearance.BorderSize = 0;
             this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -835,7 +835,7 @@
             // button22
             // 
             this.button22.BackColor = System.Drawing.Color.Black;
-            this.button22.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button22.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button22.FlatAppearance.BorderSize = 0;
             this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -916,7 +916,7 @@
             // button28
             // 
             this.button28.BackColor = System.Drawing.Color.Black;
-            this.button28.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button28.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button28.FlatAppearance.BorderSize = 0;
             this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -932,7 +932,7 @@
             // button29
             // 
             this.button29.BackColor = System.Drawing.Color.Black;
-            this.button29.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button29.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button29.FlatAppearance.BorderSize = 0;
             this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -948,7 +948,7 @@
             // button30
             // 
             this.button30.BackColor = System.Drawing.Color.Black;
-            this.button30.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button30.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button30.FlatAppearance.BorderSize = 0;
             this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -964,7 +964,7 @@
             // button31
             // 
             this.button31.BackColor = System.Drawing.Color.Black;
-            this.button31.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button31.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button31.FlatAppearance.BorderSize = 0;
             this.button31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1006,7 +1006,7 @@
             // button34
             // 
             this.button34.BackColor = System.Drawing.Color.Black;
-            this.button34.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button34.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button34.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button34.FlatAppearance.BorderSize = 0;
             this.button34.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1061,7 +1061,7 @@
             // button38
             // 
             this.button38.BackColor = System.Drawing.Color.Black;
-            this.button38.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button38.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button38.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button38.FlatAppearance.BorderSize = 0;
             this.button38.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1077,7 +1077,7 @@
             // button39
             // 
             this.button39.BackColor = System.Drawing.Color.Black;
-            this.button39.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button39.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button39.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button39.FlatAppearance.BorderSize = 0;
             this.button39.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1093,7 +1093,7 @@
             // button40
             // 
             this.button40.BackColor = System.Drawing.Color.Black;
-            this.button40.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button40.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button40.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button40.FlatAppearance.BorderSize = 0;
             this.button40.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1109,7 +1109,7 @@
             // button41
             // 
             this.button41.BackColor = System.Drawing.Color.Black;
-            this.button41.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button41.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button41.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button41.FlatAppearance.BorderSize = 0;
             this.button41.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1125,7 +1125,7 @@
             // button42
             // 
             this.button42.BackColor = System.Drawing.Color.Black;
-            this.button42.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button42.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button42.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button42.FlatAppearance.BorderSize = 0;
             this.button42.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1141,7 +1141,7 @@
             // button43
             // 
             this.button43.BackColor = System.Drawing.Color.Black;
-            this.button43.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button43.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button43.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button43.FlatAppearance.BorderSize = 0;
             this.button43.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1157,7 +1157,7 @@
             // button44
             // 
             this.button44.BackColor = System.Drawing.Color.Black;
-            this.button44.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button44.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button44.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button44.FlatAppearance.BorderSize = 0;
             this.button44.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1186,7 +1186,7 @@
             // button46
             // 
             this.button46.BackColor = System.Drawing.Color.Black;
-            this.button46.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button46.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button46.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button46.FlatAppearance.BorderSize = 0;
             this.button46.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1202,7 +1202,7 @@
             // button47
             // 
             this.button47.BackColor = System.Drawing.Color.Black;
-            this.button47.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button47.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button47.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button47.FlatAppearance.BorderSize = 0;
             this.button47.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1244,7 +1244,7 @@
             // button50
             // 
             this.button50.BackColor = System.Drawing.Color.Black;
-            this.button50.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button50.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button50.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button50.FlatAppearance.BorderSize = 0;
             this.button50.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1273,7 +1273,7 @@
             // button52
             // 
             this.button52.BackColor = System.Drawing.Color.Black;
-            this.button52.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button52.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button52.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button52.FlatAppearance.BorderSize = 0;
             this.button52.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1289,7 +1289,7 @@
             // button53
             // 
             this.button53.BackColor = System.Drawing.Color.Black;
-            this.button53.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button53.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button53.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button53.FlatAppearance.BorderSize = 0;
             this.button53.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1305,7 +1305,7 @@
             // button54
             // 
             this.button54.BackColor = System.Drawing.Color.Black;
-            this.button54.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button54.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button54.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button54.FlatAppearance.BorderSize = 0;
             this.button54.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1388,7 +1388,7 @@
             // button60
             // 
             this.button60.BackColor = System.Drawing.Color.Black;
-            this.button60.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button60.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button60.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button60.FlatAppearance.BorderSize = 0;
             this.button60.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1430,7 +1430,7 @@
             // button63
             // 
             this.button63.BackColor = System.Drawing.Color.Black;
-            this.button63.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button63.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button63.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button63.FlatAppearance.BorderSize = 0;
             this.button63.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1472,7 +1472,7 @@
             // button66
             // 
             this.button66.BackColor = System.Drawing.Color.Black;
-            this.button66.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button66.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button66.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button66.FlatAppearance.BorderSize = 0;
             this.button66.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1488,7 +1488,7 @@
             // button67
             // 
             this.button67.BackColor = System.Drawing.Color.Black;
-            this.button67.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button67.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button67.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button67.FlatAppearance.BorderSize = 0;
             this.button67.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1504,7 +1504,7 @@
             // button68
             // 
             this.button68.BackColor = System.Drawing.Color.Black;
-            this.button68.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button68.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button68.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button68.FlatAppearance.BorderSize = 0;
             this.button68.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1533,7 +1533,7 @@
             // button70
             // 
             this.button70.BackColor = System.Drawing.Color.Black;
-            this.button70.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button70.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button70.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button70.FlatAppearance.BorderSize = 0;
             this.button70.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1617,7 +1617,7 @@
             // button76
             // 
             this.button76.BackColor = System.Drawing.Color.Black;
-            this.button76.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button76.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button76.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button76.FlatAppearance.BorderSize = 0;
             this.button76.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1646,7 +1646,7 @@
             // button78
             // 
             this.button78.BackColor = System.Drawing.Color.Black;
-            this.button78.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button78.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button78.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button78.FlatAppearance.BorderSize = 0;
             this.button78.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1662,7 +1662,7 @@
             // button79
             // 
             this.button79.BackColor = System.Drawing.Color.Black;
-            this.button79.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button79.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button79.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button79.FlatAppearance.BorderSize = 0;
             this.button79.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1704,7 +1704,7 @@
             // button82
             // 
             this.button82.BackColor = System.Drawing.Color.Black;
-            this.button82.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button82.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button82.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button82.FlatAppearance.BorderSize = 0;
             this.button82.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1759,7 +1759,7 @@
             // button86
             // 
             this.button86.BackColor = System.Drawing.Color.Black;
-            this.button86.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button86.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button86.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button86.FlatAppearance.BorderSize = 0;
             this.button86.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1843,7 +1843,7 @@
             // button92
             // 
             this.button92.BackColor = System.Drawing.Color.Black;
-            this.button92.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button92.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button92.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button92.FlatAppearance.BorderSize = 0;
             this.button92.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1859,7 +1859,7 @@
             // button93
             // 
             this.button93.BackColor = System.Drawing.Color.Black;
-            this.button93.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button93.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button93.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button93.FlatAppearance.BorderSize = 0;
             this.button93.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1875,7 +1875,7 @@
             // button94
             // 
             this.button94.BackColor = System.Drawing.Color.Black;
-            this.button94.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button94.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button94.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button94.FlatAppearance.BorderSize = 0;
             this.button94.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1930,7 +1930,7 @@
             // button98
             // 
             this.button98.BackColor = System.Drawing.Color.Black;
-            this.button98.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button98.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button98.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button98.FlatAppearance.BorderSize = 0;
             this.button98.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1946,7 +1946,7 @@
             // button99
             // 
             this.button99.BackColor = System.Drawing.Color.Black;
-            this.button99.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button99.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button99.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button99.FlatAppearance.BorderSize = 0;
             this.button99.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1962,7 +1962,7 @@
             // button100
             // 
             this.button100.BackColor = System.Drawing.Color.Black;
-            this.button100.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button100.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button100.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button100.FlatAppearance.BorderSize = 0;
             this.button100.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1991,7 +1991,7 @@
             // button102
             // 
             this.button102.BackColor = System.Drawing.Color.Black;
-            this.button102.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button102.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button102.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button102.FlatAppearance.BorderSize = 0;
             this.button102.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2072,7 +2072,7 @@
             // button108
             // 
             this.button108.BackColor = System.Drawing.Color.Black;
-            this.button108.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button108.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button108.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button108.FlatAppearance.BorderSize = 0;
             this.button108.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2101,7 +2101,7 @@
             // button110
             // 
             this.button110.BackColor = System.Drawing.Color.Black;
-            this.button110.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button110.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button110.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button110.FlatAppearance.BorderSize = 0;
             this.button110.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2117,7 +2117,7 @@
             // button111
             // 
             this.button111.BackColor = System.Drawing.Color.Black;
-            this.button111.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button111.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button111.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button111.FlatAppearance.BorderSize = 0;
             this.button111.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2159,7 +2159,7 @@
             // button114
             // 
             this.button114.BackColor = System.Drawing.Color.Black;
-            this.button114.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button114.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button114.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button114.FlatAppearance.BorderSize = 0;
             this.button114.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2188,7 +2188,7 @@
             // button116
             // 
             this.button116.BackColor = System.Drawing.Color.Black;
-            this.button116.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button116.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button116.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button116.FlatAppearance.BorderSize = 0;
             this.button116.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2217,7 +2217,7 @@
             // button118
             // 
             this.button118.BackColor = System.Drawing.Color.Black;
-            this.button118.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button118.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button118.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button118.FlatAppearance.BorderSize = 0;
             this.button118.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2233,7 +2233,7 @@
             // button119
             // 
             this.button119.BackColor = System.Drawing.Color.Black;
-            this.button119.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button119.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button119.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button119.FlatAppearance.BorderSize = 0;
             this.button119.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2249,7 +2249,7 @@
             // button120
             // 
             this.button120.BackColor = System.Drawing.Color.Black;
-            this.button120.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button120.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button120.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button120.FlatAppearance.BorderSize = 0;
             this.button120.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2265,7 +2265,7 @@
             // button121
             // 
             this.button121.BackColor = System.Drawing.Color.Black;
-            this.button121.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button121.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button121.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button121.FlatAppearance.BorderSize = 0;
             this.button121.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2281,7 +2281,7 @@
             // button122
             // 
             this.button122.BackColor = System.Drawing.Color.Black;
-            this.button122.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button122.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button122.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button122.FlatAppearance.BorderSize = 0;
             this.button122.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2297,7 +2297,7 @@
             // button123
             // 
             this.button123.BackColor = System.Drawing.Color.Black;
-            this.button123.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button123.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button123.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button123.FlatAppearance.BorderSize = 0;
             this.button123.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2313,7 +2313,7 @@
             // button124
             // 
             this.button124.BackColor = System.Drawing.Color.Black;
-            this.button124.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button124.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button124.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button124.FlatAppearance.BorderSize = 0;
             this.button124.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2355,7 +2355,7 @@
             // button127
             // 
             this.button127.BackColor = System.Drawing.Color.Black;
-            this.button127.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button127.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button127.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button127.FlatAppearance.BorderSize = 0;
             this.button127.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2397,7 +2397,7 @@
             // button130
             // 
             this.button130.BackColor = System.Drawing.Color.Black;
-            this.button130.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button130.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button130.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button130.FlatAppearance.BorderSize = 0;
             this.button130.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2426,7 +2426,7 @@
             // button132
             // 
             this.button132.BackColor = System.Drawing.Color.Black;
-            this.button132.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button132.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button132.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button132.FlatAppearance.BorderSize = 0;
             this.button132.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2455,7 +2455,7 @@
             // button134
             // 
             this.button134.BackColor = System.Drawing.Color.Black;
-            this.button134.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button134.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button134.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button134.FlatAppearance.BorderSize = 0;
             this.button134.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2510,7 +2510,7 @@
             // button138
             // 
             this.button138.BackColor = System.Drawing.Color.Black;
-            this.button138.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button138.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button138.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button138.FlatAppearance.BorderSize = 0;
             this.button138.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2539,7 +2539,7 @@
             // button140
             // 
             this.button140.BackColor = System.Drawing.Color.Black;
-            this.button140.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button140.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button140.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button140.FlatAppearance.BorderSize = 0;
             this.button140.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2555,7 +2555,7 @@
             // button141
             // 
             this.button141.BackColor = System.Drawing.Color.Black;
-            this.button141.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button141.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button141.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button141.FlatAppearance.BorderSize = 0;
             this.button141.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2571,7 +2571,7 @@
             // button142
             // 
             this.button142.BackColor = System.Drawing.Color.Black;
-            this.button142.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button142.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button142.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button142.FlatAppearance.BorderSize = 0;
             this.button142.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2587,7 +2587,7 @@
             // button143
             // 
             this.button143.BackColor = System.Drawing.Color.Black;
-            this.button143.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button143.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button143.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button143.FlatAppearance.BorderSize = 0;
             this.button143.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2629,7 +2629,7 @@
             // button146
             // 
             this.button146.BackColor = System.Drawing.Color.Black;
-            this.button146.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button146.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button146.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button146.FlatAppearance.BorderSize = 0;
             this.button146.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2645,7 +2645,7 @@
             // button147
             // 
             this.button147.BackColor = System.Drawing.Color.Black;
-            this.button147.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button147.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button147.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button147.FlatAppearance.BorderSize = 0;
             this.button147.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2661,7 +2661,7 @@
             // button148
             // 
             this.button148.BackColor = System.Drawing.Color.Black;
-            this.button148.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button148.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button148.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button148.FlatAppearance.BorderSize = 0;
             this.button148.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2690,7 +2690,7 @@
             // button150
             // 
             this.button150.BackColor = System.Drawing.Color.Black;
-            this.button150.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button150.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button150.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button150.FlatAppearance.BorderSize = 0;
             this.button150.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2719,7 +2719,7 @@
             // button152
             // 
             this.button152.BackColor = System.Drawing.Color.Black;
-            this.button152.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button152.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button152.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button152.FlatAppearance.BorderSize = 0;
             this.button152.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2735,7 +2735,7 @@
             // button153
             // 
             this.button153.BackColor = System.Drawing.Color.Black;
-            this.button153.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button153.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button153.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button153.FlatAppearance.BorderSize = 0;
             this.button153.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2751,7 +2751,7 @@
             // button154
             // 
             this.button154.BackColor = System.Drawing.Color.Black;
-            this.button154.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button154.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button154.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button154.FlatAppearance.BorderSize = 0;
             this.button154.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2793,7 +2793,7 @@
             // button157
             // 
             this.button157.BackColor = System.Drawing.Color.Black;
-            this.button157.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button157.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button157.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button157.FlatAppearance.BorderSize = 0;
             this.button157.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2809,7 +2809,7 @@
             // button158
             // 
             this.button158.BackColor = System.Drawing.Color.Black;
-            this.button158.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button158.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button158.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button158.FlatAppearance.BorderSize = 0;
             this.button158.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2864,7 +2864,7 @@
             // button162
             // 
             this.button162.BackColor = System.Drawing.Color.Black;
-            this.button162.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button162.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button162.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button162.FlatAppearance.BorderSize = 0;
             this.button162.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2893,7 +2893,7 @@
             // button164
             // 
             this.button164.BackColor = System.Drawing.Color.Black;
-            this.button164.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button164.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button164.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button164.FlatAppearance.BorderSize = 0;
             this.button164.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2909,7 +2909,7 @@
             // button165
             // 
             this.button165.BackColor = System.Drawing.Color.Black;
-            this.button165.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button165.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button165.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button165.FlatAppearance.BorderSize = 0;
             this.button165.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2925,7 +2925,7 @@
             // button166
             // 
             this.button166.BackColor = System.Drawing.Color.Black;
-            this.button166.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button166.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button166.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button166.FlatAppearance.BorderSize = 0;
             this.button166.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2941,7 +2941,7 @@
             // button167
             // 
             this.button167.BackColor = System.Drawing.Color.Black;
-            this.button167.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button167.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button167.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button167.FlatAppearance.BorderSize = 0;
             this.button167.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2957,7 +2957,7 @@
             // button168
             // 
             this.button168.BackColor = System.Drawing.Color.Black;
-            this.button168.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button168.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button168.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button168.FlatAppearance.BorderSize = 0;
             this.button168.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2986,7 +2986,7 @@
             // button170
             // 
             this.button170.BackColor = System.Drawing.Color.Black;
-            this.button170.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button170.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button170.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button170.FlatAppearance.BorderSize = 0;
             this.button170.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3002,7 +3002,7 @@
             // button171
             // 
             this.button171.BackColor = System.Drawing.Color.Black;
-            this.button171.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button171.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button171.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button171.FlatAppearance.BorderSize = 0;
             this.button171.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3044,7 +3044,7 @@
             // button174
             // 
             this.button174.BackColor = System.Drawing.Color.Black;
-            this.button174.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button174.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button174.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button174.FlatAppearance.BorderSize = 0;
             this.button174.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3099,7 +3099,7 @@
             // button178
             // 
             this.button178.BackColor = System.Drawing.Color.Black;
-            this.button178.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button178.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button178.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button178.FlatAppearance.BorderSize = 0;
             this.button178.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3128,7 +3128,7 @@
             // button180
             // 
             this.button180.BackColor = System.Drawing.Color.Black;
-            this.button180.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button180.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button180.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button180.FlatAppearance.BorderSize = 0;
             this.button180.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3170,7 +3170,7 @@
             // button183
             // 
             this.button183.BackColor = System.Drawing.Color.Black;
-            this.button183.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button183.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button183.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button183.FlatAppearance.BorderSize = 0;
             this.button183.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3225,7 +3225,7 @@
             // button187
             // 
             this.button187.BackColor = System.Drawing.Color.Black;
-            this.button187.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button187.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button187.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button187.FlatAppearance.BorderSize = 0;
             this.button187.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3241,7 +3241,7 @@
             // button188
             // 
             this.button188.BackColor = System.Drawing.Color.Black;
-            this.button188.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button188.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button188.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button188.FlatAppearance.BorderSize = 0;
             this.button188.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3257,7 +3257,7 @@
             // button189
             // 
             this.button189.BackColor = System.Drawing.Color.Black;
-            this.button189.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button189.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button189.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button189.FlatAppearance.BorderSize = 0;
             this.button189.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3273,7 +3273,7 @@
             // button190
             // 
             this.button190.BackColor = System.Drawing.Color.Black;
-            this.button190.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button190.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button190.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button190.FlatAppearance.BorderSize = 0;
             this.button190.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3289,7 +3289,7 @@
             // button191
             // 
             this.button191.BackColor = System.Drawing.Color.Black;
-            this.button191.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button191.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button191.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button191.FlatAppearance.BorderSize = 0;
             this.button191.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3331,7 +3331,7 @@
             // button194
             // 
             this.button194.BackColor = System.Drawing.Color.Black;
-            this.button194.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button194.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button194.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button194.FlatAppearance.BorderSize = 0;
             this.button194.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3360,7 +3360,7 @@
             // button196
             // 
             this.button196.BackColor = System.Drawing.Color.Black;
-            this.button196.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button196.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button196.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button196.FlatAppearance.BorderSize = 0;
             this.button196.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3389,7 +3389,7 @@
             // button198
             // 
             this.button198.BackColor = System.Drawing.Color.Black;
-            this.button198.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button198.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button198.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button198.FlatAppearance.BorderSize = 0;
             this.button198.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3405,7 +3405,7 @@
             // button199
             // 
             this.button199.BackColor = System.Drawing.Color.Black;
-            this.button199.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button199.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button199.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button199.FlatAppearance.BorderSize = 0;
             this.button199.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3421,7 +3421,7 @@
             // button200
             // 
             this.button200.BackColor = System.Drawing.Color.Black;
-            this.button200.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button200.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button200.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button200.FlatAppearance.BorderSize = 0;
             this.button200.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3463,7 +3463,7 @@
             // button203
             // 
             this.button203.BackColor = System.Drawing.Color.Black;
-            this.button203.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button203.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button203.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button203.FlatAppearance.BorderSize = 0;
             this.button203.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3518,7 +3518,7 @@
             // button207
             // 
             this.button207.BackColor = System.Drawing.Color.Black;
-            this.button207.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button207.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button207.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button207.FlatAppearance.BorderSize = 0;
             this.button207.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3560,7 +3560,7 @@
             // button210
             // 
             this.button210.BackColor = System.Drawing.Color.Black;
-            this.button210.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button210.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button210.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button210.FlatAppearance.BorderSize = 0;
             this.button210.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3589,7 +3589,7 @@
             // button212
             // 
             this.button212.BackColor = System.Drawing.Color.Black;
-            this.button212.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button212.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button212.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button212.FlatAppearance.BorderSize = 0;
             this.button212.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3618,7 +3618,7 @@
             // button214
             // 
             this.button214.BackColor = System.Drawing.Color.Black;
-            this.button214.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button214.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button214.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button214.FlatAppearance.BorderSize = 0;
             this.button214.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3647,7 +3647,7 @@
             // button216
             // 
             this.button216.BackColor = System.Drawing.Color.Black;
-            this.button216.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button216.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button216.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button216.FlatAppearance.BorderSize = 0;
             this.button216.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3663,7 +3663,7 @@
             // button217
             // 
             this.button217.BackColor = System.Drawing.Color.Black;
-            this.button217.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button217.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button217.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button217.FlatAppearance.BorderSize = 0;
             this.button217.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3679,7 +3679,7 @@
             // button218
             // 
             this.button218.BackColor = System.Drawing.Color.Black;
-            this.button218.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button218.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button218.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button218.FlatAppearance.BorderSize = 0;
             this.button218.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3695,7 +3695,7 @@
             // button219
             // 
             this.button219.BackColor = System.Drawing.Color.Black;
-            this.button219.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button219.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button219.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button219.FlatAppearance.BorderSize = 0;
             this.button219.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3724,7 +3724,7 @@
             // button221
             // 
             this.button221.BackColor = System.Drawing.Color.Black;
-            this.button221.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button221.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button221.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button221.FlatAppearance.BorderSize = 0;
             this.button221.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3740,7 +3740,7 @@
             // button222
             // 
             this.button222.BackColor = System.Drawing.Color.Black;
-            this.button222.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button222.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button222.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button222.FlatAppearance.BorderSize = 0;
             this.button222.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3756,7 +3756,7 @@
             // button223
             // 
             this.button223.BackColor = System.Drawing.Color.Black;
-            this.button223.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button223.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button223.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button223.FlatAppearance.BorderSize = 0;
             this.button223.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3798,7 +3798,7 @@
             // button226
             // 
             this.button226.BackColor = System.Drawing.Color.Black;
-            this.button226.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button226.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button226.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button226.FlatAppearance.BorderSize = 0;
             this.button226.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3814,7 +3814,7 @@
             // button227
             // 
             this.button227.BackColor = System.Drawing.Color.Black;
-            this.button227.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button227.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button227.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button227.FlatAppearance.BorderSize = 0;
             this.button227.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3830,7 +3830,7 @@
             // button228
             // 
             this.button228.BackColor = System.Drawing.Color.Black;
-            this.button228.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button228.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button228.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button228.FlatAppearance.BorderSize = 0;
             this.button228.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3846,7 +3846,7 @@
             // button229
             // 
             this.button229.BackColor = System.Drawing.Color.Black;
-            this.button229.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button229.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button229.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button229.FlatAppearance.BorderSize = 0;
             this.button229.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3862,7 +3862,7 @@
             // button230
             // 
             this.button230.BackColor = System.Drawing.Color.Black;
-            this.button230.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button230.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button230.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button230.FlatAppearance.BorderSize = 0;
             this.button230.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3878,7 +3878,7 @@
             // button231
             // 
             this.button231.BackColor = System.Drawing.Color.Black;
-            this.button231.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button231.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button231.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button231.FlatAppearance.BorderSize = 0;
             this.button231.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3894,7 +3894,7 @@
             // button232
             // 
             this.button232.BackColor = System.Drawing.Color.Black;
-            this.button232.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button232.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button232.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button232.FlatAppearance.BorderSize = 0;
             this.button232.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3936,7 +3936,7 @@
             // button235
             // 
             this.button235.BackColor = System.Drawing.Color.Black;
-            this.button235.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button235.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button235.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button235.FlatAppearance.BorderSize = 0;
             this.button235.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3952,7 +3952,7 @@
             // button236
             // 
             this.button236.BackColor = System.Drawing.Color.Black;
-            this.button236.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button236.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button236.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button236.FlatAppearance.BorderSize = 0;
             this.button236.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3968,7 +3968,7 @@
             // button237
             // 
             this.button237.BackColor = System.Drawing.Color.Black;
-            this.button237.BackgroundImage = global::PacMan.Properties.Resources.RCoinOld;
+            this.button237.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button237.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button237.FlatAppearance.BorderSize = 0;
             this.button237.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
