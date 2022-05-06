@@ -5,9 +5,11 @@ namespace PacMan {
      * ghost collision is kind of necessary.. otherwise they like stack up and dissapear and it looks janky
      * especially at the start
      * 
-     * major ghosts stuck issues resolved. however, need logic backup for un-stuck should multiple ghosts converge
-     * probably just a stuck counter that allows ghosts to move backwards if stuck for more than a tick
-     *
+     * when ghosts overlap, orb gets destroyed.
+     * the ghost look ahead to see if the next spot is an orb, if it is a ghost, it doesn't flag to replace the orb
+     * not really a way around this..
+     * if I add "AI" to the tag, then it reverses the problem: orbs will be added when ghosts overlap
+     * if I try to do a lookup, if tag is "AI"
      *
     */
 
@@ -136,11 +138,17 @@ namespace PacMan {
             Random random = new Random();
             List<int> validMoves = new List<int>();
 
-            //error because length is 6, but not filled. change temporarily while testing
             for (int i = 0; i < ghosts.Length; i++) {
-                if (ghosts[i].getDelay() <= 0) { //issue here
-                    btnArray[ghosts[i].getIndex()].BackgroundImage = null;
-                    btnArray[ghosts[i].getIndex()].Tag = "";
+                if (ghosts[i].getDelay() == 0) {
+                    if (ghosts[i].replaceOrb()) {
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.orb;
+                        btnArray[ghosts[i].getIndex()].Tag = "1";
+                        ghosts[i].replaceOrb(false);
+                    }
+                    else {
+                        btnArray[ghosts[i].getIndex()].Tag = "0";
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = null;
+                    }
 
                     if (btnArray[ghosts[i].getIndex() + 1].BackColor != Color.DarkSlateBlue &&
                         btnArray[ghosts[i].getIndex() + 1].Tag != "AI" &&
@@ -169,40 +177,42 @@ namespace PacMan {
                     if (ghosts[i].stuck()) {
                         if (btnArray[ghosts[i].getIndex() + 1].BackColor != Color.DarkSlateBlue &&
                         btnArray[ghosts[i].getIndex() + 1].Tag != "AI") {
-                            ghosts[i].unStuck();
+                            ghosts[i].stuck(false);
                             validMoves.Add(1);
                         }
 
                         if (btnArray[ghosts[i].getIndex() - 1].BackColor != Color.DarkSlateBlue &&
                             btnArray[ghosts[i].getIndex() - 1].Tag != "AI") {
-                            ghosts[i].unStuck();
+                            ghosts[i].stuck(false);
                             validMoves.Add(-1);
                         }
 
                         if (btnArray[ghosts[i].getIndex() + 16].BackColor != Color.DarkSlateBlue &&
                             btnArray[ghosts[i].getIndex() + 16].Tag != "AI") {
-                            ghosts[i].unStuck();
+                            ghosts[i].stuck(false);
                             validMoves.Add(16);
                         }
 
                         if (btnArray[ghosts[i].getIndex() - 16].BackColor != Color.DarkSlateBlue &&
                             btnArray[ghosts[i].getIndex() - 16].Tag != "AI") {
-                            ghosts[i].unStuck();
+                            ghosts[i].stuck(false);
                             validMoves.Add(-16);
                         }
                     }
 
                     if (validMoves.Count > 0) {
-                        ghosts[i].update(validMoves[random.Next(0, validMoves.Count)]);
+                        int choice = random.Next(0, validMoves.Count);
+                        if(btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "1") {
+                            ghosts[i].replaceOrb(true);
+                        }
+                        ghosts[i].update(validMoves[choice]);
                     }
                     else {
-                        ghosts[i].isStuck();
+                        ghosts[i].stuck(true);
                     }
                 }
 
 
-
-                //btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
                 switch (i) {
                     case 0:
                         btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
@@ -242,7 +252,12 @@ namespace PacMan {
             else if (btnArray[currentIndex].Tag == "AI") {
                 //enemy collision
                 //runGame = false;
-                //Application.Exit();
+                //exitbutton.Visible = true;
+                //Gameoverlabel.Visible = true;
+                //continuebutton.Visible = true;
+                //Playagainlabel.Visible = true;
+                //timer.Stop();
+                //AnimationTimer.Stop();
             }
             else {
                 currentIndex += trajectory;
@@ -272,24 +287,15 @@ namespace PacMan {
             }
         }
 
-        //ganeover panel can overlap the AI starting area since there are no orbs in there anyway
-        //placeholder / old code
-        private void ExitButton_Click(object sender, EventArgs e) {
-            Application.Exit();
+        private void continuebutton_Click(object sender, EventArgs e) {
+            Gameoverlabel.Visible = false;
+            continuebutton.Visible = false;
+            exitbutton.Visible = false;
+            Playagainlabel.Visible = false;
         }
 
-        //placeholder / old code
-        private void RestartButton_Click(object sender, EventArgs e) {
-            //GameOverPanel.Visible = false;
-            foreach (Button btn in btnArray) {
-                btn.BackColor = Color.PeachPuff;
-            }
-            trajectory = 16;
-            ScoreLabel.Text = "0";
-            currentIndex = 18;
-
-            timer.Start();
-
+        private void exitbutton_Click(object sender, EventArgs e) {
+            Application.Exit();
         }
     }
 }

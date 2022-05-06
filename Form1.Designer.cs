@@ -281,6 +281,10 @@
             this.button255 = new System.Windows.Forms.Button();
             this.button256 = new System.Windows.Forms.Button();
             this.ScoreLabel = new System.Windows.Forms.Label();
+            this.Gameoverlabel = new System.Windows.Forms.Label();
+            this.Playagainlabel = new System.Windows.Forms.Label();
+            this.continuebutton = new System.Windows.Forms.Button();
+            this.exitbutton = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -4239,20 +4243,77 @@
             this.ScoreLabel.Text = "0";
             this.ScoreLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // Gameoverlabel
+            // 
+            this.Gameoverlabel.AutoSize = true;
+            this.Gameoverlabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Gameoverlabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Gameoverlabel.Location = new System.Drawing.Point(10, 5);
+            this.Gameoverlabel.Name = "Gameoverlabel";
+            this.Gameoverlabel.Size = new System.Drawing.Size(97, 21);
+            this.Gameoverlabel.TabIndex = 2;
+            this.Gameoverlabel.Text = "GAME OVER";
+            this.Gameoverlabel.Visible = false;
+            // 
+            // Playagainlabel
+            // 
+            this.Playagainlabel.AutoSize = true;
+            this.Playagainlabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Playagainlabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Playagainlabel.Location = new System.Drawing.Point(131, 339);
+            this.Playagainlabel.Name = "Playagainlabel";
+            this.Playagainlabel.Size = new System.Drawing.Size(74, 17);
+            this.Playagainlabel.TabIndex = 3;
+            this.Playagainlabel.Text = "Play Again?";
+            this.Playagainlabel.Visible = false;
+            // 
+            // continuebutton
+            // 
+            this.continuebutton.BackColor = System.Drawing.Color.SeaGreen;
+            this.continuebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.continuebutton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.continuebutton.Location = new System.Drawing.Point(215, 337);
+            this.continuebutton.Name = "continuebutton";
+            this.continuebutton.Size = new System.Drawing.Size(50, 22);
+            this.continuebutton.TabIndex = 4;
+            this.continuebutton.Text = "Yes";
+            this.continuebutton.UseVisualStyleBackColor = false;
+            this.continuebutton.Visible = false;
+            this.continuebutton.Click += new System.EventHandler(this.continuebutton_Click);
+            // 
+            // exitbutton
+            // 
+            this.exitbutton.BackColor = System.Drawing.Color.Firebrick;
+            this.exitbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitbutton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.exitbutton.Location = new System.Drawing.Point(272, 337);
+            this.exitbutton.Name = "exitbutton";
+            this.exitbutton.Size = new System.Drawing.Size(50, 22);
+            this.exitbutton.TabIndex = 5;
+            this.exitbutton.Text = "No";
+            this.exitbutton.UseVisualStyleBackColor = false;
+            this.exitbutton.Visible = false;
+            this.exitbutton.Click += new System.EventHandler(this.exitbutton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(344, 361);
+            this.Controls.Add(this.exitbutton);
+            this.Controls.Add(this.continuebutton);
+            this.Controls.Add(this.Playagainlabel);
+            this.Controls.Add(this.Gameoverlabel);
             this.Controls.Add(this.ScoreLabel);
             this.Controls.Add(this.flowLayoutPanel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Snake";
+            this.Text = "Pacman";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -4516,5 +4577,9 @@
         private Button button255;
         private Button button256;
         private Label ScoreLabel;
+        private Label Gameoverlabel;
+        private Label Playagainlabel;
+        private Button continuebutton;
+        private Button exitbutton;
     }
 }
