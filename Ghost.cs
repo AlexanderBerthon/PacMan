@@ -9,14 +9,12 @@ namespace PacMan {
         int index;
         int trajectory;
         int delay;
-        Boolean orb;
         Boolean isStuck;
 
         public Ghost(int startIndex, int startDelay) {
             index = startIndex;
             delay = startDelay;
             isStuck = false;
-            orb = false;
             trajectory = -16;
         }
 
@@ -25,19 +23,7 @@ namespace PacMan {
             index += trajectory;
         }
 
-        public Boolean replaceOrb() {
-            return orb;
-        }
-
-        public void replaceOrb(Boolean status) {
-            orb = status;
-        }
-
-        //should never go backwards
-        //should calculate every move possible and randomly choose between them, minus backwards movement. 
-        //every time this is called?
-        //might need to change logic in main form as well.
-
+        //I don't think this function is used anymore..
         public void changeTrajectory() {
             Random rng = new Random();
 

@@ -6,10 +6,10 @@ namespace PacMan {
      * especially at the start
      * 
      * when ghosts overlap, orb gets destroyed.
-     * the ghost look ahead to see if the next spot is an orb, if it is a ghost, it doesn't flag to replace the orb
-     * not really a way around this..
-     * if I add "AI" to the tag, then it reverses the problem: orbs will be added when ghosts overlap
-     * if I try to do a lookup, if tag is "AI"
+     *      
+     * went into stuck
+     * 1 tick no movement
+     * next tick moved to open spot but left nothing
      *
     */
 
@@ -50,15 +50,15 @@ namespace PacMan {
 
             ghosts = new Ghost[6]; //[6] = number of ghosts
 
-            ghosts[0] = new Ghost(71, 30); //start index, delay(# of game tick cycles)
+            ghosts[0] = new Ghost(71, 10); //start index, delay(# of game tick cycles)
             ghosts[1] = new Ghost(72, 0);
-            ghosts[2] = new Ghost(73, 60);
-            ghosts[3] = new Ghost(87, 90);
-            ghosts[4] = new Ghost(88, 120);
-            ghosts[5] = new Ghost(89, 150);
+            ghosts[2] = new Ghost(73, 20);
+            ghosts[3] = new Ghost(87, 30);
+            ghosts[4] = new Ghost(88, 40);
+            ghosts[5] = new Ghost(89, 50);
 
             for (int i = 0; i < ghosts.Length; i++) {
-                btnArray[ghosts[i].getIndex()].Tag = "AI";
+                btnArray[ghosts[i].getIndex()].Tag = "AI 0";
             }
 
 
@@ -71,7 +71,7 @@ namespace PacMan {
         private void TimerEventProcessor(Object anObject, EventArgs eventArgs) {
             if (trajectory != 0) {
                 btnArray[currentIndex].BackgroundImage = null;
-                btnArray[currentIndex].Tag = "";
+                btnArray[currentIndex].Tag = "0"; //""
             }
             move();
             AIMove();
@@ -137,13 +137,13 @@ namespace PacMan {
             //randomly select a move from the pool (3 max choices, often only 1 choice)
             Random random = new Random();
             List<int> validMoves = new List<int>();
+            Boolean replaceOrb = false;
 
             for (int i = 0; i < ghosts.Length; i++) {
                 if (ghosts[i].getDelay() == 0) {
-                    if (ghosts[i].replaceOrb()) {
+                    if (btnArray[ghosts[i].getIndex()].Tag.ToString().Contains("1")) {
                         btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.orb;
                         btnArray[ghosts[i].getIndex()].Tag = "1";
-                        ghosts[i].replaceOrb(false);
                     }
                     else {
                         btnArray[ghosts[i].getIndex()].Tag = "0";
@@ -151,50 +151,50 @@ namespace PacMan {
                     }
 
                     if (btnArray[ghosts[i].getIndex() + 1].BackColor != Color.DarkSlateBlue &&
-                        btnArray[ghosts[i].getIndex() + 1].Tag != "AI" &&
+                        !(btnArray[ghosts[i].getIndex() + 1].Tag.ToString().Contains("AI")) &&
                         ghosts[i].getTrajectory() != -1) {
                         validMoves.Add(1);
                     }
 
                     if (btnArray[ghosts[i].getIndex() - 1].BackColor != Color.DarkSlateBlue &&
-                        btnArray[ghosts[i].getIndex() - 1].Tag != "AI" &&
+                        !(btnArray[ghosts[i].getIndex() - 1].Tag.ToString().Contains("AI")) &&
                         ghosts[i].getTrajectory() != +1) {
                         validMoves.Add(-1);
                     }
 
                     if (btnArray[ghosts[i].getIndex() + 16].BackColor != Color.DarkSlateBlue &&
-                        btnArray[ghosts[i].getIndex() + 16].Tag != "AI" &&
+                        !(btnArray[ghosts[i].getIndex() + 16].Tag.ToString().Contains("AI")) &&
                         ghosts[i].getTrajectory() != -16) {
                         validMoves.Add(16);
                     }
 
                     if (btnArray[ghosts[i].getIndex() - 16].BackColor != Color.DarkSlateBlue &&
-                        btnArray[ghosts[i].getIndex() - 16].Tag != "AI" &&
+                        !(btnArray[ghosts[i].getIndex() - 16].Tag.ToString().Contains("AI")) &&
                         ghosts[i].getTrajectory() != +16) {
                         validMoves.Add(-16);
                     }
 
                     if (ghosts[i].stuck()) {
                         if (btnArray[ghosts[i].getIndex() + 1].BackColor != Color.DarkSlateBlue &&
-                        btnArray[ghosts[i].getIndex() + 1].Tag != "AI") {
+                        !(btnArray[ghosts[i].getIndex() + 1].Tag.ToString().Contains("AI"))) {
                             ghosts[i].stuck(false);
                             validMoves.Add(1);
                         }
 
                         if (btnArray[ghosts[i].getIndex() - 1].BackColor != Color.DarkSlateBlue &&
-                            btnArray[ghosts[i].getIndex() - 1].Tag != "AI") {
+                            !(btnArray[ghosts[i].getIndex() - 1].Tag.ToString().Contains("AI"))) {
                             ghosts[i].stuck(false);
                             validMoves.Add(-1);
                         }
 
                         if (btnArray[ghosts[i].getIndex() + 16].BackColor != Color.DarkSlateBlue &&
-                            btnArray[ghosts[i].getIndex() + 16].Tag != "AI") {
+                            !(btnArray[ghosts[i].getIndex() + 16].Tag.ToString().Contains("AI"))) {
                             ghosts[i].stuck(false);
                             validMoves.Add(16);
                         }
 
                         if (btnArray[ghosts[i].getIndex() - 16].BackColor != Color.DarkSlateBlue &&
-                            btnArray[ghosts[i].getIndex() - 16].Tag != "AI") {
+                            !(btnArray[ghosts[i].getIndex() - 16].Tag.ToString().Contains("AI"))) {
                             ghosts[i].stuck(false);
                             validMoves.Add(-16);
                         }
@@ -203,7 +203,7 @@ namespace PacMan {
                     if (validMoves.Count > 0) {
                         int choice = random.Next(0, validMoves.Count);
                         if(btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "1") {
-                            ghosts[i].replaceOrb(true);
+                            replaceOrb = true;
                         }
                         ghosts[i].update(validMoves[choice]);
                     }
@@ -211,8 +211,6 @@ namespace PacMan {
                         ghosts[i].stuck(true);
                     }
                 }
-
-
                 switch (i) {
                     case 0:
                         btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
@@ -233,8 +231,22 @@ namespace PacMan {
                         btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost6;
                         break;
                 }
-                btnArray[ghosts[i].getIndex()].Tag = "AI";
+                if (replaceOrb) {
+                    btnArray[ghosts[i].getIndex()].Tag = "AI 1";
+                }
+                else if (ghosts[i].stuck()) {
+                    if (btnArray[ghosts[i].getIndex()].Tag.ToString().Contains("1")){
+                        btnArray[ghosts[i].getIndex()].Tag = "AI 1"; //might be a problem..
+                    }
+                    else {
+                        btnArray[ghosts[i].getIndex()].Tag = "AI 0"; //might be a problem..
+                    }
+                }
+                else {
+                    btnArray[ghosts[i].getIndex()].Tag = "AI 0";
+                }
                 validMoves.Clear();
+                replaceOrb = false;
             }
             for (int i = 0; i < ghosts.Length; i++) {
                 if(ghosts[i].getDelay() > 0){
@@ -249,7 +261,7 @@ namespace PacMan {
             if (btnArray[currentIndex + trajectory].BackColor == Color.DarkSlateBlue) {
                 trajectory = 0;
             }
-            else if (btnArray[currentIndex].Tag == "AI") {
+            else if (btnArray[currentIndex].Tag.ToString().Contains("AI")) {
                 //enemy collision
                 //runGame = false;
                 //exitbutton.Visible = true;
