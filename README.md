@@ -9,14 +9,14 @@
         <ul><s>Button Grid</s></ul>
         <ul><s>Pacman Icons</s></ul>
         <ul><s>Ghost Icons</s></ul>
-        <ul>Orb Icons</ul>
-        <ul>Player Animations
+        <ul><s>Orb Icons</s></ul>
+        <ul><s>Player Animations</s>
           <ul><s>Idle Animation</s></ul>
           <ul><s>Directional Movement Animation</s></ul>
         </ul>
         <ul>AI Animations</ul>
         <ul>Game Over Animation</ul>
-        <ul>Game Over Screen</ul>
+        <ul><s>Game Over Screen</s></ul>
       </ul>
       <ul>Gameplay
         <ul>Player Controls
@@ -27,14 +27,14 @@
       </ul>
       <ul>AI Controls
         <ul><s>AI Movement</s></ul>
-        <ul>AI Pathing</ul>
+        <ul><s>AI Pathing</s></ul>
         <ul>Player Collision</ul>
       </ul>
       <ul>Main Game Loop
-        <ul>Game over</ul>
+        <ul><s>Game over</s></ul>
         <ul>Win condition</ul>
         <ul><s>Turn loop</s></ul>
-        <ul>Restart</ul>
+        <ul><s>Restart</s></ul>
         </ul>
         Testing
   </section>
