@@ -2,14 +2,6 @@ namespace PacMan {
 
     /* BUGS
      * Pacman flashes when stopped, hits a wall, etc. 
-     * ghost collision is kind of necessary.. otherwise they like stack up and dissapear and it looks janky
-     * especially at the start
-     * 
-     * when ghosts overlap, orb gets destroyed.
-     *      
-     * went into stuck
-     * 1 tick no movement
-     * next tick moved to open spot but left nothing
      *
     */
 
@@ -50,17 +42,16 @@ namespace PacMan {
 
             ghosts = new Ghost[6]; //[6] = number of ghosts
 
-            ghosts[0] = new Ghost(71, 10); //start index, delay(# of game tick cycles)
+            ghosts[0] = new Ghost(71, 30); //start index, delay(# of game tick cycles)
             ghosts[1] = new Ghost(72, 0);
-            ghosts[2] = new Ghost(73, 20);
-            ghosts[3] = new Ghost(87, 30);
-            ghosts[4] = new Ghost(88, 40);
-            ghosts[5] = new Ghost(89, 50);
+            ghosts[2] = new Ghost(73, 60);
+            ghosts[3] = new Ghost(87, 90);
+            ghosts[4] = new Ghost(88, 120);
+            ghosts[5] = new Ghost(89, 150);
 
             for (int i = 0; i < ghosts.Length; i++) {
                 btnArray[ghosts[i].getIndex()].Tag = "AI 0";
             }
-
 
             timer.Start();
             AnimationTimer.Start();
@@ -75,20 +66,6 @@ namespace PacMan {
             }
             move();
             AIMove();
-            //testing pls remove after
-            /*
-            foreach(Button btn in btnArray){
-                if (btn.Tag == "AI") {
-                    btn.BackColor = Color.Firebrick;
-                }
-                else if(btn.BackColor == Color.DarkSlateBlue){
-                    //don't do anything
-                }
-                else {
-                    btn.BackColor = Color.Black;
-                }
-            }
-            */
         }
 
         //animation clock
@@ -117,17 +94,6 @@ namespace PacMan {
                 btnArray[currentIndex].BackgroundImage = Properties.Resources.Closed;
                 animation = true;
             }
-            /*
-            //Random random = new Random();
-            for (int i = 0; i < ghosts.Length; i++) {
-                if (animation){
-                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
-                }
-                else {
-                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost2;
-                }
-            }
-            */
         }
 
 
@@ -236,10 +202,10 @@ namespace PacMan {
                 }
                 else if (ghosts[i].stuck()) {
                     if (btnArray[ghosts[i].getIndex()].Tag.ToString().Contains("1")){
-                        btnArray[ghosts[i].getIndex()].Tag = "AI 1"; //might be a problem..
+                        btnArray[ghosts[i].getIndex()].Tag = "AI 1";
                     }
                     else {
-                        btnArray[ghosts[i].getIndex()].Tag = "AI 0"; //might be a problem..
+                        btnArray[ghosts[i].getIndex()].Tag = "AI 0";
                     }
                 }
                 else {
@@ -263,13 +229,13 @@ namespace PacMan {
             }
             else if (btnArray[currentIndex].Tag.ToString().Contains("AI")) {
                 //enemy collision
-                //runGame = false;
-                //exitbutton.Visible = true;
-                //Gameoverlabel.Visible = true;
-                //continuebutton.Visible = true;
-                //Playagainlabel.Visible = true;
-                //timer.Stop();
-                //AnimationTimer.Stop();
+                runGame = false;
+                exitbutton.Visible = true;
+                Gameoverlabel.Visible = true;
+                continuebutton.Visible = true;
+                Playagainlabel.Visible = true;
+                timer.Stop();
+                AnimationTimer.Stop();
             }
             else {
                 currentIndex += trajectory;
@@ -299,11 +265,47 @@ namespace PacMan {
             }
         }
 
+        //TODO
         private void continuebutton_Click(object sender, EventArgs e) {
             Gameoverlabel.Visible = false;
             continuebutton.Visible = false;
             exitbutton.Visible = false;
             Playagainlabel.Visible = false;
+
+            score = 0;
+            currentIndex = 121;
+            trajectory = 0;
+
+            //delete current ghosts
+            for(int i = 0; i<ghosts.Length; i++) {
+                ghosts[i] = null;
+            }
+
+            foreach(Button btn in btnArray) {
+                if(btn.TabIndex == 71 || btn.TabIndex == 72 || btn.TabIndex == 73 || btn.TabIndex == 87 ||
+                    btn.TabIndex == 87 || btn.TabIndex == 88 || btn.TabIndex == 89 || btn.TabIndex == 56) {
+                    btn.Tag = "";
+                }
+                else if (btn.BackColor == Color.Black) {
+                    btn.Tag = "1";
+                    btn.BackgroundImage = Properties.Resources.orb;
+                }
+            }
+
+            //recreate/reset ghosts
+            ghosts[0] = new Ghost(71, 30); //start index, delay(# of game tick cycles)
+            ghosts[1] = new Ghost(72, 0);
+            ghosts[2] = new Ghost(73, 60);
+            ghosts[3] = new Ghost(87, 90);
+            ghosts[4] = new Ghost(88, 120);
+            ghosts[5] = new Ghost(89, 150);
+
+            for (int i = 0; i < ghosts.Length; i++) {
+                btnArray[ghosts[i].getIndex()].Tag = "AI 0";
+            }
+
+            timer.Start();
+            AnimationTimer.Start();
         }
 
         private void exitbutton_Click(object sender, EventArgs e) {
