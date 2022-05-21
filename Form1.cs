@@ -1,7 +1,14 @@
 namespace PacMan {
 
     /* BUGS
-     * Pacman flashes when stopped, hits a wall, etc. 
+     * 107 
+     * make 7 'power up' orbs?
+     * would then have to create separate AI logic
+     * and a new timer probably
+     * 
+     *
+     * ghost collision mostly working, needs more testing
+     * 1 occurance turned corner as overlapping and didn't game over
      *
     */
 
@@ -35,7 +42,7 @@ namespace PacMan {
 
             score = 0;
 
-            currentIndex = 121;
+            currentIndex = 120;
             trajectory = 0;
             btnArray = new Button[256];
             flowLayoutPanel1.Controls.CopyTo(btnArray, 0);
@@ -168,6 +175,17 @@ namespace PacMan {
 
                     if (validMoves.Count > 0) {
                         int choice = random.Next(0, validMoves.Count);
+
+                        if (btnArray[ghosts[i].getIndex()].Tag == "Player" || btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "Player") {
+                            //enemy collision
+                            exitbutton.Visible = true;
+                            Gameoverlabel.Visible = true;
+                            continuebutton.Visible = true;
+                            Playagainlabel.Visible = true;
+                            timer.Stop();
+                            AnimationTimer.Stop();
+                        }
+
                         if(btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "1") {
                             replaceOrb = true;
                         }
@@ -227,7 +245,7 @@ namespace PacMan {
             if (btnArray[currentIndex + trajectory].BackColor == Color.DarkSlateBlue) {
                 trajectory = 0;
             }
-            else if (btnArray[currentIndex].Tag.ToString().Contains("AI")) {
+            else if (btnArray[currentIndex].Tag.ToString().Contains("AI") || btnArray[currentIndex + trajectory].Tag.ToString().Contains("AI")) {
                 //enemy collision
                 runGame = false;
                 exitbutton.Visible = true;
@@ -287,8 +305,15 @@ namespace PacMan {
                     btn.Tag = "";
                 }
                 else if (btn.BackColor == Color.Black) {
-                    btn.Tag = "1";
-                    btn.BackgroundImage = Properties.Resources.orb;
+                    if (btn.TabIndex == 45 || btn.TabIndex == 51 || btn.TabIndex == 146 ||
+                        btn.TabIndex == 182 || btn.TabIndex == 202 || btn.TabIndex == 156) {
+                        btn.Tag = "3";
+                        btn.BackgroundImage = Properties.Resources.orb2;
+                    }
+                    else {
+                        btn.Tag = "1";
+                        btn.BackgroundImage = Properties.Resources.orb;
+                    }
                 }
             }
 
