@@ -1278,7 +1278,7 @@
             // button52
             // 
             this.button52.BackColor = System.Drawing.Color.Black;
-            this.button52.BackgroundImage = global::PacMan.Properties.Resources.orb2;
+            this.button52.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button52.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button52.FlatAppearance.BorderSize = 0;
             this.button52.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1287,7 +1287,7 @@
             this.button52.Name = "button52";
             this.button52.Size = new System.Drawing.Size(20, 20);
             this.button52.TabIndex = 51;
-            this.button52.Tag = "3";
+            this.button52.Tag = "1";
             this.button52.UseVisualStyleBackColor = false;
             this.button52.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3467,7 +3467,7 @@
             // button203
             // 
             this.button203.BackColor = System.Drawing.Color.Black;
-            this.button203.BackgroundImage = global::PacMan.Properties.Resources.orb2;
+            this.button203.BackgroundImage = global::PacMan.Properties.Resources.orb;
             this.button203.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button203.FlatAppearance.BorderSize = 0;
             this.button203.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3476,7 +3476,7 @@
             this.button203.Name = "button203";
             this.button203.Size = new System.Drawing.Size(20, 20);
             this.button203.TabIndex = 202;
-            this.button203.Tag = "3";
+            this.button203.Tag = "1";
             this.button203.UseVisualStyleBackColor = false;
             this.button203.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 

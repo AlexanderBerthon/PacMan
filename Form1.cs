@@ -5,7 +5,8 @@ namespace PacMan {
      * make 7 'power up' orbs?
      * would then have to create separate AI logic
      * and a new timer probably
-     * 
+     *
+     * 108
      *
      * ghost collision mostly working, needs more testing
      * 1 occurance turned corner as overlapping and didn't game over
@@ -17,6 +18,7 @@ namespace PacMan {
         int currentIndex;
         int trajectory;
         int score;
+        int orbs;
         Ghost[] ghosts;
         Button[] btnArray;
         Boolean animation = true;
@@ -41,6 +43,7 @@ namespace PacMan {
             AnimationTimer.Tick += new EventHandler(TimerEventProcessor2);
 
             score = 0;
+            orbs = 110;
 
             currentIndex = 120;
             trajectory = 0;
@@ -259,8 +262,12 @@ namespace PacMan {
                 currentIndex += trajectory;
                 //if point gathered
                 if (btnArray[currentIndex].Tag == "1") {
-                    score++;
+                    score+=1;
+                    orbs--;
                     ScoreLabel.Text = score.ToString();
+                    if (orbs == 0) {
+                        nextStage(); //might be a problem to leave this here
+                    }
                 }
                 btnArray[currentIndex].Tag = "Player";
             }
@@ -283,14 +290,14 @@ namespace PacMan {
             }
         }
 
-        //TODO
         private void continuebutton_Click(object sender, EventArgs e) {
             Gameoverlabel.Visible = false;
             continuebutton.Visible = false;
             exitbutton.Visible = false;
             Playagainlabel.Visible = false;
-
+               
             score = 0;
+            orbs = 110;
             currentIndex = 121;
             trajectory = 0;
 
@@ -318,7 +325,7 @@ namespace PacMan {
             }
 
             //recreate/reset ghosts
-            ghosts[0] = new Ghost(71, 30); //start index, delay(# of game tick cycles)
+            ghosts[0] = new Ghost(71, 30);
             ghosts[1] = new Ghost(72, 0);
             ghosts[2] = new Ghost(73, 60);
             ghosts[3] = new Ghost(87, 90);
@@ -336,5 +343,52 @@ namespace PacMan {
         private void exitbutton_Click(object sender, EventArgs e) {
             Application.Exit();
         }
+
+        private void nextStage() {
+            currentIndex = 121;
+            trajectory = 0;
+            orbs = 110;
+
+            //delete current ghosts
+            for (int i = 0; i < ghosts.Length; i++) {
+                ghosts[i] = null;
+            }
+
+            //repopulate orbs
+            foreach (Button btn in btnArray) {
+                if (btn.TabIndex == 71 || btn.TabIndex == 72 || btn.TabIndex == 73 || btn.TabIndex == 87 ||
+                    btn.TabIndex == 87 || btn.TabIndex == 88 || btn.TabIndex == 89 || btn.TabIndex == 56) {
+                    btn.Tag = "";
+                }
+                else if (btn.BackColor == Color.Black) {
+                    if (btn.TabIndex == 45 || btn.TabIndex == 51 || btn.TabIndex == 146 ||
+                        btn.TabIndex == 182 || btn.TabIndex == 202 || btn.TabIndex == 156) {
+                        btn.Tag = "3";
+                        btn.BackgroundImage = Properties.Resources.orb2;
+                    }
+                    else {
+                        btn.Tag = "1";
+                        btn.BackgroundImage = Properties.Resources.orb;
+                    }
+                }
+            }
+
+            //recreate ghosts
+            ghosts[0] = new Ghost(71, 30);
+            ghosts[1] = new Ghost(72, 0);
+            ghosts[2] = new Ghost(73, 60);
+            ghosts[3] = new Ghost(87, 90);
+            ghosts[4] = new Ghost(88, 120);
+            ghosts[5] = new Ghost(89, 150);
+
+            //tag ghosts
+            for (int i = 0; i < ghosts.Length; i++) {
+                btnArray[ghosts[i].getIndex()].Tag = "AI 0";
+            }
+
+            timer.Start();
+            AnimationTimer.Start();
+        }
+
     }
 }
