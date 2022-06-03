@@ -1,15 +1,28 @@
 namespace PacMan {
 
     /* BUGS
-     * 107 
-     * make 7 'power up' orbs?
-     * would then have to create separate AI logic
-     * and a new timer probably
-     *
-     * 108
-     *
-     * ghost collision mostly working, needs more testing
-     * 1 occurance turned corner as overlapping and didn't game over
+     * AI-Player collision is a little janky still, 1 time I was able to squeak through an AI and live
+     * 
+     * Player pac man animation flashes some times still, not easy on the eyes
+     * 
+     * 
+     * 
+     * 
+     * 
+     * MOST RECENT CHANGES
+     * new timer has been created
+     * start / stop should work correctly
+     * will tick slower than the other 2, but do nothing until orb is consumed
+     * will end it self after 10 ticks of 500/ can adjust easily
+     * 
+     * TODO
+     * make new ghost icon
+     * change display logic in AIMove()
+     *  if(AIVulnerable > 0) use new icon for each ghost 
+     *  else - normal switch statement for the different ghost icons/colors
+     * maybe make a directional swap (after you get it to work mvp) on first tick, basically if AIVulnerable == 10 reverse current trajectory
+     *  might cause issues if opposite direction is a wall
+     * 
      *
     */
 
@@ -22,9 +35,12 @@ namespace PacMan {
         Ghost[] ghosts;
         Button[] btnArray;
         Boolean animation = true;
+        int AIVulnerable;
 
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-        System.Windows.Forms.Timer AnimationTimer = new System.Windows.Forms.Timer();
+        System.Windows.Forms.Timer animationTimer = new System.Windows.Forms.Timer();
+        System.Windows.Forms.Timer vulnerableTimer = new System.Windows.Forms.Timer();
+
 
 
         /// cells with borders are walls, if player collides with a wall, stop, no movement but game continues
@@ -39,11 +55,16 @@ namespace PacMan {
             timer.Interval = 300;
             timer.Tick += new EventHandler(TimerEventProcessor);
 
-            AnimationTimer.Interval = 150;
-            AnimationTimer.Tick += new EventHandler(TimerEventProcessor2);
+            animationTimer.Interval = 150;
+            animationTimer.Tick += new EventHandler(TimerEventProcessor2);
+
+            vulnerableTimer.Interval = 500;
+            vulnerableTimer.Tick += new EventHandler(VulnerableTimerEventProcessor);
 
             score = 0;
             orbs = 110;
+
+            AIVulnerable = 0;
 
             currentIndex = 120;
             trajectory = 0;
@@ -64,7 +85,7 @@ namespace PacMan {
             }
 
             timer.Start();
-            AnimationTimer.Start();
+            animationTimer.Start();
         }
 
 
@@ -75,8 +96,20 @@ namespace PacMan {
                 btnArray[currentIndex].Tag = "0"; //""
             }
             move();
-            AIMove();
+            if (AIVulnerable <= 0) {
+                AIMove();
+            }
         }
+
+        //testing
+        private void VulnerableTimerEventProcessor(Object anObject, EventArgs eventArgs) {
+            if (AIVulnerable > 0) {
+                AIMove();
+                AIVulnerable--;
+            }
+        }
+        //end testing
+
 
         //animation clock
         private void TimerEventProcessor2(Object anObject, EventArgs eventArgs) {
@@ -105,8 +138,6 @@ namespace PacMan {
                 animation = true;
             }
         }
-
-
 
         private void AIMove() {
             //every tick, calculate all valid moves
@@ -186,7 +217,8 @@ namespace PacMan {
                             continuebutton.Visible = true;
                             Playagainlabel.Visible = true;
                             timer.Stop();
-                            AnimationTimer.Stop();
+                            animationTimer.Stop();
+                            vulnerableTimer.Stop();
                         }
 
                         if(btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "1") {
@@ -256,18 +288,21 @@ namespace PacMan {
                 continuebutton.Visible = true;
                 Playagainlabel.Visible = true;
                 timer.Stop();
-                AnimationTimer.Stop();
+                animationTimer.Stop();
             }
             else {
                 currentIndex += trajectory;
                 //if point gathered
-                if (btnArray[currentIndex].Tag == "1") {
+                if(btnArray[currentIndex].Tag == "1") {
                     score+=1;
                     orbs--;
                     ScoreLabel.Text = score.ToString();
                     if (orbs == 0) {
                         nextStage(); //might be a problem to leave this here
                     }
+                }
+                else if(btnArray[currentIndex].Tag == "3") {
+                    AIVulnerable = 10;
                 }
                 btnArray[currentIndex].Tag = "Player";
             }
@@ -337,7 +372,8 @@ namespace PacMan {
             }
 
             timer.Start();
-            AnimationTimer.Start();
+            animationTimer.Start();
+            vulnerableTimer.Start();
         }
 
         private void exitbutton_Click(object sender, EventArgs e) {
@@ -387,7 +423,8 @@ namespace PacMan {
             }
 
             timer.Start();
-            AnimationTimer.Start();
+            animationTimer.Start();
+            vulnerableTimer.Start();
         }
 
     }
