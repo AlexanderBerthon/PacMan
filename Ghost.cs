@@ -81,13 +81,6 @@ namespace PacMan {
             this.index = index;
         }
 
-        public void die() {
-            index = 0;
-            trajectory = 0;
-            isStuck = false;
-            delay = 0;
-        }
-
     }
 
 

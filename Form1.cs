@@ -5,12 +5,9 @@ namespace PacMan {
      * 
      * Player pac man animation flashes some times still, not easy on the eyes
      * 
-     * 
-     * huge problems with collision
-     * sometimes ghost is properly destroyed and recreated 
-     * sometimes ghost just ignores collision and goes right through the player
-     * sometimes ghost disapears, then reapears a few tiles away?
-     * issue with identifying WHICH ghost is collided with (generic AI tag)
+     * Still some issues with collision, but much better
+     * Collision occurs, but the ghost just keeps going, like it decides to move instead of deleting/recreating. I get points though so why isn't it deleting properly?
+     * What is weird is that is works perfectly sometimes and then othertimes ignores logic
      * 
      *
      *
@@ -31,6 +28,9 @@ namespace PacMan {
     public partial class Form1 : Form {
         //global variables :(
         int currentIndex;
+
+        Boolean skip = true;
+
         int trajectory;
         int score;
         int orbs;
@@ -41,9 +41,6 @@ namespace PacMan {
 
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         System.Windows.Forms.Timer animationTimer = new System.Windows.Forms.Timer();
-        System.Windows.Forms.Timer vulnerableTimer = new System.Windows.Forms.Timer();
-
-
 
         /// cells with borders are walls, if player collides with a wall, stop, no movement but game continues
         /// empty cells get an orb
@@ -59,9 +56,6 @@ namespace PacMan {
 
             animationTimer.Interval = 150;
             animationTimer.Tick += new EventHandler(TimerEventProcessor2);
-
-            vulnerableTimer.Interval = 1000;
-            vulnerableTimer.Tick += new EventHandler(VulnerableTimerEventProcessor);
 
             score = 0;
             orbs = 110;
@@ -106,14 +100,17 @@ namespace PacMan {
                 }
             }
 
+            //testing
+            Gameoverlabel.Visible = true;
+
             timer.Start();
             animationTimer.Start();
-            vulnerableTimer.Start();
         }
 
 
         //movement clock
         private void TimerEventProcessor(Object anObject, EventArgs eventArgs) {
+            
             if (trajectory != 0) {
                 btnArray[currentIndex].BackgroundImage = null;
                 btnArray[currentIndex].Tag = "0"; //""
@@ -122,17 +119,17 @@ namespace PacMan {
             if (AIVulnerable <= 0) {
                 AIMove();
             }
-        }
-
-        //testing
-        private void VulnerableTimerEventProcessor(Object anObject, EventArgs eventArgs) {
-            if (AIVulnerable > 0) {
-                AIMove();
-                AIVulnerable--;
+            else {
+                if (skip) {
+                    skip = false;
+                }
+                else {
+                    skip = true;
+                    AIMove();
+                    AIVulnerable--;
+                }
             }
         }
-        //end testing
-
 
         //animation clock
         private void TimerEventProcessor2(Object anObject, EventArgs eventArgs) {
@@ -239,20 +236,22 @@ namespace PacMan {
                         int choice = random.Next(0, validMoves.Count);
 
                         if (btnArray[ghosts[i].getIndex()].Tag == "Player" || btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "Player") {
+                            Gameoverlabel.Text = "AI Capture";
                             if (AIVulnerable > 0) {
                                 destroyGhost(i);
+                                score += 25;
                             }
                             else {
                                 //enemy collision
                                 exitbutton.Visible = true;
-                                Gameoverlabel.Visible = true;
+                                //Gameoverlabel.Visible = true;
                                 continuebutton.Visible = true;
                                 Playagainlabel.Visible = true;
                                 timer.Stop();
                                 animationTimer.Stop();
-                                vulnerableTimer.Stop();
                             }
                         }
+                        ghosts[i].update(validMoves[choice]);
                     }
                     else {
                         ghosts[i].stuck(true);
@@ -323,28 +322,22 @@ namespace PacMan {
             if (btnArray[currentIndex + trajectory].BackColor == Color.DarkSlateBlue) {
                 trajectory = 0;
             }
-            else if (btnArray[currentIndex].Tag.ToString().Contains("AI")) {
-                if (AIVulnerable > 0) {
-                    //ghost capture
-                    destroyGhost(int.Parse(btnArray[currentIndex].Tag.ToString().Substring(2,1))); //this is disgusting
-                    score += 25;
-                }
-                else {
-                    //enemy collision
-                    endGame();
-                }
-            }
+
+            
             else if (btnArray[currentIndex + trajectory].Tag.ToString().Contains("AI")) {
+                Gameoverlabel.Text = "Player+Traj Collison";
                 if (AIVulnerable > 0) {
                     //ghost capture
                     destroyGhost(int.Parse(btnArray[currentIndex + trajectory].Tag.ToString().Substring(2,1))); //this is disgusting
-                    score += 25;
+                    score += 200;
                 }
                 else {
                     //enemy collision
                     endGame();
                 }
             }
+
+            
             else {
                 currentIndex += trajectory;
                 //if point gathered
@@ -359,8 +352,9 @@ namespace PacMan {
                 else if(btnArray[currentIndex].Tag == "3") {
                     AIVulnerable = 10;
                 }
-                btnArray[currentIndex].Tag = "Player";
+                //btnArray[currentIndex].Tag = "Player";
             }
+            btnArray[currentIndex].Tag = "Player";
         }
 
         private void movement_KeyPress(object sender, KeyPressEventArgs e) {
@@ -379,7 +373,11 @@ namespace PacMan {
         }
 
         private void continuebutton_Click(object sender, EventArgs e) {
-            Gameoverlabel.Visible = false;
+            //Gameoverlabel.Visible = false;
+
+    
+            Gameoverlabel.Text = ""; //test
+
             continuebutton.Visible = false;
             exitbutton.Visible = false;
             Playagainlabel.Visible = false;
@@ -446,7 +444,6 @@ namespace PacMan {
 
             timer.Start();
             animationTimer.Start();
-            vulnerableTimer.Start();
         }
 
         private void exitbutton_Click(object sender, EventArgs e) {
@@ -455,12 +452,11 @@ namespace PacMan {
 
         private void endGame() {
             exitbutton.Visible = true;
-            Gameoverlabel.Visible = true;
+            //Gameoverlabel.Visible = true;
             continuebutton.Visible = true;
             Playagainlabel.Visible = true;
             timer.Stop();
             animationTimer.Stop();
-            vulnerableTimer.Stop();
         }
 
         private void destroyGhost(int index) {
@@ -533,7 +529,6 @@ namespace PacMan {
 
             timer.Start();
             animationTimer.Start();
-            vulnerableTimer.Start();
         }
 
     }
