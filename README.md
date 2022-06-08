@@ -23,21 +23,21 @@
         <ul>Player Controls
           <ul><s>movement</s></ul>
           <ul><s>Wall Collision</s></ul>
-          <ul>Ghost Collision</ul>
+          <ul><s>Ghost Collision</s></ul>
           <ul><s>Player Points</s></ul>
       </ul>
       <ul>AI Controls
         <ul><s>AI Movement</s></ul>
         <ul><s>AI Pathing</s></ul>
-        <ul>Player Collision</ul>
+        <ul><s>Player Collision</s></ul>
       </ul>
       <ul>Main Game Loop
         <ul><s>Game over</s></ul>
         <ul><s>Win condition</s></ul>
         <ul><s>Turn loop</s></ul>
         <ul><s>Restart</s></ul>
-        <ul>Vulnerable Ghost Phase</ul>
-        <ul>Power-Up Orbs</ul>
+        <ul><s>Vulnerable Ghost Phase</s></ul>
+        <ul><s>Power-Up Orbs</s></ul>
         </ul>
         Testing
   </section>
