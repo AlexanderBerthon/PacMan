@@ -58,7 +58,7 @@ namespace PacMan {
             animationTimer.Tick += new EventHandler(TimerEventProcessor2);
 
             score = 0;
-            orbs = 110;
+            orbs = 110; //might be off / add orbs-- when collision happens 
 
             AIVulnerable = 0;
 
@@ -236,9 +236,10 @@ namespace PacMan {
                         int choice = random.Next(0, validMoves.Count);
 
                         if (btnArray[ghosts[i].getIndex()].Tag == "Player" || btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "Player") {
-                            Gameoverlabel.Text = "AI Capture";
+                            Gameoverlabel.Text = "AI Capture"; //testing
                             if (AIVulnerable > 0) {
                                 destroyGhost(i);
+                                validMoves.Clear(); //testing
                                 score += 25;
                             }
                             else {
@@ -251,7 +252,9 @@ namespace PacMan {
                                 animationTimer.Stop();
                             }
                         }
-                        ghosts[i].update(validMoves[choice]);
+                        else {
+                            ghosts[i].update(validMoves[choice]);
+                        }
                     }
                     else {
                         ghosts[i].stuck(true);
@@ -259,6 +262,26 @@ namespace PacMan {
                 }
                 //animation
                 if (AIVulnerable > 0) {
+                    switch (i) {
+                        case 0:
+                            btnArray[ghosts[i].getIndex()].Tag = "AI0";
+                            break;
+                        case 1:
+                            btnArray[ghosts[i].getIndex()].Tag = "AI1";
+                            break;
+                        case 2:
+                            btnArray[ghosts[i].getIndex()].Tag = "AI2";
+                            break;
+                        case 3:
+                            btnArray[ghosts[i].getIndex()].Tag = "AI3";
+                            break;
+                        case 4:
+                            btnArray[ghosts[i].getIndex()].Tag = "AI4";
+                            break;
+                        case 5:
+                            btnArray[ghosts[i].getIndex()].Tag = "AI5";
+                            break;
+                    }
                     btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost7;
                 }
                 else {
