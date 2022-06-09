@@ -1,25 +1,25 @@
 namespace PacMan {
 
-    /* BUGS
-     * AI-Player collision is a little janky still, 1 time I was able to squeak through an AI and live
-     * 
+    /* BUGS  
      * Player pac man animation flashes some times still, not easy on the eyes
+     *      * 
+     * collision fixed! 
+     * ghost reset kind of works, position is reset but the delay isn't resetting properly.
      * 
-     * Still some issues with collision, but much better
-     * Collision occurs, but the ghost just keeps going, like it decides to move instead of deleting/recreating. I get points though so why isn't it deleting properly?
-     * What is weird is that is works perfectly sometimes and then othertimes ignores logic
+     * collision might have been overcompensated a bit, captures a tick early in some cases
+     * now that I have found the issue that was causing the collision errors, I should go back and 
+     * revert the janky solutions I had been testing.
      * 
-     *
      *
      * TAGS (getting complicated so making a key)
      * AI1 - AI + distinct identifier + " " + orb/no orb
-     * e.g. "AI1 orb" is ghost one and needs orb replacement
-     * 
-     * Player = the player / pacman
-     * 
-     * 0 = empty space / no orb
-     * 1 = full space / orb
-     * 3 = special orb / power up
+     * e.g. 
+     * "AI1 orb" is ghost one and needs orb replacement
+     * "AI0"     is ghost zero and does not need orb replacement
+     * "Player" = the player / pacman
+     * "0" = empty space / no orb
+     * "1" = full space / orb
+     * "3" = special orb / power up
      *
      *
      *
@@ -42,12 +42,6 @@ namespace PacMan {
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         System.Windows.Forms.Timer animationTimer = new System.Windows.Forms.Timer();
 
-        /// cells with borders are walls, if player collides with a wall, stop, no movement but game continues
-        /// empty cells get an orb
-        /// player moves cell to cell, clearing orbs, earning points
-        /// every cell the player moves to gets background overriden with player pic, then empty when they leave.
-        /// every cell the enemy moves to gets background overriden with enemy pic, then replaced when they leave.
-
         public Form1() {
             InitializeComponent();
 
@@ -69,12 +63,12 @@ namespace PacMan {
 
             ghosts = new Ghost[6]; //[6] = number of ghosts
 
-            ghosts[0] = new Ghost(71, 30); //start index, delay(# of game tick cycles)
+            ghosts[0] = new Ghost(71, 5); //start index, delay(# of game tick cycles)
             ghosts[1] = new Ghost(72, 0);
-            ghosts[2] = new Ghost(73, 60);
-            ghosts[3] = new Ghost(87, 90);
-            ghosts[4] = new Ghost(88, 120);
-            ghosts[5] = new Ghost(89, 150);
+            ghosts[2] = new Ghost(73, 10);
+            ghosts[3] = new Ghost(87, 15);
+            ghosts[4] = new Ghost(88, 20);
+            ghosts[5] = new Ghost(89, 25);
 
             //distinct labels
             for (int i = 0; i < ghosts.Length; i++) {
@@ -99,9 +93,6 @@ namespace PacMan {
                         break;
                 }
             }
-
-            //testing
-            Gameoverlabel.Visible = true;
 
             timer.Start();
             animationTimer.Start();
@@ -234,18 +225,21 @@ namespace PacMan {
                     //move
                     if (validMoves.Count > 0) {
                         int choice = random.Next(0, validMoves.Count);
+                        if(btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "1"){
+                            replaceOrb = true;
+                        }
 
                         if (btnArray[ghosts[i].getIndex()].Tag == "Player" || btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "Player") {
-                            Gameoverlabel.Text = "AI Capture"; //testing
                             if (AIVulnerable > 0) {
                                 destroyGhost(i);
                                 validMoves.Clear(); //testing
+                                orbs--;
                                 score += 25;
                             }
                             else {
                                 //enemy collision
                                 exitbutton.Visible = true;
-                                //Gameoverlabel.Visible = true;
+                                Gameoverlabel.Visible = true;
                                 continuebutton.Visible = true;
                                 Playagainlabel.Visible = true;
                                 timer.Stop();
@@ -316,19 +310,12 @@ namespace PacMan {
                 if (replaceOrb) {
                     btnArray[ghosts[i].getIndex()].Tag += " orb";
                 }
+
+                //if stuck, and needs to replace an orb, replace the orb?
                 else if (ghosts[i].stuck()) {
-                    if (btnArray[ghosts[i].getIndex()].Tag.ToString().Contains("orb")){
-                        btnArray[ghosts[i].getIndex()].Tag += " orb";
-                    }
-                    else {
-                        //do nothing
-                        //btnArray[ghosts[i].getIndex()].Tag = "AI 0";
-                    }
+                    btnArray[ghosts[i].getIndex()].Tag += " orb";
                 }
-                else {
-                    //do nothing
-                    //btnArray[ghosts[i].getIndex()].Tag = "AI 0";
-                }
+                
 
                 validMoves.Clear();
                 replaceOrb = false;
@@ -348,11 +335,11 @@ namespace PacMan {
 
             
             else if (btnArray[currentIndex + trajectory].Tag.ToString().Contains("AI")) {
-                Gameoverlabel.Text = "Player+Traj Collison";
                 if (AIVulnerable > 0) {
                     //ghost capture
                     destroyGhost(int.Parse(btnArray[currentIndex + trajectory].Tag.ToString().Substring(2,1))); //this is disgusting
-                    score += 200;
+                    score += 25;
+                    orbs--;
                 }
                 else {
                     //enemy collision
@@ -375,7 +362,6 @@ namespace PacMan {
                 else if(btnArray[currentIndex].Tag == "3") {
                     AIVulnerable = 10;
                 }
-                //btnArray[currentIndex].Tag = "Player";
             }
             btnArray[currentIndex].Tag = "Player";
         }
@@ -396,11 +382,8 @@ namespace PacMan {
         }
 
         private void continuebutton_Click(object sender, EventArgs e) {
-            //Gameoverlabel.Visible = false;
-
-    
-            Gameoverlabel.Text = ""; //test
-
+            
+            Gameoverlabel.Visible = false;
             continuebutton.Visible = false;
             exitbutton.Visible = false;
             Playagainlabel.Visible = false;
@@ -421,8 +404,8 @@ namespace PacMan {
                     btn.Tag = "";
                 }
                 else if (btn.BackColor == Color.Black) {
-                    if (btn.TabIndex == 45 || btn.TabIndex == 51 || btn.TabIndex == 146 ||
-                        btn.TabIndex == 182 || btn.TabIndex == 202 || btn.TabIndex == 156) {
+                    if (btn.TabIndex == 45 || btn.TabIndex == 146 ||
+                        btn.TabIndex == 182 || btn.TabIndex == 156) {
                         btn.Tag = "3";
                         btn.BackgroundImage = Properties.Resources.orb2;
                     }
@@ -434,12 +417,12 @@ namespace PacMan {
             }
 
             //recreate/reset ghosts
-            ghosts[0] = new Ghost(71, 30); //start index, delay(# of game tick cycles)
+            ghosts[0] = new Ghost(71, 5); //start index, delay(# of game tick cycles)
             ghosts[1] = new Ghost(72, 0);
-            ghosts[2] = new Ghost(73, 60);
-            ghosts[3] = new Ghost(87, 90);
-            ghosts[4] = new Ghost(88, 120);
-            ghosts[5] = new Ghost(89, 150);
+            ghosts[2] = new Ghost(73, 10);
+            ghosts[3] = new Ghost(87, 15);
+            ghosts[4] = new Ghost(88, 20);
+            ghosts[5] = new Ghost(89, 25);
 
             //distinct labels
             for (int i = 0; i < ghosts.Length; i++) {
@@ -472,10 +455,10 @@ namespace PacMan {
         private void exitbutton_Click(object sender, EventArgs e) {
             Application.Exit();
         }
-
+        
         private void endGame() {
             exitbutton.Visible = true;
-            //Gameoverlabel.Visible = true;
+            Gameoverlabel.Visible = true;
             continuebutton.Visible = true;
             Playagainlabel.Visible = true;
             timer.Stop();
@@ -488,22 +471,22 @@ namespace PacMan {
             ghosts[index] = null;
             switch (index) {
                 case 0:
-                    ghosts[0] = new Ghost(71, 30); //use this one if the delay works?
+                    ghosts[index] = new Ghost(71, 5); //use this one if the delay works?
                     break;
                 case 1:
-                    ghosts[1] = new Ghost(72, 0);
+                    ghosts[index] = new Ghost(72, 0);
                     break;
                 case 2:
-                    ghosts[2] = new Ghost(73, 60);
+                    ghosts[index] = new Ghost(73, 10);
                     break;
                 case 3:
-                    ghosts[3] = new Ghost(87, 90);
+                    ghosts[index] = new Ghost(87, 15);
                     break;
                 case 4:
-                    ghosts[4] = new Ghost(88, 120);
+                    ghosts[index] = new Ghost(88, 20);
                     break;
                 case 5:
-                    ghosts[5] = new Ghost(89, 150);
+                    ghosts[index] = new Ghost(89, 25);
                     break;
             }
         }
@@ -538,21 +521,39 @@ namespace PacMan {
             }
 
             //recreate ghosts
-            ghosts[0] = new Ghost(71, 30);
+            ghosts[0] = new Ghost(71, 5);
             ghosts[1] = new Ghost(72, 0);
-            ghosts[2] = new Ghost(73, 60);
-            ghosts[3] = new Ghost(87, 90);
-            ghosts[4] = new Ghost(88, 120);
-            ghosts[5] = new Ghost(89, 150);
+            ghosts[2] = new Ghost(73, 10);
+            ghosts[3] = new Ghost(87, 15);
+            ghosts[4] = new Ghost(88, 20);
+            ghosts[5] = new Ghost(89, 25);
 
-            //tag ghosts
-            for (int i = 0; i < ghosts.Count(); i++) {
-                btnArray[ghosts[i].getIndex()].Tag = "AI 0";
+            //distinct labels
+            for (int i = 0; i < ghosts.Length; i++) {
+                switch (i) {
+                    case 0:
+                        btnArray[ghosts[i].getIndex()].Tag = "AI0";
+                        break;
+                    case 1:
+                        btnArray[ghosts[i].getIndex()].Tag = "AI1";
+                        break;
+                    case 2:
+                        btnArray[ghosts[i].getIndex()].Tag = "AI2";
+                        break;
+                    case 3:
+                        btnArray[ghosts[i].getIndex()].Tag = "AI3";
+                        break;
+                    case 4:
+                        btnArray[ghosts[i].getIndex()].Tag = "AI4";
+                        break;
+                    case 5:
+                        btnArray[ghosts[i].getIndex()].Tag = "AI5";
+                        break;
+                }
             }
 
             timer.Start();
             animationTimer.Start();
         }
-
     }
 }
