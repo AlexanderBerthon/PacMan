@@ -3,9 +3,8 @@ namespace PacMan {
     /* BUGS  
      * Player pac man animation flashes some times still, not easy on the eyes
      * 
-     * Collision - visual disconnect, sometimes captures look like they are 2 tiles away
-     * 
-     * stuck tick no visual / if stuck the next tick they dont move but the icon goes away/ maybe removing but not replacing
+     * Collision - visual disconnect, SOMETIMES captures look like they are 2 tiles away
+     * Ghost destroyed during vulnerable phase are invisible on respawn //while delay > 0 presumably
      *
      * TAGS (getting complicated so making a key)
      * AI1 - AI + distinct identifier + " " + orb/no orb
@@ -41,7 +40,7 @@ namespace PacMan {
         public Form1() {
             InitializeComponent();
 
-            timer.Interval = 1000; //300
+            timer.Interval = 300;
             timer.Tick += new EventHandler(TimerEventProcessor);
 
             animationTimer.Interval = 150;
@@ -65,10 +64,6 @@ namespace PacMan {
             ghosts[3] = new Ghost(87, 30);
             ghosts[4] = new Ghost(88, 40);
             ghosts[5] = new Ghost(89, 50);
-
-
-            //Gameoverlabel.Visible = true; //testing
-
 
             //distinct labels
             for (int i = 0; i < ghosts.Length; i++) {
@@ -167,12 +162,6 @@ namespace PacMan {
             for (int i = 0; i < ghosts.Length; i++) {
                 //logic
                 if (ghosts[i].getDelay() == 0) {
-                    //replace orb if needed
-
-                    //moving this down, originally at the very top where
-
-                    
-
                     //check possible moves
                     if (btnArray[ghosts[i].getIndex() + 1].BackColor != Color.DarkSlateBlue &&
                         !(btnArray[ghosts[i].getIndex() + 1].Tag.ToString().Contains("AI")) &&
@@ -198,7 +187,7 @@ namespace PacMan {
                         validMoves.Add(-16);
                     }
 
-                    //unstuck if needed
+                    //unstuck if needed - this location is important. runs on next move, not current move. 
                     if (ghosts[i].stuck()) {
                         if (btnArray[ghosts[i].getIndex() + 1].BackColor != Color.DarkSlateBlue &&
                         !(btnArray[ghosts[i].getIndex() + 1].Tag.ToString().Contains("AI"))) {
@@ -225,7 +214,7 @@ namespace PacMan {
                         }
                     }
 
-                    if(validMoves.Count < 1) {
+                    if (validMoves.Count < 1) {
                         ghosts[i].stuck(true);
                     }
 
@@ -244,7 +233,7 @@ namespace PacMan {
                             btnArray[ghosts[i].getIndex()].Tag = "0";
                             btnArray[ghosts[i].getIndex()].BackgroundImage = null;
                         }
-              
+
                         //move
                         int choice = random.Next(0, validMoves.Count);
                         if (btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "1") { // || btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag.ToString().Contains("orb")
@@ -265,59 +254,58 @@ namespace PacMan {
                                 //score += 25;
                             }
                             else {
-                                //endGame();
+                                endGame();
                             }
                         }
                         else {
                             ghosts[i].update(validMoves[choice]);
                         }
                     }
-
-                    //animation
-                    //might cause a visual bugs / ghosts out of sync/animations don't match 
-
-                    if (!ghosts[i].stuck()) {
-                        btnArray[ghosts[i].getIndex()].Tag = "AI" + i;
-
-                        if (AIVulnerable > 0) {
-                            btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost7;
-                        }
-                        else {
-                            switch (i) {
-                                case 0:
-                                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
-                                    break;
-                                case 1:
-                                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost2;
-                                    break;
-                                case 2:
-                                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost3;
-                                    break;
-                                case 3:
-                                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost4;
-                                    break;
-                                case 4:
-                                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost5;
-                                    break;
-                                case 5:
-                                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost6;
-                                    break;
-                            }
-                        }
-                    }
-                    
-                    if (replaceOrb) {
-                        btnArray[ghosts[i].getIndex()].Tag += " orb";
-                    }
-                    else if (replaceSpecialOrb) {
-                        btnArray[ghosts[i].getIndex()].Tag += " special";
-                    }
-                    validMoves.Clear();
-                    replaceOrb = false;
-                    replaceSpecialOrb = false;
                 }
+
+                //animation
+                if (!ghosts[i].stuck()) {
+                    btnArray[ghosts[i].getIndex()].Tag = "AI" + i;
+
+                    if (AIVulnerable > 0) {
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost7;
+                    }
+                    else {
+                        switch (i) {
+                            case 0:
+                                btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
+                                break;
+                            case 1:
+                                btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost2;
+                                break;
+                            case 2:
+                                btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost3;
+                                break;
+                            case 3:
+                                btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost4;
+                                break;
+                            case 4:
+                                btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost5;
+                                break;
+                            case 5:
+                                btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost6;
+                                break;
+                        }
+                    }
+                }
+                    
+                if (replaceOrb) {
+                    btnArray[ghosts[i].getIndex()].Tag += " orb";
+                }
+                else if (replaceSpecialOrb) {
+                    btnArray[ghosts[i].getIndex()].Tag += " special";
+                }
+                validMoves.Clear();
+                replaceOrb = false;
+                replaceSpecialOrb = false;
             }
 
+            //reduce delay each tick
             for (int i = 0; i < ghosts.Length; i++) {
                 if(ghosts[i].getDelay() > 0){
                     ghosts[i].reduceDelay();
@@ -342,20 +330,20 @@ namespace PacMan {
                 }
                 else {
                     //enemy collision
-                    //endGame();
+                    endGame();
                 }
             }
 
             
             else {
                 currentIndex += trajectory;
-                //if point gathered
+
                 if(btnArray[currentIndex].Tag == "1") {
                     score+=1;
                     orbs--;
                     ScoreLabel.Text = score.ToString();
                     if (orbs == 0) {
-                        nextStage(); //might be a problem to leave this here
+                        nextStage(); //might be a problem to leave this here?
                     }
                 }
                 else if(btnArray[currentIndex].Tag == "3") {
@@ -382,7 +370,7 @@ namespace PacMan {
 
         private void continuebutton_Click(object sender, EventArgs e) {
             
-            //Gameoverlabel.Visible = false;
+            Gameoverlabel.Visible = false;
             continuebutton.Visible = false;
             exitbutton.Visible = false;
             Playagainlabel.Visible = false;
@@ -416,7 +404,7 @@ namespace PacMan {
             }
 
             //recreate/reset ghosts
-            ghosts[0] = new Ghost(71, 10); //start index, delay(# of game tick cycles)
+            ghosts[0] = new Ghost(71, 10);
             ghosts[1] = new Ghost(72, 0);
             ghosts[2] = new Ghost(73, 20);
             ghosts[3] = new Ghost(87, 30);
