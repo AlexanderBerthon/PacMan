@@ -2,13 +2,10 @@ namespace PacMan {
 
     /* BUGS  
      * Player pac man animation flashes some times still, not easy on the eyes
-     *      * 
-     * collision fixed! 
-     * ghost reset kind of works, position is reset but the delay isn't resetting properly.
      * 
-     * collision might have been overcompensated a bit, captures a tick early in some cases
-     * now that I have found the issue that was causing the collision errors, I should go back and 
-     * revert the janky solutions I had been testing.
+     * Collision - visual disconnect, sometimes captures look like they are 2 tiles away
+     * 
+     * AI stuck - orbs are being deleted
      * 
      *
      * TAGS (getting complicated so making a key)
@@ -52,7 +49,7 @@ namespace PacMan {
             animationTimer.Tick += new EventHandler(TimerEventProcessor2);
 
             score = 0;
-            orbs = 110; //might be off / add orbs-- when collision happens 
+            orbs = 110;
 
             AIVulnerable = 0;
 
@@ -63,32 +60,42 @@ namespace PacMan {
 
             ghosts = new Ghost[6]; //[6] = number of ghosts
 
-            ghosts[0] = new Ghost(71, 5); //start index, delay(# of game tick cycles)
+            ghosts[0] = new Ghost(71, 10); //start index, delay(# of game tick cycles)
             ghosts[1] = new Ghost(72, 0);
-            ghosts[2] = new Ghost(73, 10);
-            ghosts[3] = new Ghost(87, 15);
-            ghosts[4] = new Ghost(88, 20);
-            ghosts[5] = new Ghost(89, 25);
+            ghosts[2] = new Ghost(73, 20);
+            ghosts[3] = new Ghost(87, 30);
+            ghosts[4] = new Ghost(88, 40);
+            ghosts[5] = new Ghost(89, 50);
+
+
+            Gameoverlabel.Visible = true; //testing
+
 
             //distinct labels
             for (int i = 0; i < ghosts.Length; i++) {
                 switch (i) {
                     case 0:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
                         btnArray[ghosts[i].getIndex()].Tag = "AI0";
                         break;
                     case 1:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost2;
                         btnArray[ghosts[i].getIndex()].Tag = "AI1";
                         break;
                     case 2:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost3;
                         btnArray[ghosts[i].getIndex()].Tag = "AI2";
                         break;
                     case 3:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost4;
                         btnArray[ghosts[i].getIndex()].Tag = "AI3";
                         break;
                     case 4:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost5;
                         btnArray[ghosts[i].getIndex()].Tag = "AI4";
                         break;
                     case 5:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost6;
                         btnArray[ghosts[i].getIndex()].Tag = "AI5";
                         break;
                 }
@@ -104,7 +111,7 @@ namespace PacMan {
             
             if (trajectory != 0) {
                 btnArray[currentIndex].BackgroundImage = null;
-                btnArray[currentIndex].Tag = "0"; //""
+                btnArray[currentIndex].Tag = "0";
             }
             move();
             if (AIVulnerable <= 0) {
@@ -156,18 +163,25 @@ namespace PacMan {
             Random random = new Random();
             List<int> validMoves = new List<int>();
             Boolean replaceOrb = false;
+            Boolean replaceSpecialOrb = false;
 
             for (int i = 0; i < ghosts.Length; i++) {
                 //logic
                 if (ghosts[i].getDelay() == 0) {
                     //replace orb if needed
-                    if (btnArray[ghosts[i].getIndex()].Tag.ToString().Contains("orb")) {
-                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.orb;
-                        btnArray[ghosts[i].getIndex()].Tag = "1";
-                    }
-                    else {
-                        btnArray[ghosts[i].getIndex()].Tag = "0";
-                        btnArray[ghosts[i].getIndex()].BackgroundImage = null;
+                    if (!ghosts[i].stuck()) {
+                        if (btnArray[ghosts[i].getIndex()].Tag.ToString().Contains("orb")) {
+                            btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.orb;
+                            btnArray[ghosts[i].getIndex()].Tag = "1";
+                        }
+                        else if (btnArray[ghosts[i].getIndex()].Tag.ToString().Contains("special")) {
+                            btnArray[ghosts[i].getIndex()].Tag = "3";
+                            btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.orb2;
+                        }
+                        else if (!ghosts[i].stuck()) {
+                            btnArray[ghosts[i].getIndex()].Tag = "0";
+                            btnArray[ghosts[i].getIndex()].BackgroundImage = null;
+                        }
                     }
 
                     //check possible moves
@@ -225,25 +239,35 @@ namespace PacMan {
                     //move
                     if (validMoves.Count > 0) {
                         int choice = random.Next(0, validMoves.Count);
-                        if(btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "1"){
+                        if (btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "1") { // || btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag.ToString().Contains("orb")
                             replaceOrb = true;
+                        }
+                        else if(btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "3") { // || btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag.ToString().Contains("orb")
+                            replaceSpecialOrb = true;
                         }
 
                         if (btnArray[ghosts[i].getIndex()].Tag == "Player" || btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "Player") {
                             if (AIVulnerable > 0) {
+                                //TEST CODE, might fix orb count?
+                                if (btnArray[ghosts[i].getIndex()].Tag.ToString().Contains("orb")) {
+                                    orbs--;
+                                }
+                                destroyGhost(i);
+                                validMoves.Clear();
+                                //score += 25;
+                                
+
+                                //ORIGINAL CODE
+                                /*
                                 destroyGhost(i);
                                 validMoves.Clear(); //testing
-                                orbs--;
+                                orbs--; //this makes the orb count/condition for nextStage() inaccurate | can get to next stage while orbs still available
                                 score += 25;
+                                */
+                               
                             }
                             else {
-                                //enemy collision
-                                exitbutton.Visible = true;
-                                Gameoverlabel.Visible = true;
-                                continuebutton.Visible = true;
-                                Playagainlabel.Visible = true;
-                                timer.Stop();
-                                animationTimer.Stop();
+                                endGame();
                             }
                         }
                         else {
@@ -251,74 +275,76 @@ namespace PacMan {
                         }
                     }
                     else {
+                        Gameoverlabel.Text = "STUCK";
                         ghosts[i].stuck(true);
                     }
-                }
-                //animation
-                if (AIVulnerable > 0) {
-                    switch (i) {
-                        case 0:
-                            btnArray[ghosts[i].getIndex()].Tag = "AI0";
-                            break;
-                        case 1:
-                            btnArray[ghosts[i].getIndex()].Tag = "AI1";
-                            break;
-                        case 2:
-                            btnArray[ghosts[i].getIndex()].Tag = "AI2";
-                            break;
-                        case 3:
-                            btnArray[ghosts[i].getIndex()].Tag = "AI3";
-                            break;
-                        case 4:
-                            btnArray[ghosts[i].getIndex()].Tag = "AI4";
-                            break;
-                        case 5:
-                            btnArray[ghosts[i].getIndex()].Tag = "AI5";
-                            break;
+
+                    //animation
+                    //might cause a visual bugs / ghosts out of sync/animations don't match 
+                    if (!ghosts[i].stuck()) {
+                        if (AIVulnerable > 0) {
+                            switch (i) {
+                                case 0:
+                                    btnArray[ghosts[i].getIndex()].Tag = "AI0";
+                                    break;
+                                case 1:
+                                    btnArray[ghosts[i].getIndex()].Tag = "AI1";
+                                    break;
+                                case 2:
+                                    btnArray[ghosts[i].getIndex()].Tag = "AI2";
+                                    break;
+                                case 3:
+                                    btnArray[ghosts[i].getIndex()].Tag = "AI3";
+                                    break;
+                                case 4:
+                                    btnArray[ghosts[i].getIndex()].Tag = "AI4";
+                                    break;
+                                case 5:
+                                    btnArray[ghosts[i].getIndex()].Tag = "AI5";
+                                    break;
+                            }
+                            btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost7;
+                        }
+                        else {
+                            switch (i) {
+                                case 0:
+                                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
+                                    btnArray[ghosts[i].getIndex()].Tag = "AI0";
+                                    break;
+                                case 1:
+                                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost2;
+                                    btnArray[ghosts[i].getIndex()].Tag = "AI1";
+                                    break;
+                                case 2:
+                                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost3;
+                                    btnArray[ghosts[i].getIndex()].Tag = "AI2";
+                                    break;
+                                case 3:
+                                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost4;
+                                    btnArray[ghosts[i].getIndex()].Tag = "AI3";
+                                    break;
+                                case 4:
+                                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost5;
+                                    btnArray[ghosts[i].getIndex()].Tag = "AI4";
+                                    break;
+                                case 5:
+                                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost6;
+                                    btnArray[ghosts[i].getIndex()].Tag = "AI5";
+                                    break;
+                            }
+                        }
                     }
-                    btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost7;
-                }
-                else {
-                    switch (i) {
-                        case 0:
-                            btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
-                            btnArray[ghosts[i].getIndex()].Tag = "AI0";
-                            break;
-                        case 1:
-                            btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost2;
-                            btnArray[ghosts[i].getIndex()].Tag = "AI1";
-                            break;
-                        case 2:
-                            btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost3;
-                            btnArray[ghosts[i].getIndex()].Tag = "AI2";
-                            break;
-                        case 3:
-                            btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost4;
-                            btnArray[ghosts[i].getIndex()].Tag = "AI3";
-                            break;
-                        case 4:
-                            btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost5;
-                            btnArray[ghosts[i].getIndex()].Tag = "AI4";
-                            break;
-                        case 5:
-                            btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost6;
-                            btnArray[ghosts[i].getIndex()].Tag = "AI5";
-                            break;
+
+                    if (replaceOrb) {
+                        btnArray[ghosts[i].getIndex()].Tag += " orb";
                     }
+                    else if (replaceSpecialOrb) {
+                        btnArray[ghosts[i].getIndex()].Tag += " special";
+                    }
+                    validMoves.Clear();
+                    replaceOrb = false;
+                    replaceSpecialOrb = false;
                 }
-
-                if (replaceOrb) {
-                    btnArray[ghosts[i].getIndex()].Tag += " orb";
-                }
-
-                //if stuck, and needs to replace an orb, replace the orb?
-                else if (ghosts[i].stuck()) {
-                    btnArray[ghosts[i].getIndex()].Tag += " orb";
-                }
-                
-
-                validMoves.Clear();
-                replaceOrb = false;
             }
 
             for (int i = 0; i < ghosts.Length; i++) {
@@ -337,9 +363,11 @@ namespace PacMan {
             else if (btnArray[currentIndex + trajectory].Tag.ToString().Contains("AI")) {
                 if (AIVulnerable > 0) {
                     //ghost capture
+                    if(btnArray[currentIndex + trajectory].Tag.ToString().Contains("orb")){
+                        orbs--;
+                    }
                     destroyGhost(int.Parse(btnArray[currentIndex + trajectory].Tag.ToString().Substring(2,1))); //this is disgusting
-                    score += 25;
-                    orbs--;
+                    //score += 25;
                 }
                 else {
                     //enemy collision
@@ -383,7 +411,7 @@ namespace PacMan {
 
         private void continuebutton_Click(object sender, EventArgs e) {
             
-            Gameoverlabel.Visible = false;
+            //Gameoverlabel.Visible = false;
             continuebutton.Visible = false;
             exitbutton.Visible = false;
             Playagainlabel.Visible = false;
@@ -417,32 +445,38 @@ namespace PacMan {
             }
 
             //recreate/reset ghosts
-            ghosts[0] = new Ghost(71, 5); //start index, delay(# of game tick cycles)
+            ghosts[0] = new Ghost(71, 10); //start index, delay(# of game tick cycles)
             ghosts[1] = new Ghost(72, 0);
-            ghosts[2] = new Ghost(73, 10);
-            ghosts[3] = new Ghost(87, 15);
-            ghosts[4] = new Ghost(88, 20);
-            ghosts[5] = new Ghost(89, 25);
+            ghosts[2] = new Ghost(73, 20);
+            ghosts[3] = new Ghost(87, 30);
+            ghosts[4] = new Ghost(88, 40);
+            ghosts[5] = new Ghost(89, 50);
 
             //distinct labels
             for (int i = 0; i < ghosts.Length; i++) {
                 switch (i) {
                     case 0:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost1;
                         btnArray[ghosts[i].getIndex()].Tag = "AI0";
                         break;
                     case 1:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost2;
                         btnArray[ghosts[i].getIndex()].Tag = "AI1";
                         break;
                     case 2:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost3;
                         btnArray[ghosts[i].getIndex()].Tag = "AI2";
                         break;
                     case 3:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost4;
                         btnArray[ghosts[i].getIndex()].Tag = "AI3";
                         break;
                     case 4:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost5;
                         btnArray[ghosts[i].getIndex()].Tag = "AI4";
                         break;
                     case 5:
+                        btnArray[ghosts[i].getIndex()].BackgroundImage = Properties.Resources.Ghost6;
                         btnArray[ghosts[i].getIndex()].Tag = "AI5";
                         break;
                 }
@@ -471,22 +505,22 @@ namespace PacMan {
             ghosts[index] = null;
             switch (index) {
                 case 0:
-                    ghosts[index] = new Ghost(71, 5); //use this one if the delay works?
+                    ghosts[index] = new Ghost(71, 10);
                     break;
                 case 1:
                     ghosts[index] = new Ghost(72, 0);
                     break;
                 case 2:
-                    ghosts[index] = new Ghost(73, 10);
+                    ghosts[index] = new Ghost(73, 20);
                     break;
                 case 3:
-                    ghosts[index] = new Ghost(87, 15);
+                    ghosts[index] = new Ghost(87, 30);
                     break;
                 case 4:
-                    ghosts[index] = new Ghost(88, 20);
+                    ghosts[index] = new Ghost(88, 40);
                     break;
                 case 5:
-                    ghosts[index] = new Ghost(89, 25);
+                    ghosts[index] = new Ghost(89, 50);
                     break;
             }
         }
@@ -521,12 +555,12 @@ namespace PacMan {
             }
 
             //recreate ghosts
-            ghosts[0] = new Ghost(71, 5);
+            ghosts[0] = new Ghost(71, 10);
             ghosts[1] = new Ghost(72, 0);
-            ghosts[2] = new Ghost(73, 10);
-            ghosts[3] = new Ghost(87, 15);
-            ghosts[4] = new Ghost(88, 20);
-            ghosts[5] = new Ghost(89, 25);
+            ghosts[2] = new Ghost(73, 20);
+            ghosts[3] = new Ghost(87, 30);
+            ghosts[4] = new Ghost(88, 40);
+            ghosts[5] = new Ghost(89, 50);
 
             //distinct labels
             for (int i = 0; i < ghosts.Length; i++) {
