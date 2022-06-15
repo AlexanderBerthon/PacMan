@@ -1,44 +1,76 @@
 namespace PacMan {
 
     /* BUGS  
-     * Player pac man animation flashes some times still, not easy on the eyes
+     * Player pac man animation flashes sometimes, not easy on the eyes
      * 
      * Collision - visual disconnect, SOMETIMES captures look like they are 2 tiles away
-     * Ghost destroyed during vulnerable phase are invisible on respawn //while delay > 0 presumably
      *
-     * TAGS (getting complicated so making a key)
-     * AI1 - AI + distinct identifier + " " + orb/no orb
-     * e.g. 
-     * "AI1 orb" is ghost one and needs orb replacement
-     * "AI0"     is ghost zero and does not need orb replacement
-     * "Player" = the player / pacman
-     * "0" = empty space / no orb
-     * "1" = full space / orb
-     * "3" = special orb / power up
+     * Biggest issue - orb variable is inconsistent ~ very often move to the next stage while 1-3 orbs are still on the board. Has to do with ghost capture 
+     * if you capture a ghost that was on top of an orb tile, you must orbs--
+     * if you capture a ghost that is on an empty tile, you must not decrement orbs
+     * but it is difficult to distinguish these two scenarios
+     * ideally, you could check the tag of the ghost that is about to be destroyed, as it should contain "orb"
+     * However I created conditions for this scenario and it doesn't seem to work.
+     * so there must be something going on
      *
+     * To initialize is to assign a value
+     * To instantiate is to create (an object)
      *
      *
     */
 
+    /* TAG KEY
+        _______________________________________________
+        TAG         -  DEFINITION
+        _______________________________________________
+        "AI1 orb"   -  Ghost one, needs orb replacement
+        "AI0"       -  Ghost zero, no orb replacement
+        "Player"    -  The player / pacman
+        "0"         -  Empty space / no orb
+        "1"         -  Full space / orb
+        "3"         -  Special orb / power up
+        _______________________________________________
+   */
+
     public partial class Form1 : Form {
         //global variables :(
+
+        //player variables
         int currentIndex;
-
-        Boolean skip = true;
-
         int trajectory;
+
+        //game variables
         int score;
         int orbs;
+        int AIVulnerable;
         Ghost[] ghosts;
         Button[] btnArray;
-        Boolean animation = true;
-        int AIVulnerable;
 
+        //clock and timer
+        Boolean skip;
+        Boolean animation;
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         System.Windows.Forms.Timer animationTimer = new System.Windows.Forms.Timer();
 
         public Form1() {
             InitializeComponent();
+
+            //Initialize player variables
+            currentIndex = 120;
+            trajectory = 0;
+
+            //Initialize game variables
+            score = 0;
+            orbs = 110;
+            AIVulnerable = 0;
+            ghosts = new Ghost[6]; //[6] = number of ghosts
+            btnArray = new Button[256];
+
+            flowLayoutPanel1.Controls.CopyTo(btnArray, 0);
+
+            //clock and timer
+            skip = true;
+            animation = true;
 
             timer.Interval = 300;
             timer.Tick += new EventHandler(TimerEventProcessor);
@@ -46,18 +78,7 @@ namespace PacMan {
             animationTimer.Interval = 150;
             animationTimer.Tick += new EventHandler(TimerEventProcessor2);
 
-            score = 0;
-            orbs = 110;
-
-            AIVulnerable = 0;
-
-            currentIndex = 120;
-            trajectory = 0;
-            btnArray = new Button[256];
-            flowLayoutPanel1.Controls.CopyTo(btnArray, 0);
-
-            ghosts = new Ghost[6]; //[6] = number of ghosts
-
+            //ghost creation
             ghosts[0] = new Ghost(71, 10); //start index, delay(# of game tick cycles)
             ghosts[1] = new Ghost(72, 0);
             ghosts[2] = new Ghost(73, 20);
@@ -95,6 +116,7 @@ namespace PacMan {
                 }
             }
 
+            //begin
             timer.Start();
             animationTimer.Start();
         }
@@ -102,7 +124,6 @@ namespace PacMan {
 
         //movement clock
         private void TimerEventProcessor(Object anObject, EventArgs eventArgs) {
-            
             if (trajectory != 0) {
                 btnArray[currentIndex].BackgroundImage = null;
                 btnArray[currentIndex].Tag = "0";
@@ -150,10 +171,13 @@ namespace PacMan {
                 animation = true;
             }
         }
-
+        /// <summary>
+        /// This function is responsible for the AI Logic and movement
+        /// Essentially this function will calculate all moves available for each ghosts and randomly choose a valid move
+        /// Maximum of 3 choices, often only 1 choice. Calculated every tick of the movement clock for each of the active ghosts / ghosts who have a delay = 
+        /// Movement also encompasses animation, background image swapping, and orb maintenance.
+        /// </summary>
         private void AIMove() {
-            //every tick, calculate all valid moves
-            //randomly select a move from the pool (3 max choices, often only 1 choice)
             Random random = new Random();
             List<int> validMoves = new List<int>();
             Boolean replaceOrb = false;
@@ -218,7 +242,6 @@ namespace PacMan {
                         ghosts[i].stuck(true);
                     }
 
-                    //moving this down, originally at the very top where
                     if (!ghosts[i].stuck()) {
                         //replace
                         if (btnArray[ghosts[i].getIndex()].Tag.ToString().Contains("orb")) {
@@ -236,10 +259,10 @@ namespace PacMan {
 
                         //move
                         int choice = random.Next(0, validMoves.Count);
-                        if (btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "1") { // || btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag.ToString().Contains("orb")
+                        if (btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "1") {
                             replaceOrb = true;
                         }
-                        else if (btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "3") { // || btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag.ToString().Contains("orb")
+                        else if (btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "3") {
                             replaceSpecialOrb = true;
                         }
 
@@ -313,6 +336,9 @@ namespace PacMan {
             }
         }
 
+        /// <summary>
+        /// This function is responsible for the logic behind player movement and collision
+        /// </summary>
         private void move() {
             if (btnArray[currentIndex + trajectory].BackColor == Color.DarkSlateBlue) {
                 trajectory = 0;
@@ -323,17 +349,15 @@ namespace PacMan {
                 if (AIVulnerable > 0) {
                     //ghost capture
                     if(btnArray[currentIndex + trajectory].Tag.ToString().Contains("orb")){
-                        orbs--;
+                        orbs--; // issue here
                     }
                     destroyGhost(int.Parse(btnArray[currentIndex + trajectory].Tag.ToString().Substring(2,1))); //this is disgusting
                     //score += 25;
                 }
                 else {
-                    //enemy collision
                     endGame();
                 }
             }
-
             
             else {
                 currentIndex += trajectory;
@@ -368,8 +392,12 @@ namespace PacMan {
             }
         }
 
+        /// <summary>
+        /// Function to restart the game on game over. Begins the game anew, without having to relaunch the entire application.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void continuebutton_Click(object sender, EventArgs e) {
-            
             Gameoverlabel.Visible = false;
             continuebutton.Visible = false;
             exitbutton.Visible = false;
@@ -385,6 +413,7 @@ namespace PacMan {
                 ghosts[i] = null;
             }
 
+            //replace orbs / clean up tags
             foreach(Button btn in btnArray) {
                 if(btn.TabIndex == 71 || btn.TabIndex == 72 || btn.TabIndex == 73 || btn.TabIndex == 87 ||
                     btn.TabIndex == 87 || btn.TabIndex == 88 || btn.TabIndex == 89 || btn.TabIndex == 56) {
@@ -441,14 +470,23 @@ namespace PacMan {
                 }
             }
 
+            //begin anew
             timer.Start();
             animationTimer.Start();
         }
 
+        /// <summary>
+        /// Exits the application when the button is clicked. Button shown on game over. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exitbutton_Click(object sender, EventArgs e) {
             Application.Exit();
         }
         
+        /// <summary>
+        /// Simple helper function that stops the game and displays game over menus when called.
+        /// </summary>
         private void endGame() {
             exitbutton.Visible = true;
             Gameoverlabel.Visible = true;
@@ -458,6 +496,10 @@ namespace PacMan {
             animationTimer.Stop();
         }
 
+        /// <summary>
+        /// Helper function to identify, remove, and replace a ghost object in the ghosts[] array
+        /// </summary>
+        /// <param name="index"></param> the index of the ghost in ghosts[] array that is to be recreated. 
         private void destroyGhost(int index) {
             btnArray[ghosts[index].getIndex()].BackgroundImage = null;
             btnArray[ghosts[index].getIndex()].Tag = "";
@@ -484,6 +526,11 @@ namespace PacMan {
             }
         }
 
+        /// <summary>
+        /// Function to reset the game board for the next stage upon the player collecting all of the orbs.
+        /// Similar to the restart function but the score is maintained
+        /// now that I think about it I could probably combine the 2 functions and pass an argument to determine is the score is persistent or not //TODO:
+        /// </summary>
         private void nextStage() {
             currentIndex = 121;
             trajectory = 0;
