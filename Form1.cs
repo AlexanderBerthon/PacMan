@@ -5,18 +5,6 @@ namespace PacMan {
      * 
      * Collision - visual disconnect, SOMETIMES captures look like they are 2 tiles away
      *
-     * Biggest issue - orb variable is inconsistent ~ very often move to the next stage while 1-3 orbs are still on the board. Has to do with ghost capture 
-     * if you capture a ghost that was on top of an orb tile, you must orbs--
-     * if you capture a ghost that is on an empty tile, you must not decrement orbs
-     * but it is difficult to distinguish these two scenarios
-     * ideally, you could check the tag of the ghost that is about to be destroyed, as it should contain "orb"
-     * However I created conditions for this scenario and it doesn't seem to work.
-     * so there must be something going on
-     *
-     * To initialize is to assign a value
-     * To instantiate is to create (an object)
-     *
-     *
     */
 
     /* TAG KEY
@@ -47,6 +35,7 @@ namespace PacMan {
         Button[] btnArray;
 
         //clock and timer
+        Boolean gameOver;
         Boolean skip;
         Boolean animation;
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
@@ -69,6 +58,7 @@ namespace PacMan {
             flowLayoutPanel1.Controls.CopyTo(btnArray, 0);
 
             //clock and timer
+            gameOver = false;
             skip = true;
             animation = true;
 
@@ -141,6 +131,9 @@ namespace PacMan {
                     AIMove();
                     AIVulnerable--;
                 }
+            }
+            if (gameOver) {
+                endGame();
             }
         }
 
@@ -268,16 +261,15 @@ namespace PacMan {
 
                         if (btnArray[ghosts[i].getIndex()].Tag == "Player" || btnArray[ghosts[i].getIndex() + validMoves[choice]].Tag == "Player") {
                             if (AIVulnerable > 0) {
-                                //TEST CODE, might fix orb count?
                                 if (btnArray[ghosts[i].getIndex()].Tag.ToString().Contains("orb")) {
                                     orbs--;
                                 }
                                 destroyGhost(i);
                                 validMoves.Clear();
-                                //score += 25;
+                                score += 25;
                             }
                             else {
-                                endGame();
+                                gameOver = true;
                             }
                         }
                         else {
@@ -342,21 +334,19 @@ namespace PacMan {
         private void move() {
             if (btnArray[currentIndex + trajectory].BackColor == Color.DarkSlateBlue) {
                 trajectory = 0;
-            }
-
-            
+            } 
             else if (btnArray[currentIndex + trajectory].Tag.ToString().Contains("AI")) {
                 if (AIVulnerable > 0) {
                     //ghost capture
                     if(btnArray[currentIndex + trajectory].Tag.ToString().Contains("orb")){
-                        orbs--; // issue here
+                        orbs--;
                     }
-                    destroyGhost(int.Parse(btnArray[currentIndex + trajectory].Tag.ToString().Substring(2,1))); //this is disgusting
-                    //score += 25;
+                    destroyGhost(int.Parse(btnArray[currentIndex + trajectory].Tag.ToString().Substring(2,1)));
+                    score += 25;
                 }
-                else {
-                    endGame();
-                }
+                else {              
+                gameOver = true;
+              }
             }
             
             else {
@@ -402,7 +392,8 @@ namespace PacMan {
             continuebutton.Visible = false;
             exitbutton.Visible = false;
             Playagainlabel.Visible = false;
-               
+            gameOver = false;   
+
             score = 0;
             orbs = 110;
             currentIndex = 121;
