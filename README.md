@@ -15,23 +15,23 @@
           <ul><s>Idle Animation</s></ul>
           <ul><s>Directional Movement Animation</s></ul>
         </ul>
-        <ul>AI Animations</ul>
+        <ul><s>AI Animations</s></ul>
         <ul>Game Over Animation</ul>
         <ul><s>Game Over Screen</s></ul>
       </ul>
-      <ul>Gameplay
-        <ul>Player Controls
+      <ul><s>Gameplay</s>
+        <ul><s>Player Controls</s>
           <ul><s>movement</s></ul>
           <ul><s>Wall Collision</s></ul>
           <ul><s>Ghost Collision</s></ul>
           <ul><s>Player Points</s></ul>
       </ul>
-      <ul>AI Controls
+        <ul><s>AI Controls</s>
         <ul><s>AI Movement</s></ul>
         <ul><s>AI Pathing</s></ul>
         <ul><s>Player Collision</s></ul>
       </ul>
-      <ul>Main Game Loop
+        <ul><s>Main Game Loop</s>
         <ul><s>Game over</s></ul>
         <ul><s>Win condition</s></ul>
         <ul><s>Turn loop</s></ul>
