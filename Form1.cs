@@ -38,6 +38,7 @@ namespace PacMan {
         Boolean gameOver;
         Boolean skip;
         Boolean animation;
+        int despawn;
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         System.Windows.Forms.Timer animationTimer = new System.Windows.Forms.Timer();
 
@@ -61,6 +62,7 @@ namespace PacMan {
             gameOver = false;
             skip = true;
             animation = true;
+            despawn = 0;
 
             timer.Interval = 300;
             timer.Tick += new EventHandler(TimerEventProcessor);
@@ -118,7 +120,11 @@ namespace PacMan {
                 btnArray[currentIndex].BackgroundImage = null;
                 btnArray[currentIndex].Tag = "0";
             }
-            move();
+            
+            if (!gameOver) {
+                move();
+            }
+
             if (AIVulnerable <= 0) {
                 AIMove();
             }
@@ -132,7 +138,8 @@ namespace PacMan {
                     AIVulnerable--;
                 }
             }
-            if (gameOver) {
+            //added condition so this function is only called 1 time rather than every time the clock ticks after the game has ended
+            if (gameOver && Gameoverlabel.Visible == false) {
                 endGame();
             }
         }
@@ -162,6 +169,38 @@ namespace PacMan {
             else {
                 btnArray[currentIndex].BackgroundImage = Properties.Resources.Closed;
                 animation = true;
+            }
+            if (gameOver) { //despawn pacman animation
+                if(despawn < 8) {
+                    despawn++;
+                }
+                switch (despawn) {
+                    case 1:
+                        btnArray[currentIndex].BackgroundImage = Properties.Resources.Right;
+                        break;
+                    case 2:
+                        btnArray[currentIndex].BackgroundImage = Properties.Resources.despawn1;
+                        break;
+                    case 3:
+                        btnArray[currentIndex].BackgroundImage = Properties.Resources.despawn2;
+                        break;
+                    case 4:
+                        btnArray[currentIndex].BackgroundImage = Properties.Resources.despawn3;
+                        break;
+                    case 5:
+                        btnArray[currentIndex].BackgroundImage = Properties.Resources.despawn4;
+                        break;
+                    case 6:
+                        btnArray[currentIndex].BackgroundImage = Properties.Resources.despawn5;
+                        break;
+                    case 7:
+                        btnArray[currentIndex].BackgroundImage = Properties.Resources.despawn6;
+                        break;
+                    case 8:
+                        btnArray[currentIndex].BackgroundImage = Properties.Resources.despawn4;
+                        break;
+                }
+
             }
         }
         /// <summary>
@@ -472,6 +511,8 @@ namespace PacMan {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void exitbutton_Click(object sender, EventArgs e) {
+            timer.Stop();
+            animationTimer.Stop();
             Application.Exit();
         }
         
@@ -483,8 +524,9 @@ namespace PacMan {
             Gameoverlabel.Visible = true;
             continuebutton.Visible = true;
             Playagainlabel.Visible = true;
-            timer.Stop();
-            animationTimer.Stop();
+            //gameOver = true; //?
+            //timer.Stop();
+            //animationTimer.Stop();
         }
 
         /// <summary>
