@@ -285,6 +285,7 @@
             this.Playagainlabel = new System.Windows.Forms.Label();
             this.continuebutton = new System.Windows.Forms.Button();
             this.exitbutton = new System.Windows.Forms.Button();
+            this.TestLabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -4295,12 +4296,22 @@
             this.exitbutton.Visible = false;
             this.exitbutton.Click += new System.EventHandler(this.exitbutton_Click);
             // 
+            // TestLabel
+            // 
+            this.TestLabel.AutoSize = true;
+            this.TestLabel.Location = new System.Drawing.Point(223, 6);
+            this.TestLabel.Name = "TestLabel";
+            this.TestLabel.Size = new System.Drawing.Size(38, 15);
+            this.TestLabel.TabIndex = 6;
+            this.TestLabel.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(344, 361);
+            this.Controls.Add(this.TestLabel);
             this.Controls.Add(this.exitbutton);
             this.Controls.Add(this.continuebutton);
             this.Controls.Add(this.Playagainlabel);
@@ -4581,5 +4592,6 @@
         private Label Playagainlabel;
         private Button continuebutton;
         private Button exitbutton;
+        private Label TestLabel;
     }
 }
