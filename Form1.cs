@@ -5,6 +5,13 @@ namespace PacMan {
      * 
      * Collision - visual disconnect, SOMETIMES captures look like they are 2 tiles away
      *
+     * Found bug with orb count. very niche, only occurs when multiple ghosts
+     * are captured back to back / stack
+     * must be due to the slower clock tick on vulnerable phase not updating
+     * as fast as the player is moving through them?
+     * not sure how to even go about fixing this?
+     *
+     *
     */
 
     /* TAG KEY
@@ -22,6 +29,9 @@ namespace PacMan {
 
     public partial class Form1 : Form {
         //global variables :(
+        //testing
+        List<String> debug;
+        //delete above
 
         //player variables
         int currentIndex;
@@ -44,6 +54,10 @@ namespace PacMan {
 
         public Form1() {
             InitializeComponent();
+
+            //testing
+            debug = new List<string>();
+            //delete above
 
             //Initialize player variables
             currentIndex = 120;
@@ -116,6 +130,7 @@ namespace PacMan {
 
         //movement clock
         private void TimerEventProcessor(Object anObject, EventArgs eventArgs) {
+            TestLabel.Text = orbs.ToString();
             if (trajectory != 0) {
                 btnArray[currentIndex].BackgroundImage = null;
                 btnArray[currentIndex].Tag = "0";
@@ -379,9 +394,13 @@ namespace PacMan {
                     //ghost capture
                     if(btnArray[currentIndex + trajectory].Tag.ToString().Contains("orb")){
                         orbs--;
+                        debug.Add("hit with orb");
+                    }
+                    else {
+                        debug.Add("hit without orb");
                     }
                     destroyGhost(int.Parse(btnArray[currentIndex + trajectory].Tag.ToString().Substring(2,1)));
-                    score += 25;
+                    //score += 25;
                 }
                 else {              
                 gameOver = true;
@@ -431,7 +450,8 @@ namespace PacMan {
             continuebutton.Visible = false;
             exitbutton.Visible = false;
             Playagainlabel.Visible = false;
-            gameOver = false;   
+            gameOver = false;
+            despawn = 0;
 
             score = 0;
             orbs = 110;
@@ -513,6 +533,7 @@ namespace PacMan {
         private void exitbutton_Click(object sender, EventArgs e) {
             timer.Stop();
             animationTimer.Stop();
+            File.WriteAllLines("test.txt", debug);
             Application.Exit();
         }
         
@@ -524,6 +545,7 @@ namespace PacMan {
             Gameoverlabel.Visible = true;
             continuebutton.Visible = true;
             Playagainlabel.Visible = true;
+            debug.Add("END");
             //gameOver = true; //?
             //timer.Stop();
             //animationTimer.Stop();
