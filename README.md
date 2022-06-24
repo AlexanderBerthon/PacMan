@@ -5,7 +5,7 @@
   </section>
   <section>
     <ul>To Do for MVP:
-      <ul>Front End
+      <ul><s>Front End</s>
         <ul><s>Button Grid</s></ul>
         <ul><s>Pacman Icons</s></ul>
         <ul><s>Ghost Icons</s></ul>
@@ -16,7 +16,7 @@
           <ul><s>Directional Movement Animation</s></ul>
         </ul>
         <ul><s>AI Animations</s></ul>
-        <ul>Game Over Animation</ul>
+        <ul><s>Game Over Animation</s></ul>
         <ul><s>Game Over Screen</s></ul>
       </ul>
       <ul><s>Gameplay</s>
