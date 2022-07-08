@@ -656,3 +656,6 @@ namespace PacMan {
         }
     }
 }
+
+//future updates / ideas
+//new highscore - connect to database and have a leaderboard 
