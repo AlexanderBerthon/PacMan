@@ -2,7 +2,14 @@ namespace PacMan {
 
     /* BUGS  
      * Player pac man animation flashes sometimes, not easy on the eyes
-     * 
+     *  - try 3 step animation ? 
+     *  - change animation boolean to animation int
+     *  - 0 = full
+     *  - 1 = half open
+     *  - 2 = full open
+     *  - create new icon and implement above
+     *  - might have to speed up the animation clock as well or change the timing to get it to be consistent
+     *  
      * Collision - visual disconnect, SOMETIMES captures look like they are 2 tiles away
      *
      * Found bug with orb count. very niche, only occurs when multiple ghosts
@@ -10,7 +17,10 @@ namespace PacMan {
      * must be due to the slower clock tick on vulnerable phase not updating
      * as fast as the player is moving through them?
      * not sure how to even go about fixing this?
-     *
+     * 
+     * going to try to reduce the chance that this happens as low as possible. not sure if I can ever completely get rid of it
+     * add a check sum function that periodically makes sure the orb count is correct. scan every grid
+     * this will most likely cause performace issues. So try to only run it a few times rather than every tick of the clock
      *
     */
 
@@ -81,7 +91,7 @@ namespace PacMan {
             timer.Interval = 300;
             timer.Tick += new EventHandler(TimerEventProcessor);
 
-            animationTimer.Interval = 150;
+            animationTimer.Interval = 100;
             animationTimer.Tick += new EventHandler(TimerEventProcessor2);
 
             //ghost creation
@@ -130,11 +140,28 @@ namespace PacMan {
 
         //movement clock
         private void TimerEventProcessor(Object anObject, EventArgs eventArgs) {
-            TestLabel.Text = orbs.ToString();
+            TestLabel.Text = orbs.ToString(); //testing
             if (trajectory != 0) {
                 btnArray[currentIndex].BackgroundImage = null;
                 btnArray[currentIndex].Tag = "0";
             }
+
+            //testing
+            if(orbs == 5 || orbs == 25 || orbs == 50 || orbs == 75) {
+                int temp = 0;
+                foreach (Button btn in btnArray) {
+                    if (btn.Tag == "1" || btn.Tag.ToString().Contains("orb")) {
+                    temp++;
+                    }
+                }
+
+                if (orbs != temp) {
+                    orbs = temp;
+                    debug.Add("Orb count updated");
+                }
+
+            }
+
             
             if (!gameOver) {
                 move();
@@ -183,7 +210,7 @@ namespace PacMan {
             }
             else {
                 btnArray[currentIndex].BackgroundImage = Properties.Resources.Closed;
-                animation = true;
+                //animation = true;
             }
             if (gameOver) { //despawn pacman animation
                 if(despawn < 8) {
@@ -320,7 +347,7 @@ namespace PacMan {
                                 }
                                 destroyGhost(i);
                                 validMoves.Clear();
-                                score += 25;
+                                //score += 25;
                             }
                             else {
                                 gameOver = true;
@@ -406,7 +433,6 @@ namespace PacMan {
                 gameOver = true;
               }
             }
-            
             else {
                 currentIndex += trajectory;
 
