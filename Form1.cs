@@ -1,28 +1,24 @@
+/**
+ * This project replicates the game "Pac Man" using winforms
+ * 
+ * the goal of the game is to collect all of the orbs on the board without colliding with any ghosts
+ * there are several "special" orbs on the board that will temporarily make all the ghosts on the board vulnerable
+ * colliding with a ghost in it's vulnerable state will send it back to it's spawn point and award bonus points
+ * upon collecting all of the orbs on the board, the board will refresh but the score will remain the same
+ * try to get the highest score possible!
+ * 
+ * CONTROLS
+ * W - move up
+ * S - move down
+ * D - move right
+ * A - move left
+ * 
+ * Pac man will continue in the input direction as long as there is space available (you don't need to hit a key for every space)
+ * if pac man hits a wall, it will stop until another movement key is input
+ * 
+ * Enjoy!
+ */
 namespace PacMan {
-
-    /* BUGS  
-     * Player pac man animation flashes sometimes, not easy on the eyes
-     *  - try 3 step animation ? 
-     *  - change animation boolean to animation int
-     *  - 0 = full
-     *  - 1 = half open
-     *  - 2 = full open
-     *  - create new icon and implement above
-     *  - might have to speed up the animation clock as well or change the timing to get it to be consistent
-     *  
-     * Collision - visual disconnect, SOMETIMES captures look like they are 2 tiles away
-     *
-     * Found bug with orb count. very niche, only occurs when multiple ghosts
-     * are captured back to back / stack
-     * must be due to the slower clock tick on vulnerable phase not updating
-     * as fast as the player is moving through them?
-     * not sure how to even go about fixing this?
-     * 
-     * going to try to reduce the chance that this happens as low as possible. not sure if I can ever completely get rid of it
-     * add a check sum function that periodically makes sure the orb count is correct. scan every grid
-     * this will most likely cause performace issues. So try to only run it a few times rather than every tick of the clock
-     *
-    */
 
     /* TAG KEY
         _______________________________________________
@@ -35,13 +31,10 @@ namespace PacMan {
         "1"         -  Full space / orb
         "3"         -  Special orb / power up
         _______________________________________________
-   */
+    */
 
     public partial class Form1 : Form {
         //global variables :(
-        //testing
-        List<String> debug;
-        //delete above
 
         //player variables
         int currentIndex;
@@ -64,10 +57,6 @@ namespace PacMan {
 
         public Form1() {
             InitializeComponent();
-
-            //testing
-            debug = new List<string>();
-            //delete above
 
             //Initialize player variables
             currentIndex = 120;
@@ -140,22 +129,8 @@ namespace PacMan {
 
         //movement clock
         private void TimerEventProcessor(Object anObject, EventArgs eventArgs) {
-            TestLabel.Text = orbs.ToString(); //testing
 
-            //what happens if I take this out?
-            //this clears background image for player location
-            //might be better to do it within the player move function
-            //the ai don't have this flickering problem so try to replicate
-            //the logic from there to player
-            /*
-            if (trajectory != 0) {
-                btnArray[currentIndex].BackgroundImage = null;
-                btnArray[currentIndex].Tag = "0";
-            }
-            */
-            //
-
-            //testing
+            //Orb check / verification
             if(orbs == 5 || orbs == 25 || orbs == 50 || orbs == 75) {
                 int temp = 0;
                 foreach (Button btn in btnArray) {
@@ -166,11 +141,8 @@ namespace PacMan {
 
                 if (orbs != temp) {
                     orbs = temp;
-                    debug.Add("Orb count updated");
                 }
-
             }
-
             
             if (!gameOver) {
                 move();
@@ -356,7 +328,7 @@ namespace PacMan {
                                 }
                                 destroyGhost(i);
                                 validMoves.Clear();
-                                //score += 25;
+                                score += 25;
                             }
                             else {
                                 gameOver = true;
@@ -436,13 +408,9 @@ namespace PacMan {
                     //ghost capture
                     if(btnArray[currentIndex + trajectory].Tag.ToString().Contains("orb")){
                         orbs--;
-                        debug.Add("hit with orb");
-                    }
-                    else {
-                        debug.Add("hit without orb");
                     }
                     destroyGhost(int.Parse(btnArray[currentIndex + trajectory].Tag.ToString().Substring(2,1)));
-                    //score += 25;
+                    score += 25;
                 }
                 else {              
                 gameOver = true;
@@ -456,7 +424,7 @@ namespace PacMan {
                     orbs--;
                     ScoreLabel.Text = score.ToString();
                     if (orbs == 0) {
-                        nextStage(); //might be a problem to leave this here?
+                        nextStage();
                     }
                 }
                 else if(btnArray[currentIndex].Tag == "3") {
@@ -574,7 +542,6 @@ namespace PacMan {
         private void exitbutton_Click(object sender, EventArgs e) {
             timer.Stop();
             animationTimer.Stop();
-            File.WriteAllLines("test.txt", debug);
             Application.Exit();
         }
         
@@ -586,10 +553,6 @@ namespace PacMan {
             Gameoverlabel.Visible = true;
             continuebutton.Visible = true;
             Playagainlabel.Visible = true;
-            debug.Add("END");
-            //gameOver = true; //?
-            //timer.Stop();
-            //animationTimer.Stop();
         }
 
         /// <summary>
