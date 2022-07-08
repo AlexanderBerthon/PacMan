@@ -562,7 +562,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(20, 20);
             this.button1.TabIndex = 0;
-            this.button1.Tag = "";
+            this.button1.Tag = "0";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -576,6 +576,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(20, 20);
             this.button2.TabIndex = 1;
+            this.button2.Tag = "0";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -589,6 +590,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(20, 20);
             this.button3.TabIndex = 2;
+            this.button3.Tag = "0";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -602,6 +604,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(20, 20);
             this.button4.TabIndex = 3;
+            this.button4.Tag = "0";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -615,6 +618,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(20, 20);
             this.button5.TabIndex = 4;
+            this.button5.Tag = "0";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -628,6 +632,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(20, 20);
             this.button6.TabIndex = 5;
+            this.button6.Tag = "0";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -641,6 +646,7 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(20, 20);
             this.button7.TabIndex = 6;
+            this.button7.Tag = "0";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -654,6 +660,7 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(20, 20);
             this.button8.TabIndex = 7;
+            this.button8.Tag = "0";
             this.button8.UseVisualStyleBackColor = false;
             this.button8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -667,6 +674,7 @@
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(20, 20);
             this.button9.TabIndex = 8;
+            this.button9.Tag = "0";
             this.button9.UseVisualStyleBackColor = false;
             this.button9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -680,6 +688,7 @@
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(20, 20);
             this.button10.TabIndex = 9;
+            this.button10.Tag = "0";
             this.button10.UseVisualStyleBackColor = false;
             this.button10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -693,6 +702,7 @@
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(20, 20);
             this.button11.TabIndex = 10;
+            this.button11.Tag = "0";
             this.button11.UseVisualStyleBackColor = false;
             this.button11.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -706,6 +716,7 @@
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(20, 20);
             this.button12.TabIndex = 11;
+            this.button12.Tag = "0";
             this.button12.UseVisualStyleBackColor = false;
             this.button12.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -719,6 +730,7 @@
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(20, 20);
             this.button13.TabIndex = 12;
+            this.button13.Tag = "0";
             this.button13.UseVisualStyleBackColor = false;
             this.button13.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -732,6 +744,7 @@
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(20, 20);
             this.button14.TabIndex = 13;
+            this.button14.Tag = "0";
             this.button14.UseVisualStyleBackColor = false;
             this.button14.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -745,6 +758,7 @@
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(20, 20);
             this.button15.TabIndex = 14;
+            this.button15.Tag = "0";
             this.button15.UseVisualStyleBackColor = false;
             this.button15.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -758,6 +772,7 @@
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(20, 20);
             this.button16.TabIndex = 15;
+            this.button16.Tag = "0";
             this.button16.UseVisualStyleBackColor = false;
             this.button16.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -771,6 +786,7 @@
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(20, 20);
             this.button17.TabIndex = 16;
+            this.button17.Tag = "0";
             this.button17.UseVisualStyleBackColor = false;
             this.button17.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -864,6 +880,7 @@
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(20, 20);
             this.button23.TabIndex = 22;
+            this.button23.Tag = "0";
             this.button23.UseVisualStyleBackColor = false;
             this.button23.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -877,6 +894,7 @@
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(20, 20);
             this.button24.TabIndex = 23;
+            this.button24.Tag = "0";
             this.button24.UseVisualStyleBackColor = false;
             this.button24.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -890,6 +908,7 @@
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(20, 20);
             this.button25.TabIndex = 24;
+            this.button25.Tag = "0";
             this.button25.UseVisualStyleBackColor = false;
             this.button25.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -903,6 +922,7 @@
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(20, 20);
             this.button26.TabIndex = 25;
+            this.button26.Tag = "0";
             this.button26.UseVisualStyleBackColor = false;
             this.button26.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -916,6 +936,7 @@
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(20, 20);
             this.button27.TabIndex = 26;
+            this.button27.Tag = "0";
             this.button27.UseVisualStyleBackColor = false;
             this.button27.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -993,6 +1014,7 @@
             this.button32.Name = "button32";
             this.button32.Size = new System.Drawing.Size(20, 20);
             this.button32.TabIndex = 31;
+            this.button32.Tag = "0";
             this.button32.UseVisualStyleBackColor = false;
             this.button32.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1006,6 +1028,7 @@
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(20, 20);
             this.button33.TabIndex = 32;
+            this.button33.Tag = "0";
             this.button33.UseVisualStyleBackColor = false;
             this.button33.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1035,6 +1058,7 @@
             this.button35.Name = "button35";
             this.button35.Size = new System.Drawing.Size(20, 20);
             this.button35.TabIndex = 34;
+            this.button35.Tag = "0";
             this.button35.UseVisualStyleBackColor = false;
             this.button35.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1048,6 +1072,7 @@
             this.button36.Name = "button36";
             this.button36.Size = new System.Drawing.Size(20, 20);
             this.button36.TabIndex = 35;
+            this.button36.Tag = "0";
             this.button36.UseVisualStyleBackColor = false;
             this.button36.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1061,6 +1086,7 @@
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(20, 20);
             this.button37.TabIndex = 36;
+            this.button37.Tag = "0";
             this.button37.UseVisualStyleBackColor = false;
             this.button37.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1186,6 +1212,7 @@
             this.button45.Name = "button45";
             this.button45.Size = new System.Drawing.Size(20, 20);
             this.button45.TabIndex = 44;
+            this.button45.Tag = "0";
             this.button45.UseVisualStyleBackColor = false;
             this.button45.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1231,6 +1258,7 @@
             this.button48.Name = "button48";
             this.button48.Size = new System.Drawing.Size(20, 20);
             this.button48.TabIndex = 47;
+            this.button48.Tag = "0";
             this.button48.UseVisualStyleBackColor = false;
             this.button48.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1244,6 +1272,7 @@
             this.button49.Name = "button49";
             this.button49.Size = new System.Drawing.Size(20, 20);
             this.button49.TabIndex = 48;
+            this.button49.Tag = "0";
             this.button49.UseVisualStyleBackColor = false;
             this.button49.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1273,6 +1302,7 @@
             this.button51.Name = "button51";
             this.button51.Size = new System.Drawing.Size(20, 20);
             this.button51.TabIndex = 50;
+            this.button51.Tag = "0";
             this.button51.UseVisualStyleBackColor = false;
             this.button51.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1334,6 +1364,7 @@
             this.button55.Name = "button55";
             this.button55.Size = new System.Drawing.Size(20, 20);
             this.button55.TabIndex = 54;
+            this.button55.Tag = "0";
             this.button55.UseVisualStyleBackColor = false;
             this.button55.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1347,6 +1378,7 @@
             this.button56.Name = "button56";
             this.button56.Size = new System.Drawing.Size(20, 20);
             this.button56.TabIndex = 55;
+            this.button56.Tag = "0";
             this.button56.UseVisualStyleBackColor = false;
             this.button56.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1375,6 +1407,7 @@
             this.button58.Name = "button58";
             this.button58.Size = new System.Drawing.Size(20, 20);
             this.button58.TabIndex = 57;
+            this.button58.Tag = "0";
             this.button58.UseVisualStyleBackColor = false;
             this.button58.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1388,6 +1421,7 @@
             this.button59.Name = "button59";
             this.button59.Size = new System.Drawing.Size(20, 20);
             this.button59.TabIndex = 58;
+            this.button59.Tag = "0";
             this.button59.UseVisualStyleBackColor = false;
             this.button59.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1417,6 +1451,7 @@
             this.button61.Name = "button61";
             this.button61.Size = new System.Drawing.Size(20, 20);
             this.button61.TabIndex = 60;
+            this.button61.Tag = "0";
             this.button61.UseVisualStyleBackColor = false;
             this.button61.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1430,6 +1465,7 @@
             this.button62.Name = "button62";
             this.button62.Size = new System.Drawing.Size(20, 20);
             this.button62.TabIndex = 61;
+            this.button62.Tag = "0";
             this.button62.UseVisualStyleBackColor = false;
             this.button62.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1459,6 +1495,7 @@
             this.button64.Name = "button64";
             this.button64.Size = new System.Drawing.Size(20, 20);
             this.button64.TabIndex = 63;
+            this.button64.Tag = "0";
             this.button64.UseVisualStyleBackColor = false;
             this.button64.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1472,6 +1509,7 @@
             this.button65.Name = "button65";
             this.button65.Size = new System.Drawing.Size(20, 20);
             this.button65.TabIndex = 64;
+            this.button65.Tag = "0";
             this.button65.UseVisualStyleBackColor = false;
             this.button65.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1533,6 +1571,7 @@
             this.button69.Name = "button69";
             this.button69.Size = new System.Drawing.Size(20, 20);
             this.button69.TabIndex = 68;
+            this.button69.Tag = "0";
             this.button69.UseVisualStyleBackColor = false;
             this.button69.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1562,6 +1601,7 @@
             this.button71.Name = "button71";
             this.button71.Size = new System.Drawing.Size(20, 20);
             this.button71.TabIndex = 70;
+            this.button71.Tag = "0";
             this.button71.UseVisualStyleBackColor = false;
             this.button71.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1617,6 +1657,7 @@
             this.button75.Name = "button75";
             this.button75.Size = new System.Drawing.Size(20, 20);
             this.button75.TabIndex = 74;
+            this.button75.Tag = "0";
             this.button75.UseVisualStyleBackColor = false;
             this.button75.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1646,6 +1687,7 @@
             this.button77.Name = "button77";
             this.button77.Size = new System.Drawing.Size(20, 20);
             this.button77.TabIndex = 76;
+            this.button77.Tag = "0";
             this.button77.UseVisualStyleBackColor = false;
             this.button77.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1691,6 +1733,7 @@
             this.button80.Name = "button80";
             this.button80.Size = new System.Drawing.Size(20, 20);
             this.button80.TabIndex = 79;
+            this.button80.Tag = "0";
             this.button80.UseVisualStyleBackColor = false;
             this.button80.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1704,6 +1747,7 @@
             this.button81.Name = "button81";
             this.button81.Size = new System.Drawing.Size(20, 20);
             this.button81.TabIndex = 80;
+            this.button81.Tag = "0";
             this.button81.UseVisualStyleBackColor = false;
             this.button81.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1733,6 +1777,7 @@
             this.button83.Name = "button83";
             this.button83.Size = new System.Drawing.Size(20, 20);
             this.button83.TabIndex = 82;
+            this.button83.Tag = "0";
             this.button83.UseVisualStyleBackColor = false;
             this.button83.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1746,6 +1791,7 @@
             this.button84.Name = "button84";
             this.button84.Size = new System.Drawing.Size(20, 20);
             this.button84.TabIndex = 83;
+            this.button84.Tag = "0";
             this.button84.UseVisualStyleBackColor = false;
             this.button84.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1759,6 +1805,7 @@
             this.button85.Name = "button85";
             this.button85.Size = new System.Drawing.Size(20, 20);
             this.button85.TabIndex = 84;
+            this.button85.Tag = "0";
             this.button85.UseVisualStyleBackColor = false;
             this.button85.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1788,6 +1835,7 @@
             this.button87.Name = "button87";
             this.button87.Size = new System.Drawing.Size(20, 20);
             this.button87.TabIndex = 86;
+            this.button87.Tag = "0";
             this.button87.UseVisualStyleBackColor = false;
             this.button87.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1843,6 +1891,7 @@
             this.button91.Name = "button91";
             this.button91.Size = new System.Drawing.Size(20, 20);
             this.button91.TabIndex = 90;
+            this.button91.Tag = "0";
             this.button91.UseVisualStyleBackColor = false;
             this.button91.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1904,6 +1953,7 @@
             this.button95.Name = "button95";
             this.button95.Size = new System.Drawing.Size(20, 20);
             this.button95.TabIndex = 94;
+            this.button95.Tag = "0";
             this.button95.UseVisualStyleBackColor = false;
             this.button95.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1917,6 +1967,7 @@
             this.button96.Name = "button96";
             this.button96.Size = new System.Drawing.Size(20, 20);
             this.button96.TabIndex = 95;
+            this.button96.Tag = "0";
             this.button96.UseVisualStyleBackColor = false;
             this.button96.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1930,6 +1981,7 @@
             this.button97.Name = "button97";
             this.button97.Size = new System.Drawing.Size(20, 20);
             this.button97.TabIndex = 96;
+            this.button97.Tag = "0";
             this.button97.UseVisualStyleBackColor = false;
             this.button97.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -1991,6 +2043,7 @@
             this.button101.Name = "button101";
             this.button101.Size = new System.Drawing.Size(20, 20);
             this.button101.TabIndex = 100;
+            this.button101.Tag = "0";
             this.button101.UseVisualStyleBackColor = false;
             this.button101.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2020,6 +2073,7 @@
             this.button103.Name = "button103";
             this.button103.Size = new System.Drawing.Size(20, 20);
             this.button103.TabIndex = 102;
+            this.button103.Tag = "0";
             this.button103.UseVisualStyleBackColor = false;
             this.button103.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2033,6 +2087,7 @@
             this.button104.Name = "button104";
             this.button104.Size = new System.Drawing.Size(20, 20);
             this.button104.TabIndex = 103;
+            this.button104.Tag = "0";
             this.button104.UseVisualStyleBackColor = false;
             this.button104.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2046,6 +2101,7 @@
             this.button105.Name = "button105";
             this.button105.Size = new System.Drawing.Size(20, 20);
             this.button105.TabIndex = 104;
+            this.button105.Tag = "0";
             this.button105.UseVisualStyleBackColor = false;
             this.button105.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2059,6 +2115,7 @@
             this.button106.Name = "button106";
             this.button106.Size = new System.Drawing.Size(20, 20);
             this.button106.TabIndex = 105;
+            this.button106.Tag = "0";
             this.button106.UseVisualStyleBackColor = false;
             this.button106.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2072,6 +2129,7 @@
             this.button107.Name = "button107";
             this.button107.Size = new System.Drawing.Size(20, 20);
             this.button107.TabIndex = 106;
+            this.button107.Tag = "0";
             this.button107.UseVisualStyleBackColor = false;
             this.button107.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2101,6 +2159,7 @@
             this.button109.Name = "button109";
             this.button109.Size = new System.Drawing.Size(20, 20);
             this.button109.TabIndex = 108;
+            this.button109.Tag = "0";
             this.button109.UseVisualStyleBackColor = false;
             this.button109.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2146,6 +2205,7 @@
             this.button112.Name = "button112";
             this.button112.Size = new System.Drawing.Size(20, 20);
             this.button112.TabIndex = 111;
+            this.button112.Tag = "0";
             this.button112.UseVisualStyleBackColor = false;
             this.button112.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2159,6 +2219,7 @@
             this.button113.Name = "button113";
             this.button113.Size = new System.Drawing.Size(20, 20);
             this.button113.TabIndex = 112;
+            this.button113.Tag = "0";
             this.button113.UseVisualStyleBackColor = false;
             this.button113.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2188,6 +2249,7 @@
             this.button115.Name = "button115";
             this.button115.Size = new System.Drawing.Size(20, 20);
             this.button115.TabIndex = 114;
+            this.button115.Tag = "0";
             this.button115.UseVisualStyleBackColor = false;
             this.button115.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2217,6 +2279,7 @@
             this.button117.Name = "button117";
             this.button117.Size = new System.Drawing.Size(20, 20);
             this.button117.TabIndex = 116;
+            this.button117.Tag = "0";
             this.button117.UseVisualStyleBackColor = false;
             this.button117.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2341,6 +2404,7 @@
             this.button125.Name = "button125";
             this.button125.Size = new System.Drawing.Size(20, 20);
             this.button125.TabIndex = 124;
+            this.button125.Tag = "0";
             this.button125.UseVisualStyleBackColor = false;
             this.button125.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2354,6 +2418,7 @@
             this.button126.Name = "button126";
             this.button126.Size = new System.Drawing.Size(20, 20);
             this.button126.TabIndex = 125;
+            this.button126.Tag = "0";
             this.button126.UseVisualStyleBackColor = false;
             this.button126.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2383,6 +2448,7 @@
             this.button128.Name = "button128";
             this.button128.Size = new System.Drawing.Size(20, 20);
             this.button128.TabIndex = 127;
+            this.button128.Tag = "0";
             this.button128.UseVisualStyleBackColor = false;
             this.button128.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2396,6 +2462,7 @@
             this.button129.Name = "button129";
             this.button129.Size = new System.Drawing.Size(20, 20);
             this.button129.TabIndex = 128;
+            this.button129.Tag = "0";
             this.button129.UseVisualStyleBackColor = false;
             this.button129.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2425,6 +2492,7 @@
             this.button131.Name = "button131";
             this.button131.Size = new System.Drawing.Size(20, 20);
             this.button131.TabIndex = 130;
+            this.button131.Tag = "0";
             this.button131.UseVisualStyleBackColor = false;
             this.button131.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2454,6 +2522,7 @@
             this.button133.Name = "button133";
             this.button133.Size = new System.Drawing.Size(20, 20);
             this.button133.TabIndex = 132;
+            this.button133.Tag = "0";
             this.button133.UseVisualStyleBackColor = false;
             this.button133.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2483,6 +2552,7 @@
             this.button135.Name = "button135";
             this.button135.Size = new System.Drawing.Size(20, 20);
             this.button135.TabIndex = 134;
+            this.button135.Tag = "0";
             this.button135.UseVisualStyleBackColor = false;
             this.button135.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2496,6 +2566,7 @@
             this.button136.Name = "button136";
             this.button136.Size = new System.Drawing.Size(20, 20);
             this.button136.TabIndex = 135;
+            this.button136.Tag = "0";
             this.button136.UseVisualStyleBackColor = false;
             this.button136.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2509,6 +2580,7 @@
             this.button137.Name = "button137";
             this.button137.Size = new System.Drawing.Size(20, 20);
             this.button137.TabIndex = 136;
+            this.button137.Tag = "0";
             this.button137.UseVisualStyleBackColor = false;
             this.button137.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2538,6 +2610,7 @@
             this.button139.Name = "button139";
             this.button139.Size = new System.Drawing.Size(20, 20);
             this.button139.TabIndex = 138;
+            this.button139.Tag = "0";
             this.button139.UseVisualStyleBackColor = false;
             this.button139.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2615,6 +2688,7 @@
             this.button144.Name = "button144";
             this.button144.Size = new System.Drawing.Size(20, 20);
             this.button144.TabIndex = 143;
+            this.button144.Tag = "0";
             this.button144.UseVisualStyleBackColor = false;
             this.button144.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2628,6 +2702,7 @@
             this.button145.Name = "button145";
             this.button145.Size = new System.Drawing.Size(20, 20);
             this.button145.TabIndex = 144;
+            this.button145.Tag = "0";
             this.button145.UseVisualStyleBackColor = false;
             this.button145.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2689,6 +2764,7 @@
             this.button149.Name = "button149";
             this.button149.Size = new System.Drawing.Size(20, 20);
             this.button149.TabIndex = 148;
+            this.button149.Tag = "0";
             this.button149.UseVisualStyleBackColor = false;
             this.button149.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2718,6 +2794,7 @@
             this.button151.Name = "button151";
             this.button151.Size = new System.Drawing.Size(20, 20);
             this.button151.TabIndex = 150;
+            this.button151.Tag = "0";
             this.button151.UseVisualStyleBackColor = false;
             this.button151.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2779,6 +2856,7 @@
             this.button155.Name = "button155";
             this.button155.Size = new System.Drawing.Size(20, 20);
             this.button155.TabIndex = 154;
+            this.button155.Tag = "0";
             this.button155.UseVisualStyleBackColor = false;
             this.button155.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2792,6 +2870,7 @@
             this.button156.Name = "button156";
             this.button156.Size = new System.Drawing.Size(20, 20);
             this.button156.TabIndex = 155;
+            this.button156.Tag = "0";
             this.button156.UseVisualStyleBackColor = false;
             this.button156.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2837,6 +2916,7 @@
             this.button159.Name = "button159";
             this.button159.Size = new System.Drawing.Size(20, 20);
             this.button159.TabIndex = 158;
+            this.button159.Tag = "0";
             this.button159.UseVisualStyleBackColor = false;
             this.button159.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2850,6 +2930,7 @@
             this.button160.Name = "button160";
             this.button160.Size = new System.Drawing.Size(20, 20);
             this.button160.TabIndex = 159;
+            this.button160.Tag = "0";
             this.button160.UseVisualStyleBackColor = false;
             this.button160.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2863,6 +2944,7 @@
             this.button161.Name = "button161";
             this.button161.Size = new System.Drawing.Size(20, 20);
             this.button161.TabIndex = 160;
+            this.button161.Tag = "0";
             this.button161.UseVisualStyleBackColor = false;
             this.button161.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2892,6 +2974,7 @@
             this.button163.Name = "button163";
             this.button163.Size = new System.Drawing.Size(20, 20);
             this.button163.TabIndex = 162;
+            this.button163.Tag = "0";
             this.button163.UseVisualStyleBackColor = false;
             this.button163.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -2985,6 +3068,7 @@
             this.button169.Name = "button169";
             this.button169.Size = new System.Drawing.Size(20, 20);
             this.button169.TabIndex = 168;
+            this.button169.Tag = "0";
             this.button169.UseVisualStyleBackColor = false;
             this.button169.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3030,6 +3114,7 @@
             this.button172.Name = "button172";
             this.button172.Size = new System.Drawing.Size(20, 20);
             this.button172.TabIndex = 171;
+            this.button172.Tag = "0";
             this.button172.UseVisualStyleBackColor = false;
             this.button172.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3043,6 +3128,7 @@
             this.button173.Name = "button173";
             this.button173.Size = new System.Drawing.Size(20, 20);
             this.button173.TabIndex = 172;
+            this.button173.Tag = "0";
             this.button173.UseVisualStyleBackColor = false;
             this.button173.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3072,6 +3158,7 @@
             this.button175.Name = "button175";
             this.button175.Size = new System.Drawing.Size(20, 20);
             this.button175.TabIndex = 174;
+            this.button175.Tag = "0";
             this.button175.UseVisualStyleBackColor = false;
             this.button175.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3085,6 +3172,7 @@
             this.button176.Name = "button176";
             this.button176.Size = new System.Drawing.Size(20, 20);
             this.button176.TabIndex = 175;
+            this.button176.Tag = "0";
             this.button176.UseVisualStyleBackColor = false;
             this.button176.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3098,6 +3186,7 @@
             this.button177.Name = "button177";
             this.button177.Size = new System.Drawing.Size(20, 20);
             this.button177.TabIndex = 176;
+            this.button177.Tag = "0";
             this.button177.UseVisualStyleBackColor = false;
             this.button177.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3127,6 +3216,7 @@
             this.button179.Name = "button179";
             this.button179.Size = new System.Drawing.Size(20, 20);
             this.button179.TabIndex = 178;
+            this.button179.Tag = "0";
             this.button179.UseVisualStyleBackColor = false;
             this.button179.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3156,6 +3246,7 @@
             this.button181.Name = "button181";
             this.button181.Size = new System.Drawing.Size(20, 20);
             this.button181.TabIndex = 180;
+            this.button181.Tag = "0";
             this.button181.UseVisualStyleBackColor = false;
             this.button181.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3169,6 +3260,7 @@
             this.button182.Name = "button182";
             this.button182.Size = new System.Drawing.Size(20, 20);
             this.button182.TabIndex = 181;
+            this.button182.Tag = "0";
             this.button182.UseVisualStyleBackColor = false;
             this.button182.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3198,6 +3290,7 @@
             this.button184.Name = "button184";
             this.button184.Size = new System.Drawing.Size(20, 20);
             this.button184.TabIndex = 183;
+            this.button184.Tag = "0";
             this.button184.UseVisualStyleBackColor = false;
             this.button184.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3211,6 +3304,7 @@
             this.button185.Name = "button185";
             this.button185.Size = new System.Drawing.Size(20, 20);
             this.button185.TabIndex = 184;
+            this.button185.Tag = "0";
             this.button185.UseVisualStyleBackColor = false;
             this.button185.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3224,6 +3318,7 @@
             this.button186.Name = "button186";
             this.button186.Size = new System.Drawing.Size(20, 20);
             this.button186.TabIndex = 185;
+            this.button186.Tag = "0";
             this.button186.UseVisualStyleBackColor = false;
             this.button186.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3317,6 +3412,7 @@
             this.button192.Name = "button192";
             this.button192.Size = new System.Drawing.Size(20, 20);
             this.button192.TabIndex = 191;
+            this.button192.Tag = "0";
             this.button192.UseVisualStyleBackColor = false;
             this.button192.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3330,6 +3426,7 @@
             this.button193.Name = "button193";
             this.button193.Size = new System.Drawing.Size(20, 20);
             this.button193.TabIndex = 192;
+            this.button193.Tag = "0";
             this.button193.UseVisualStyleBackColor = false;
             this.button193.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3359,6 +3456,7 @@
             this.button195.Name = "button195";
             this.button195.Size = new System.Drawing.Size(20, 20);
             this.button195.TabIndex = 194;
+            this.button195.Tag = "0";
             this.button195.UseVisualStyleBackColor = false;
             this.button195.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3388,6 +3486,7 @@
             this.button197.Name = "button197";
             this.button197.Size = new System.Drawing.Size(20, 20);
             this.button197.TabIndex = 196;
+            this.button197.Tag = "0";
             this.button197.UseVisualStyleBackColor = false;
             this.button197.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3449,6 +3548,7 @@
             this.button201.Name = "button201";
             this.button201.Size = new System.Drawing.Size(20, 20);
             this.button201.TabIndex = 200;
+            this.button201.Tag = "0";
             this.button201.UseVisualStyleBackColor = false;
             this.button201.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3462,6 +3562,7 @@
             this.button202.Name = "button202";
             this.button202.Size = new System.Drawing.Size(20, 20);
             this.button202.TabIndex = 201;
+            this.button202.Tag = "0";
             this.button202.UseVisualStyleBackColor = false;
             this.button202.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3491,6 +3592,7 @@
             this.button204.Name = "button204";
             this.button204.Size = new System.Drawing.Size(20, 20);
             this.button204.TabIndex = 203;
+            this.button204.Tag = "0";
             this.button204.UseVisualStyleBackColor = false;
             this.button204.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3504,6 +3606,7 @@
             this.button205.Name = "button205";
             this.button205.Size = new System.Drawing.Size(20, 20);
             this.button205.TabIndex = 204;
+            this.button205.Tag = "0";
             this.button205.UseVisualStyleBackColor = false;
             this.button205.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3517,6 +3620,7 @@
             this.button206.Name = "button206";
             this.button206.Size = new System.Drawing.Size(20, 20);
             this.button206.TabIndex = 205;
+            this.button206.Tag = "0";
             this.button206.UseVisualStyleBackColor = false;
             this.button206.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3546,6 +3650,7 @@
             this.button208.Name = "button208";
             this.button208.Size = new System.Drawing.Size(20, 20);
             this.button208.TabIndex = 207;
+            this.button208.Tag = "0";
             this.button208.UseVisualStyleBackColor = false;
             this.button208.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3559,6 +3664,7 @@
             this.button209.Name = "button209";
             this.button209.Size = new System.Drawing.Size(20, 20);
             this.button209.TabIndex = 208;
+            this.button209.Tag = "0";
             this.button209.UseVisualStyleBackColor = false;
             this.button209.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3588,6 +3694,7 @@
             this.button211.Name = "button211";
             this.button211.Size = new System.Drawing.Size(20, 20);
             this.button211.TabIndex = 210;
+            this.button211.Tag = "0";
             this.button211.UseVisualStyleBackColor = false;
             this.button211.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3617,6 +3724,7 @@
             this.button213.Name = "button213";
             this.button213.Size = new System.Drawing.Size(20, 20);
             this.button213.TabIndex = 212;
+            this.button213.Tag = "0";
             this.button213.UseVisualStyleBackColor = false;
             this.button213.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3646,6 +3754,7 @@
             this.button215.Name = "button215";
             this.button215.Size = new System.Drawing.Size(20, 20);
             this.button215.TabIndex = 214;
+            this.button215.Tag = "0";
             this.button215.UseVisualStyleBackColor = false;
             this.button215.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3723,6 +3832,7 @@
             this.button220.Name = "button220";
             this.button220.Size = new System.Drawing.Size(20, 20);
             this.button220.TabIndex = 219;
+            this.button220.Tag = "0";
             this.button220.UseVisualStyleBackColor = false;
             this.button220.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3784,6 +3894,7 @@
             this.button224.Name = "button224";
             this.button224.Size = new System.Drawing.Size(20, 20);
             this.button224.TabIndex = 223;
+            this.button224.Tag = "0";
             this.button224.UseVisualStyleBackColor = false;
             this.button224.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3797,6 +3908,7 @@
             this.button225.Name = "button225";
             this.button225.Size = new System.Drawing.Size(20, 20);
             this.button225.TabIndex = 224;
+            this.button225.Tag = "0";
             this.button225.UseVisualStyleBackColor = false;
             this.button225.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3922,6 +4034,7 @@
             this.button233.Name = "button233";
             this.button233.Size = new System.Drawing.Size(20, 20);
             this.button233.TabIndex = 232;
+            this.button233.Tag = "0";
             this.button233.UseVisualStyleBackColor = false;
             this.button233.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3935,6 +4048,7 @@
             this.button234.Name = "button234";
             this.button234.Size = new System.Drawing.Size(20, 20);
             this.button234.TabIndex = 233;
+            this.button234.Tag = "0";
             this.button234.UseVisualStyleBackColor = false;
             this.button234.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -3996,6 +4110,7 @@
             this.button238.Name = "button238";
             this.button238.Size = new System.Drawing.Size(20, 20);
             this.button238.TabIndex = 237;
+            this.button238.Tag = "0";
             this.button238.UseVisualStyleBackColor = false;
             this.button238.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4009,6 +4124,7 @@
             this.button239.Name = "button239";
             this.button239.Size = new System.Drawing.Size(20, 20);
             this.button239.TabIndex = 238;
+            this.button239.Tag = "0";
             this.button239.UseVisualStyleBackColor = false;
             this.button239.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4022,6 +4138,7 @@
             this.button240.Name = "button240";
             this.button240.Size = new System.Drawing.Size(20, 20);
             this.button240.TabIndex = 239;
+            this.button240.Tag = "0";
             this.button240.UseVisualStyleBackColor = false;
             this.button240.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4035,6 +4152,7 @@
             this.button241.Name = "button241";
             this.button241.Size = new System.Drawing.Size(20, 20);
             this.button241.TabIndex = 240;
+            this.button241.Tag = "0";
             this.button241.UseVisualStyleBackColor = false;
             this.button241.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4048,6 +4166,7 @@
             this.button242.Name = "button242";
             this.button242.Size = new System.Drawing.Size(20, 20);
             this.button242.TabIndex = 241;
+            this.button242.Tag = "0";
             this.button242.UseVisualStyleBackColor = false;
             this.button242.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4061,6 +4180,7 @@
             this.button243.Name = "button243";
             this.button243.Size = new System.Drawing.Size(20, 20);
             this.button243.TabIndex = 242;
+            this.button243.Tag = "0";
             this.button243.UseVisualStyleBackColor = false;
             this.button243.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4074,6 +4194,7 @@
             this.button244.Name = "button244";
             this.button244.Size = new System.Drawing.Size(20, 20);
             this.button244.TabIndex = 243;
+            this.button244.Tag = "0";
             this.button244.UseVisualStyleBackColor = false;
             this.button244.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4087,6 +4208,7 @@
             this.button245.Name = "button245";
             this.button245.Size = new System.Drawing.Size(20, 20);
             this.button245.TabIndex = 244;
+            this.button245.Tag = "0";
             this.button245.UseVisualStyleBackColor = false;
             this.button245.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4100,6 +4222,7 @@
             this.button246.Name = "button246";
             this.button246.Size = new System.Drawing.Size(20, 20);
             this.button246.TabIndex = 245;
+            this.button246.Tag = "0";
             this.button246.UseVisualStyleBackColor = false;
             this.button246.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4113,6 +4236,7 @@
             this.button247.Name = "button247";
             this.button247.Size = new System.Drawing.Size(20, 20);
             this.button247.TabIndex = 246;
+            this.button247.Tag = "0";
             this.button247.UseVisualStyleBackColor = false;
             this.button247.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4126,6 +4250,7 @@
             this.button248.Name = "button248";
             this.button248.Size = new System.Drawing.Size(20, 20);
             this.button248.TabIndex = 247;
+            this.button248.Tag = "0";
             this.button248.UseVisualStyleBackColor = false;
             this.button248.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4139,6 +4264,7 @@
             this.button249.Name = "button249";
             this.button249.Size = new System.Drawing.Size(20, 20);
             this.button249.TabIndex = 248;
+            this.button249.Tag = "0";
             this.button249.UseVisualStyleBackColor = false;
             this.button249.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4152,6 +4278,7 @@
             this.button250.Name = "button250";
             this.button250.Size = new System.Drawing.Size(20, 20);
             this.button250.TabIndex = 249;
+            this.button250.Tag = "0";
             this.button250.UseVisualStyleBackColor = false;
             this.button250.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4165,6 +4292,7 @@
             this.button251.Name = "button251";
             this.button251.Size = new System.Drawing.Size(20, 20);
             this.button251.TabIndex = 250;
+            this.button251.Tag = "0";
             this.button251.UseVisualStyleBackColor = false;
             this.button251.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4178,6 +4306,7 @@
             this.button252.Name = "button252";
             this.button252.Size = new System.Drawing.Size(20, 20);
             this.button252.TabIndex = 251;
+            this.button252.Tag = "0";
             this.button252.UseVisualStyleBackColor = false;
             this.button252.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4191,6 +4320,7 @@
             this.button253.Name = "button253";
             this.button253.Size = new System.Drawing.Size(20, 20);
             this.button253.TabIndex = 252;
+            this.button253.Tag = "0";
             this.button253.UseVisualStyleBackColor = false;
             this.button253.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4204,6 +4334,7 @@
             this.button254.Name = "button254";
             this.button254.Size = new System.Drawing.Size(20, 20);
             this.button254.TabIndex = 253;
+            this.button254.Tag = "0";
             this.button254.UseVisualStyleBackColor = false;
             this.button254.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4217,6 +4348,7 @@
             this.button255.Name = "button255";
             this.button255.Size = new System.Drawing.Size(20, 20);
             this.button255.TabIndex = 254;
+            this.button255.Tag = "0";
             this.button255.UseVisualStyleBackColor = false;
             this.button255.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
@@ -4230,6 +4362,7 @@
             this.button256.Name = "button256";
             this.button256.Size = new System.Drawing.Size(20, 20);
             this.button256.TabIndex = 255;
+            this.button256.Tag = "0";
             this.button256.UseVisualStyleBackColor = false;
             this.button256.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.movement_KeyPress);
             // 
