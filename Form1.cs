@@ -91,7 +91,7 @@ namespace PacMan {
             timer.Interval = 300;
             timer.Tick += new EventHandler(TimerEventProcessor);
 
-            animationTimer.Interval = 100;
+            animationTimer.Interval = 150;
             animationTimer.Tick += new EventHandler(TimerEventProcessor2);
 
             //ghost creation
@@ -141,10 +141,19 @@ namespace PacMan {
         //movement clock
         private void TimerEventProcessor(Object anObject, EventArgs eventArgs) {
             TestLabel.Text = orbs.ToString(); //testing
+
+            //what happens if I take this out?
+            //this clears background image for player location
+            //might be better to do it within the player move function
+            //the ai don't have this flickering problem so try to replicate
+            //the logic from there to player
+            /*
             if (trajectory != 0) {
                 btnArray[currentIndex].BackgroundImage = null;
                 btnArray[currentIndex].Tag = "0";
             }
+            */
+            //
 
             //testing
             if(orbs == 5 || orbs == 25 || orbs == 50 || orbs == 75) {
@@ -210,7 +219,7 @@ namespace PacMan {
             }
             else {
                 btnArray[currentIndex].BackgroundImage = Properties.Resources.Closed;
-                //animation = true;
+                animation = true;
             }
             if (gameOver) { //despawn pacman animation
                 if(despawn < 8) {
@@ -413,9 +422,15 @@ namespace PacMan {
         /// This function is responsible for the logic behind player movement and collision
         /// </summary>
         private void move() {
+            
+            if (trajectory != 0) {
+                btnArray[currentIndex].BackgroundImage = null;
+                btnArray[currentIndex].Tag = "0";
+            }
+
             if (btnArray[currentIndex + trajectory].BackColor == Color.DarkSlateBlue) {
                 trajectory = 0;
-            } 
+            }
             else if (btnArray[currentIndex + trajectory].Tag.ToString().Contains("AI")) {
                 if (AIVulnerable > 0) {
                     //ghost capture
