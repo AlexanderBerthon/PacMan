@@ -36,6 +36,9 @@ namespace PacMan {
     public partial class Form1 : Form {
         //global variables :(
 
+        //highscore variables
+        Highscore[] highScores;
+
         //player variables
         int currentIndex;
         int trajectory;
@@ -57,6 +60,23 @@ namespace PacMan {
 
         public Form1() {
             InitializeComponent();
+
+            //start testing
+            //Initialize highscore variables
+            highScores = new Highscore[5];
+
+            //I only want to do this when a highscore is achieved, not every run. 
+            //but the only way to check is by having the data.. so I have to run this every time :(
+            string[] inputData = System.IO.File.ReadAllLines(@"C:\Users\alex.berthon\source\repos\PacMan\highscoredata.txt");
+
+            if (inputData.Length > 0) {
+                for(int i = 0; i<inputData.Length; i++) {
+                    string[] split = new string[2];
+                    split = inputData[i].Split(" ");
+                    highScores[i] = new Highscore(split[0], int.Parse(split[1]));
+                }
+            }
+            //end testing
 
             //Initialize player variables
             currentIndex = 120;
@@ -131,6 +151,7 @@ namespace PacMan {
         private void TimerEventProcessor(Object anObject, EventArgs eventArgs) {
 
             //Orb check / verification
+            /*TESTING TO SEE IF THIS IS NEEDED ANYMORE. IF NOT, REMOVE ALL TRACES***************************************************
             if(orbs == 5 || orbs == 25 || orbs == 50 || orbs == 75) {
                 int temp = 0;
                 foreach (Button btn in btnArray) {
@@ -143,7 +164,7 @@ namespace PacMan {
                     orbs = temp;
                 }
             }
-            
+            */
             if (!gameOver) {
                 move();
             }
@@ -162,7 +183,7 @@ namespace PacMan {
                 }
             }
             //added condition so this function is only called 1 time rather than every time the clock ticks after the game has ended
-            if (gameOver && Gameoverlabel.Visible == false) {
+            if (gameOver && GameOverLabel.Visible == false) {
                 endGame();
             }
         }
@@ -455,7 +476,22 @@ namespace PacMan {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void continuebutton_Click(object sender, EventArgs e) {
-            Gameoverlabel.Visible = false;
+            //hide highscore board
+            GameOverLabel.Visible = false;
+            HighscorePanel.Visible = false;
+            HighscoreTable.Visible = false;
+            HighscoreLabel.Visible = false;
+            HighscoreName1.Visible = false;
+            HighscoreName2.Visible = false;
+            HighscoreName3.Visible = false;
+            HighscoreName4.Visible = false;
+            HighscoreName5.Visible = false;
+            Highscore1.Visible = false;
+            Highscore2.Visible = false;
+            Highscore3.Visible = false;
+            Highscore4.Visible = false;
+            Highscore5.Visible = false;
+
             continuebutton.Visible = false;
             exitbutton.Visible = false;
             Playagainlabel.Visible = false;
@@ -464,7 +500,7 @@ namespace PacMan {
 
             score = 0;
             orbs = 110;
-            currentIndex = 121;
+            currentIndex = 120;
             trajectory = 0;
 
             //delete current ghosts
@@ -475,7 +511,7 @@ namespace PacMan {
             //replace orbs / clean up tags
             foreach(Button btn in btnArray) {
                 if(btn.TabIndex == 71 || btn.TabIndex == 72 || btn.TabIndex == 73 || btn.TabIndex == 87 ||
-                    btn.TabIndex == 87 || btn.TabIndex == 88 || btn.TabIndex == 89 || btn.TabIndex == 56) {
+                    btn.TabIndex == 120 || btn.TabIndex == 88 || btn.TabIndex == 89 || btn.TabIndex == 56) {
                     btn.Tag = "";
                 }
                 else if (btn.BackColor == Color.Black) {
@@ -550,9 +586,62 @@ namespace PacMan {
         /// </summary>
         private void endGame() {
             exitbutton.Visible = true;
-            Gameoverlabel.Visible = true;
             continuebutton.Visible = true;
             Playagainlabel.Visible = true;
+
+            Boolean newHighScore = false;
+            //check for new highscore
+            for(int i = 0; i < 5; i++) {
+                if(score >= highScores[i].getScore()) {
+                    newHighScore = true;
+                }
+            }
+
+            if(newHighScore) {
+                //display new highscore menu
+                NewHighscorePanel.Visible = true;
+                NewHighscoreLabel.Visible = true;
+                NewHighScoreTextBox.Visible = true;
+                ConfirmUserInput.Visible = true;
+            }
+            else {
+                //populate highscore board
+                HighscoreName1.Text = highScores[0].getName();
+                HighscoreName2.Text = highScores[1].getName();
+                HighscoreName3.Text = highScores[2].getName();
+                HighscoreName4.Text = highScores[3].getName();
+                HighscoreName5.Text = highScores[4].getName();
+                Highscore1.Text = highScores[0].getScore().ToString();
+                Highscore2.Text = highScores[1].getScore().ToString();
+                Highscore3.Text = highScores[2].getScore().ToString();
+                Highscore4.Text = highScores[3].getScore().ToString();
+                Highscore5.Text = highScores[4].getScore().ToString();
+
+                //display highscore board
+                GameOverLabel.Visible = true;
+                HighscorePanel.Visible = true;
+                HighscoreTable.Visible = true;
+                HighscoreLabel.Visible = true;
+                HighscoreName1.Visible = true;
+                HighscoreName2.Visible = true;
+                HighscoreName3.Visible = true;
+                HighscoreName4.Visible = true;
+                HighscoreName5.Visible = true;
+                Highscore1.Visible = true;
+                Highscore2.Visible = true;
+                Highscore3.Visible = true;
+                Highscore4.Visible = true;
+                Highscore5.Visible = true;
+
+                String[] temp = new string[5];
+
+                //write to file
+                for (int i = 0; i < 5; i++) {
+                    temp[i] = highScores[i].getName() + " " + highScores[i].getScore().ToString();
+                }
+
+                File.WriteAllLines(@"C:\Users\alex.berthon\source\repos\PacMan\highscoredata.txt", temp);
+            }
         }
 
         /// <summary>
@@ -591,7 +680,7 @@ namespace PacMan {
         /// now that I think about it I could probably combine the 2 functions and pass an argument to determine is the score is persistent or not //TODO:
         /// </summary>
         private void nextStage() {
-            currentIndex = 121;
+            currentIndex = 120;
             trajectory = 0;
             orbs = 110;
 
@@ -603,12 +692,12 @@ namespace PacMan {
             //repopulate orbs
             foreach (Button btn in btnArray) {
                 if (btn.TabIndex == 71 || btn.TabIndex == 72 || btn.TabIndex == 73 || btn.TabIndex == 87 ||
-                    btn.TabIndex == 87 || btn.TabIndex == 88 || btn.TabIndex == 89 || btn.TabIndex == 56) {
+                    btn.TabIndex == 120 || btn.TabIndex == 88 || btn.TabIndex == 89 || btn.TabIndex == 56) {
                     btn.Tag = "";
                 }
                 else if (btn.BackColor == Color.Black) {
-                    if (btn.TabIndex == 45 || btn.TabIndex == 51 || btn.TabIndex == 146 ||
-                        btn.TabIndex == 182 || btn.TabIndex == 202 || btn.TabIndex == 156) {
+                    if (btn.TabIndex == 45 || btn.TabIndex == 146 ||
+                        btn.TabIndex == 182 || btn.TabIndex == 156) {
                         btn.Tag = "3";
                         btn.BackgroundImage = Properties.Resources.orb2;
                     }
@@ -654,8 +743,63 @@ namespace PacMan {
             timer.Start();
             animationTimer.Start();
         }
+
+        private void ConfirmUserInput_Click(object sender, EventArgs e) {
+            if(NewHighScoreTextBox.Text != null) {
+                //add new highscore to list
+                highScores[4] = new Highscore(NewHighScoreTextBox.Text, score);
+
+                Array.Sort(highScores, Highscore.SortScoreAcending());
+
+                //don't need to remove the last entry if you never write that line to the file /bigbrain
+
+                //close new highscore menu
+                NewHighscoreLabel.Visible = false;
+                NewHighscorePanel.Visible = false;
+                NewHighScoreTextBox.Visible = false;
+                ConfirmUserInput.Visible = false;
+
+                //populate highscore board
+                HighscoreName1.Text = highScores[0].getName();
+                HighscoreName2.Text = highScores[1].getName();
+                HighscoreName3.Text = highScores[2].getName();
+                HighscoreName4.Text = highScores[3].getName();
+                HighscoreName5.Text = highScores[4].getName();
+                Highscore1.Text = highScores[0].getScore().ToString();
+                Highscore2.Text = highScores[1].getScore().ToString();
+                Highscore3.Text = highScores[2].getScore().ToString();
+                Highscore4.Text = highScores[3].getScore().ToString();
+                Highscore5.Text = highScores[4].getScore().ToString();
+
+                //display highscore board
+                GameOverLabel.Visible = true;
+                HighscorePanel.Visible = true;
+                HighscoreTable.Visible = true;
+                HighscoreLabel.Visible = true;
+                HighscoreName1.Visible = true;
+                HighscoreName2.Visible = true;
+                HighscoreName3.Visible = true;
+                HighscoreName4.Visible = true;
+                HighscoreName5.Visible = true;
+                Highscore1.Visible = true;
+                Highscore2.Visible = true;
+                Highscore3.Visible = true;
+                Highscore4.Visible = true;
+                Highscore5.Visible = true;
+
+                String[] temp = new string[5];
+
+                //write to file
+                for (int i = 0; i < 5; i++) {
+                    temp[i] = highScores[i].getName() + " " + highScores[i].getScore().ToString();
+                }
+
+                File.WriteAllLines(@"C:\Users\alex.berthon\source\repos\PacMan\highscoredata.txt", temp);
+            }
+        }
     }
 }
 
 //future updates / ideas
-//new highscore - connect to database and have a leaderboard 
+//database for highscore / non-local leaderboard
+//new game board or even randomly generated game board? Logic will work as long as there is flow (no dead ends or split board)

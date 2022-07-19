@@ -281,11 +281,31 @@
             this.button255 = new System.Windows.Forms.Button();
             this.button256 = new System.Windows.Forms.Button();
             this.ScoreLabel = new System.Windows.Forms.Label();
-            this.Gameoverlabel = new System.Windows.Forms.Label();
             this.Playagainlabel = new System.Windows.Forms.Label();
             this.continuebutton = new System.Windows.Forms.Button();
             this.exitbutton = new System.Windows.Forms.Button();
+            this.HighscorePanel = new System.Windows.Forms.Panel();
+            this.HighscoreLabel = new System.Windows.Forms.Label();
+            this.HighscoreTable = new System.Windows.Forms.TableLayoutPanel();
+            this.HighscoreName1 = new System.Windows.Forms.Label();
+            this.HighscoreName2 = new System.Windows.Forms.Label();
+            this.HighscoreName3 = new System.Windows.Forms.Label();
+            this.HighscoreName4 = new System.Windows.Forms.Label();
+            this.HighscoreName5 = new System.Windows.Forms.Label();
+            this.Highscore1 = new System.Windows.Forms.Label();
+            this.Highscore2 = new System.Windows.Forms.Label();
+            this.Highscore3 = new System.Windows.Forms.Label();
+            this.Highscore4 = new System.Windows.Forms.Label();
+            this.Highscore5 = new System.Windows.Forms.Label();
+            this.GameOverLabel = new System.Windows.Forms.Label();
+            this.NewHighscorePanel = new System.Windows.Forms.Panel();
+            this.NewHighscoreLabel = new System.Windows.Forms.Label();
+            this.NewHighScoreTextBox = new System.Windows.Forms.TextBox();
+            this.ConfirmUserInput = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
+            this.HighscorePanel.SuspendLayout();
+            this.HighscoreTable.SuspendLayout();
+            this.NewHighscorePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -4376,18 +4396,6 @@
             this.ScoreLabel.Text = "0";
             this.ScoreLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // Gameoverlabel
-            // 
-            this.Gameoverlabel.AutoSize = true;
-            this.Gameoverlabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Gameoverlabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Gameoverlabel.Location = new System.Drawing.Point(10, 5);
-            this.Gameoverlabel.Name = "Gameoverlabel";
-            this.Gameoverlabel.Size = new System.Drawing.Size(97, 21);
-            this.Gameoverlabel.TabIndex = 2;
-            this.Gameoverlabel.Text = "GAME OVER";
-            this.Gameoverlabel.Visible = false;
-            // 
             // Playagainlabel
             // 
             this.Playagainlabel.AutoSize = true;
@@ -4428,16 +4436,239 @@
             this.exitbutton.Visible = false;
             this.exitbutton.Click += new System.EventHandler(this.exitbutton_Click);
             // 
+            // HighscorePanel
+            // 
+            this.HighscorePanel.Controls.Add(this.HighscoreLabel);
+            this.HighscorePanel.Controls.Add(this.HighscoreTable);
+            this.HighscorePanel.Controls.Add(this.GameOverLabel);
+            this.HighscorePanel.Location = new System.Drawing.Point(98, 60);
+            this.HighscorePanel.Name = "HighscorePanel";
+            this.HighscorePanel.Size = new System.Drawing.Size(150, 150);
+            this.HighscorePanel.TabIndex = 6;
+            this.HighscorePanel.Visible = false;
+            // 
+            // HighscoreLabel
+            // 
+            this.HighscoreLabel.AutoSize = true;
+            this.HighscoreLabel.ForeColor = System.Drawing.Color.White;
+            this.HighscoreLabel.Location = new System.Drawing.Point(41, 30);
+            this.HighscoreLabel.Name = "HighscoreLabel";
+            this.HighscoreLabel.Size = new System.Drawing.Size(66, 15);
+            this.HighscoreLabel.TabIndex = 2;
+            this.HighscoreLabel.Text = "Highscores";
+            this.HighscoreLabel.Visible = false;
+            // 
+            // HighscoreTable
+            // 
+            this.HighscoreTable.ColumnCount = 2;
+            this.HighscoreTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.HighscoreTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.HighscoreTable.Controls.Add(this.HighscoreName1, 0, 0);
+            this.HighscoreTable.Controls.Add(this.HighscoreName2, 0, 1);
+            this.HighscoreTable.Controls.Add(this.HighscoreName3, 0, 2);
+            this.HighscoreTable.Controls.Add(this.HighscoreName4, 0, 3);
+            this.HighscoreTable.Controls.Add(this.HighscoreName5, 0, 4);
+            this.HighscoreTable.Controls.Add(this.Highscore1, 1, 0);
+            this.HighscoreTable.Controls.Add(this.Highscore2, 1, 1);
+            this.HighscoreTable.Controls.Add(this.Highscore3, 1, 2);
+            this.HighscoreTable.Controls.Add(this.Highscore4, 1, 3);
+            this.HighscoreTable.Controls.Add(this.Highscore5, 1, 4);
+            this.HighscoreTable.Location = new System.Drawing.Point(3, 49);
+            this.HighscoreTable.Name = "HighscoreTable";
+            this.HighscoreTable.RowCount = 6;
+            this.HighscoreTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.HighscoreTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.HighscoreTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.HighscoreTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.HighscoreTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.HighscoreTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.HighscoreTable.Size = new System.Drawing.Size(144, 114);
+            this.HighscoreTable.TabIndex = 1;
+            this.HighscoreTable.Visible = false;
+            // 
+            // HighscoreName1
+            // 
+            this.HighscoreName1.AutoSize = true;
+            this.HighscoreName1.ForeColor = System.Drawing.Color.White;
+            this.HighscoreName1.Location = new System.Drawing.Point(3, 0);
+            this.HighscoreName1.Name = "HighscoreName1";
+            this.HighscoreName1.Size = new System.Drawing.Size(38, 15);
+            this.HighscoreName1.TabIndex = 0;
+            this.HighscoreName1.Text = "label1";
+            this.HighscoreName1.Visible = false;
+            // 
+            // HighscoreName2
+            // 
+            this.HighscoreName2.AutoSize = true;
+            this.HighscoreName2.ForeColor = System.Drawing.Color.White;
+            this.HighscoreName2.Location = new System.Drawing.Point(3, 20);
+            this.HighscoreName2.Name = "HighscoreName2";
+            this.HighscoreName2.Size = new System.Drawing.Size(38, 15);
+            this.HighscoreName2.TabIndex = 1;
+            this.HighscoreName2.Text = "label1";
+            this.HighscoreName2.Visible = false;
+            // 
+            // HighscoreName3
+            // 
+            this.HighscoreName3.AutoSize = true;
+            this.HighscoreName3.ForeColor = System.Drawing.Color.White;
+            this.HighscoreName3.Location = new System.Drawing.Point(3, 40);
+            this.HighscoreName3.Name = "HighscoreName3";
+            this.HighscoreName3.Size = new System.Drawing.Size(38, 15);
+            this.HighscoreName3.TabIndex = 2;
+            this.HighscoreName3.Text = "label1";
+            this.HighscoreName3.Visible = false;
+            // 
+            // HighscoreName4
+            // 
+            this.HighscoreName4.AutoSize = true;
+            this.HighscoreName4.ForeColor = System.Drawing.Color.White;
+            this.HighscoreName4.Location = new System.Drawing.Point(3, 60);
+            this.HighscoreName4.Name = "HighscoreName4";
+            this.HighscoreName4.Size = new System.Drawing.Size(38, 15);
+            this.HighscoreName4.TabIndex = 3;
+            this.HighscoreName4.Text = "label1";
+            this.HighscoreName4.Visible = false;
+            // 
+            // HighscoreName5
+            // 
+            this.HighscoreName5.AutoSize = true;
+            this.HighscoreName5.ForeColor = System.Drawing.Color.White;
+            this.HighscoreName5.Location = new System.Drawing.Point(3, 80);
+            this.HighscoreName5.Name = "HighscoreName5";
+            this.HighscoreName5.Size = new System.Drawing.Size(38, 15);
+            this.HighscoreName5.TabIndex = 4;
+            this.HighscoreName5.Text = "label1";
+            this.HighscoreName5.Visible = false;
+            // 
+            // Highscore1
+            // 
+            this.Highscore1.AutoSize = true;
+            this.Highscore1.ForeColor = System.Drawing.Color.White;
+            this.Highscore1.Location = new System.Drawing.Point(75, 0);
+            this.Highscore1.Name = "Highscore1";
+            this.Highscore1.Size = new System.Drawing.Size(38, 15);
+            this.Highscore1.TabIndex = 5;
+            this.Highscore1.Text = "label1";
+            this.Highscore1.Visible = false;
+            // 
+            // Highscore2
+            // 
+            this.Highscore2.AutoSize = true;
+            this.Highscore2.ForeColor = System.Drawing.Color.White;
+            this.Highscore2.Location = new System.Drawing.Point(75, 20);
+            this.Highscore2.Name = "Highscore2";
+            this.Highscore2.Size = new System.Drawing.Size(38, 15);
+            this.Highscore2.TabIndex = 6;
+            this.Highscore2.Text = "label1";
+            this.Highscore2.Visible = false;
+            // 
+            // Highscore3
+            // 
+            this.Highscore3.AutoSize = true;
+            this.Highscore3.ForeColor = System.Drawing.Color.White;
+            this.Highscore3.Location = new System.Drawing.Point(75, 40);
+            this.Highscore3.Name = "Highscore3";
+            this.Highscore3.Size = new System.Drawing.Size(38, 15);
+            this.Highscore3.TabIndex = 7;
+            this.Highscore3.Text = "label1";
+            this.Highscore3.Visible = false;
+            // 
+            // Highscore4
+            // 
+            this.Highscore4.AutoSize = true;
+            this.Highscore4.ForeColor = System.Drawing.Color.White;
+            this.Highscore4.Location = new System.Drawing.Point(75, 60);
+            this.Highscore4.Name = "Highscore4";
+            this.Highscore4.Size = new System.Drawing.Size(38, 15);
+            this.Highscore4.TabIndex = 8;
+            this.Highscore4.Text = "label1";
+            this.Highscore4.Visible = false;
+            // 
+            // Highscore5
+            // 
+            this.Highscore5.AutoSize = true;
+            this.Highscore5.ForeColor = System.Drawing.Color.White;
+            this.Highscore5.Location = new System.Drawing.Point(75, 80);
+            this.Highscore5.Name = "Highscore5";
+            this.Highscore5.Size = new System.Drawing.Size(38, 15);
+            this.Highscore5.TabIndex = 9;
+            this.Highscore5.Text = "label1";
+            this.Highscore5.Visible = false;
+            // 
+            // GameOverLabel
+            // 
+            this.GameOverLabel.AutoSize = true;
+            this.GameOverLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.GameOverLabel.ForeColor = System.Drawing.Color.White;
+            this.GameOverLabel.Location = new System.Drawing.Point(31, 4);
+            this.GameOverLabel.Name = "GameOverLabel";
+            this.GameOverLabel.Size = new System.Drawing.Size(94, 21);
+            this.GameOverLabel.TabIndex = 0;
+            this.GameOverLabel.Text = "Game Over!";
+            this.GameOverLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.GameOverLabel.Visible = false;
+            // 
+            // NewHighscorePanel
+            // 
+            this.NewHighscorePanel.Controls.Add(this.ConfirmUserInput);
+            this.NewHighscorePanel.Controls.Add(this.NewHighScoreTextBox);
+            this.NewHighscorePanel.Controls.Add(this.NewHighscoreLabel);
+            this.NewHighscorePanel.Location = new System.Drawing.Point(98, 60);
+            this.NewHighscorePanel.Name = "NewHighscorePanel";
+            this.NewHighscorePanel.Size = new System.Drawing.Size(150, 75);
+            this.NewHighscorePanel.TabIndex = 7;
+            this.NewHighscorePanel.Visible = false;
+            // 
+            // NewHighscoreLabel
+            // 
+            this.NewHighscoreLabel.AutoSize = true;
+            this.NewHighscoreLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NewHighscoreLabel.ForeColor = System.Drawing.Color.White;
+            this.NewHighscoreLabel.Location = new System.Drawing.Point(14, 4);
+            this.NewHighscoreLabel.Name = "NewHighscoreLabel";
+            this.NewHighscoreLabel.Size = new System.Drawing.Size(127, 21);
+            this.NewHighscoreLabel.TabIndex = 0;
+            this.NewHighscoreLabel.Text = "New High Score!";
+            this.NewHighscoreLabel.Visible = false;
+            // 
+            // NewHighScoreTextBox
+            // 
+            this.NewHighScoreTextBox.Location = new System.Drawing.Point(11, 43);
+            this.NewHighScoreTextBox.MaxLength = 10;
+            this.NewHighScoreTextBox.Name = "NewHighScoreTextBox";
+            this.NewHighScoreTextBox.Size = new System.Drawing.Size(100, 23);
+            this.NewHighScoreTextBox.TabIndex = 1;
+            this.NewHighScoreTextBox.Text = "Enter name";
+            this.NewHighScoreTextBox.Visible = false;
+            // 
+            // ConfirmUserInput
+            // 
+            this.ConfirmUserInput.BackColor = System.Drawing.Color.ForestGreen;
+            this.ConfirmUserInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConfirmUserInput.Font = new System.Drawing.Font("SimSun-ExtB", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ConfirmUserInput.ForeColor = System.Drawing.Color.White;
+            this.ConfirmUserInput.Location = new System.Drawing.Point(117, 43);
+            this.ConfirmUserInput.Name = "ConfirmUserInput";
+            this.ConfirmUserInput.Size = new System.Drawing.Size(23, 23);
+            this.ConfirmUserInput.TabIndex = 2;
+            this.ConfirmUserInput.Text = ">";
+            this.ConfirmUserInput.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ConfirmUserInput.UseVisualStyleBackColor = false;
+            this.ConfirmUserInput.Visible = false;
+            this.ConfirmUserInput.Click += new System.EventHandler(this.ConfirmUserInput_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(344, 361);
+            this.Controls.Add(this.NewHighscorePanel);
+            this.Controls.Add(this.HighscorePanel);
             this.Controls.Add(this.exitbutton);
             this.Controls.Add(this.continuebutton);
             this.Controls.Add(this.Playagainlabel);
-            this.Controls.Add(this.Gameoverlabel);
             this.Controls.Add(this.ScoreLabel);
             this.Controls.Add(this.flowLayoutPanel1);
             this.MaximizeBox = false;
@@ -4445,6 +4676,12 @@
             this.Name = "Form1";
             this.Text = "Pacman";
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.HighscorePanel.ResumeLayout(false);
+            this.HighscorePanel.PerformLayout();
+            this.HighscoreTable.ResumeLayout(false);
+            this.HighscoreTable.PerformLayout();
+            this.NewHighscorePanel.ResumeLayout(false);
+            this.NewHighscorePanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4710,9 +4947,26 @@
         private Button button255;
         private Button button256;
         private Label ScoreLabel;
-        private Label Gameoverlabel;
         private Label Playagainlabel;
         private Button continuebutton;
         private Button exitbutton;
+        private Panel HighscorePanel;
+        private Label GameOverLabel;
+        private TableLayoutPanel HighscoreTable;
+        private Label HighscoreName1;
+        private Label HighscoreName2;
+        private Label HighscoreName3;
+        private Label HighscoreName4;
+        private Label HighscoreName5;
+        private Label Highscore1;
+        private Label Highscore2;
+        private Label Highscore3;
+        private Label Highscore4;
+        private Label Highscore5;
+        private Label HighscoreLabel;
+        private Panel NewHighscorePanel;
+        private Label NewHighscoreLabel;
+        private Button ConfirmUserInput;
+        private TextBox NewHighScoreTextBox;
     }
 }
