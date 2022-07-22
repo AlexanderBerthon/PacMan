@@ -6,6 +6,7 @@
   <section>
     <ul>To Do for MVP:
       <ul><s>Front End</s>
+        <ul>Application Icon</ul>
         <ul><s>Button Grid</s></ul>
         <ul><s>Pacman Icons</s></ul>
         <ul><s>Ghost Icons</s></ul>
@@ -38,6 +39,10 @@
         <ul><s>Restart</s></ul>
         <ul><s>Vulnerable Ghost Phase</s></ul>
         <ul><s>Power-Up Orbs</s></ul>
+        </ul>
+        </ul>
+        <ul><s>Additional Features</s>
+        <ul><s>Highscore Leaderboard</s>
         </ul>
         Testing
   </section>
