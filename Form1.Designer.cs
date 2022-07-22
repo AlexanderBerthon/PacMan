@@ -299,9 +299,10 @@
             this.Highscore5 = new System.Windows.Forms.Label();
             this.GameOverLabel = new System.Windows.Forms.Label();
             this.NewHighscorePanel = new System.Windows.Forms.Panel();
-            this.NewHighscoreLabel = new System.Windows.Forms.Label();
-            this.NewHighScoreTextBox = new System.Windows.Forms.TextBox();
             this.ConfirmUserInput = new System.Windows.Forms.Button();
+            this.NewHighScoreTextBox = new System.Windows.Forms.TextBox();
+            this.NewHighscoreLabel = new System.Windows.Forms.Label();
+            this.UserInputErrorLabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.HighscorePanel.SuspendLayout();
             this.HighscoreTable.SuspendLayout();
@@ -4611,6 +4612,7 @@
             // 
             // NewHighscorePanel
             // 
+            this.NewHighscorePanel.Controls.Add(this.UserInputErrorLabel);
             this.NewHighscorePanel.Controls.Add(this.ConfirmUserInput);
             this.NewHighscorePanel.Controls.Add(this.NewHighScoreTextBox);
             this.NewHighscorePanel.Controls.Add(this.NewHighscoreLabel);
@@ -4619,28 +4621,6 @@
             this.NewHighscorePanel.Size = new System.Drawing.Size(150, 75);
             this.NewHighscorePanel.TabIndex = 7;
             this.NewHighscorePanel.Visible = false;
-            // 
-            // NewHighscoreLabel
-            // 
-            this.NewHighscoreLabel.AutoSize = true;
-            this.NewHighscoreLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.NewHighscoreLabel.ForeColor = System.Drawing.Color.White;
-            this.NewHighscoreLabel.Location = new System.Drawing.Point(14, 4);
-            this.NewHighscoreLabel.Name = "NewHighscoreLabel";
-            this.NewHighscoreLabel.Size = new System.Drawing.Size(127, 21);
-            this.NewHighscoreLabel.TabIndex = 0;
-            this.NewHighscoreLabel.Text = "New High Score!";
-            this.NewHighscoreLabel.Visible = false;
-            // 
-            // NewHighScoreTextBox
-            // 
-            this.NewHighScoreTextBox.Location = new System.Drawing.Point(11, 43);
-            this.NewHighScoreTextBox.MaxLength = 10;
-            this.NewHighScoreTextBox.Name = "NewHighScoreTextBox";
-            this.NewHighScoreTextBox.Size = new System.Drawing.Size(100, 23);
-            this.NewHighScoreTextBox.TabIndex = 1;
-            this.NewHighScoreTextBox.Text = "Enter name";
-            this.NewHighScoreTextBox.Visible = false;
             // 
             // ConfirmUserInput
             // 
@@ -4657,6 +4637,40 @@
             this.ConfirmUserInput.UseVisualStyleBackColor = false;
             this.ConfirmUserInput.Visible = false;
             this.ConfirmUserInput.Click += new System.EventHandler(this.ConfirmUserInput_Click);
+            // 
+            // NewHighScoreTextBox
+            // 
+            this.NewHighScoreTextBox.Location = new System.Drawing.Point(11, 43);
+            this.NewHighScoreTextBox.MaxLength = 10;
+            this.NewHighScoreTextBox.Name = "NewHighScoreTextBox";
+            this.NewHighScoreTextBox.PlaceholderText = "Enter name";
+            this.NewHighScoreTextBox.Size = new System.Drawing.Size(100, 23);
+            this.NewHighScoreTextBox.TabIndex = 1;
+            this.NewHighScoreTextBox.Visible = false;
+            this.NewHighScoreTextBox.TextChanged += new System.EventHandler(this.NewHighScoreTextBox_TextChanged);
+            // 
+            // NewHighscoreLabel
+            // 
+            this.NewHighscoreLabel.AutoSize = true;
+            this.NewHighscoreLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NewHighscoreLabel.ForeColor = System.Drawing.Color.White;
+            this.NewHighscoreLabel.Location = new System.Drawing.Point(14, 4);
+            this.NewHighscoreLabel.Name = "NewHighscoreLabel";
+            this.NewHighscoreLabel.Size = new System.Drawing.Size(127, 21);
+            this.NewHighscoreLabel.TabIndex = 0;
+            this.NewHighscoreLabel.Text = "New High Score!";
+            this.NewHighscoreLabel.Visible = false;
+            // 
+            // UserInputErrorLabel
+            // 
+            this.UserInputErrorLabel.AutoSize = true;
+            this.UserInputErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.UserInputErrorLabel.Location = new System.Drawing.Point(10, 26);
+            this.UserInputErrorLabel.Name = "UserInputErrorLabel";
+            this.UserInputErrorLabel.Size = new System.Drawing.Size(134, 15);
+            this.UserInputErrorLabel.TabIndex = 3;
+            this.UserInputErrorLabel.Text = "Error: no spaces allowed";
+            this.UserInputErrorLabel.Visible = false;
             // 
             // Form1
             // 
@@ -4968,5 +4982,6 @@
         private Label NewHighscoreLabel;
         private Button ConfirmUserInput;
         private TextBox NewHighScoreTextBox;
+        private Label UserInputErrorLabel;
     }
 }

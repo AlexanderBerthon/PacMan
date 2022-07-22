@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PacMan {
-    internal class Highscore : IComparable {
+    internal class Highscore{
         String username;
         int score;
 
@@ -42,25 +42,8 @@ namespace PacMan {
             }
         }
 
-        int IComparable.CompareTo(object obj) {
-            Highscore s = (Highscore)obj;
-            return String.Compare(this.username, s.username);
-        }
-
         public static IComparer SortScoreAcending() {
             return (IComparer)new SortScoreAcendingHelper();
         }
-
-        /*
-        public int CompareTo(Highscore other) {
-            // Compares Height, Length, and Width.
-            if (this.score.CompareTo(other.score) != 0) {
-                return this.score.CompareTo(other.score);
-            }
-            else {
-                return 0;
-            }
-        }
-        */
     }
 }

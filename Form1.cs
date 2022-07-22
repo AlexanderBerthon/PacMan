@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 /**
  * This project replicates the game "Pac Man" using winforms
  * 
@@ -19,6 +20,11 @@
  * Enjoy!
  */
 namespace PacMan {
+    /*
+    bugs
+    - add regular expression to user input
+    */
+
 
     /* TAG KEY
         _______________________________________________
@@ -151,7 +157,6 @@ namespace PacMan {
         private void TimerEventProcessor(Object anObject, EventArgs eventArgs) {
 
             //Orb check / verification
-            /*TESTING TO SEE IF THIS IS NEEDED ANYMORE. IF NOT, REMOVE ALL TRACES***************************************************
             if(orbs == 5 || orbs == 25 || orbs == 50 || orbs == 75) {
                 int temp = 0;
                 foreach (Button btn in btnArray) {
@@ -164,7 +169,7 @@ namespace PacMan {
                     orbs = temp;
                 }
             }
-            */
+            
             if (!gameOver) {
                 move();
             }
@@ -745,13 +750,25 @@ namespace PacMan {
         }
 
         private void ConfirmUserInput_Click(object sender, EventArgs e) {
-            if(NewHighScoreTextBox.Text != null) {
+            String userInput = "";
+            Regex regex = new Regex("^[0-9]+$");
+            userInput.Contains("^[0-9]+$");
+            if (NewHighScoreTextBox.Text != null) {
+                userInput = NewHighScoreTextBox.Text;
+
+                if (regex.Match(userInput) != null) {
+                    UserInputErrorLabel.Text = "Error: no numbers allowed";
+                    UserInputErrorLabel.Visible = true;
+                }
+                else if (userInput.Contains(" ")) {
+                    UserInputErrorLabel.Text = "Error: no spaces allowed";
+                    UserInputErrorLabel.Visible = true;
+                }
+                else {
                 //add new highscore to list
                 highScores[4] = new Highscore(NewHighScoreTextBox.Text, score);
 
                 Array.Sort(highScores, Highscore.SortScoreAcending());
-
-                //don't need to remove the last entry if you never write that line to the file /bigbrain
 
                 //close new highscore menu
                 NewHighscoreLabel.Visible = false;
@@ -796,6 +813,11 @@ namespace PacMan {
 
                 File.WriteAllLines(@"C:\Users\alex.berthon\source\repos\PacMan\highscoredata.txt", temp);
             }
+            }
+        }
+
+        private void NewHighScoreTextBox_TextChanged(object sender, EventArgs e) {
+            UserInputErrorLabel.Visible = false;
         }
     }
 }
