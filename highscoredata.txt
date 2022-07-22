@@ -1,5 +1,5 @@
-hihihi 20
-Test 14
-hi 10
-victory 9
-victoryz 5
+name 363
+Ji 206
+fail 184
+12trees 140
+Enter 38
