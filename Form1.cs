@@ -61,12 +61,8 @@ namespace PacMan {
         public Form1() {
             InitializeComponent();
 
-            //start testing
             //Initialize highscore variables
             highScores = new Highscore[5];
-
-            //I only want to do this when a highscore is achieved, not every run. 
-            //but the only way to check is by having the data.. so I have to run this every time :(
             string[] inputData = System.IO.File.ReadAllLines(@"C:\Users\alex.berthon\source\repos\PacMan\highscoredata.txt");
 
             if (inputData.Length > 0) {
@@ -76,7 +72,6 @@ namespace PacMan {
                     highScores[i] = new Highscore(split[0], int.Parse(split[1]));
                 }
             }
-            //end testing
 
             //Initialize player variables
             currentIndex = 120;
@@ -745,8 +740,7 @@ namespace PacMan {
 
         private void ConfirmUserInput_Click(object sender, EventArgs e) {
             String userInput = "";
-            Regex regex = new Regex("^[0-9]+$");
-
+            Regex regex = new Regex("[0-9]");
             if (NewHighScoreTextBox.Text != null) {
                 userInput = NewHighScoreTextBox.Text;
 
@@ -756,6 +750,10 @@ namespace PacMan {
                 }
                 else if (userInput.Contains(" ")) {
                     UserInputErrorLabel.Text = "Error: no spaces allowed";
+                    UserInputErrorLabel.Visible = true;
+                }
+                else if (userInput.Length < 1) {
+                    UserInputErrorLabel.Text = "Error: please enter a name";
                     UserInputErrorLabel.Visible = true;
                 }
                 else {
