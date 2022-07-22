@@ -20,12 +20,6 @@ using System.Text.RegularExpressions;
  * Enjoy!
  */
 namespace PacMan {
-    /*
-    bugs
-    - add regular expression to user input
-    */
-
-
     /* TAG KEY
         _______________________________________________
         TAG         -  DEFINITION
@@ -752,11 +746,11 @@ namespace PacMan {
         private void ConfirmUserInput_Click(object sender, EventArgs e) {
             String userInput = "";
             Regex regex = new Regex("^[0-9]+$");
-            userInput.Contains("^[0-9]+$");
+
             if (NewHighScoreTextBox.Text != null) {
                 userInput = NewHighScoreTextBox.Text;
 
-                if (regex.Match(userInput) != null) {
+                if (regex.IsMatch(userInput)) {
                     UserInputErrorLabel.Text = "Error: no numbers allowed";
                     UserInputErrorLabel.Visible = true;
                 }
@@ -765,54 +759,54 @@ namespace PacMan {
                     UserInputErrorLabel.Visible = true;
                 }
                 else {
-                //add new highscore to list
-                highScores[4] = new Highscore(NewHighScoreTextBox.Text, score);
+                    //add new highscore to list
+                    highScores[4] = new Highscore(NewHighScoreTextBox.Text, score);
 
-                Array.Sort(highScores, Highscore.SortScoreAcending());
+                    Array.Sort(highScores, Highscore.SortScoreAcending());
 
-                //close new highscore menu
-                NewHighscoreLabel.Visible = false;
-                NewHighscorePanel.Visible = false;
-                NewHighScoreTextBox.Visible = false;
-                ConfirmUserInput.Visible = false;
+                    //close new highscore menu
+                    NewHighscoreLabel.Visible = false;
+                    NewHighscorePanel.Visible = false;
+                    NewHighScoreTextBox.Visible = false;
+                    ConfirmUserInput.Visible = false;
 
-                //populate highscore board
-                HighscoreName1.Text = highScores[0].getName();
-                HighscoreName2.Text = highScores[1].getName();
-                HighscoreName3.Text = highScores[2].getName();
-                HighscoreName4.Text = highScores[3].getName();
-                HighscoreName5.Text = highScores[4].getName();
-                Highscore1.Text = highScores[0].getScore().ToString();
-                Highscore2.Text = highScores[1].getScore().ToString();
-                Highscore3.Text = highScores[2].getScore().ToString();
-                Highscore4.Text = highScores[3].getScore().ToString();
-                Highscore5.Text = highScores[4].getScore().ToString();
+                    //populate highscore board
+                    HighscoreName1.Text = highScores[0].getName();
+                    HighscoreName2.Text = highScores[1].getName();
+                    HighscoreName3.Text = highScores[2].getName();
+                    HighscoreName4.Text = highScores[3].getName();
+                    HighscoreName5.Text = highScores[4].getName();
+                    Highscore1.Text = highScores[0].getScore().ToString();
+                    Highscore2.Text = highScores[1].getScore().ToString();
+                    Highscore3.Text = highScores[2].getScore().ToString();
+                    Highscore4.Text = highScores[3].getScore().ToString();
+                    Highscore5.Text = highScores[4].getScore().ToString();
 
-                //display highscore board
-                GameOverLabel.Visible = true;
-                HighscorePanel.Visible = true;
-                HighscoreTable.Visible = true;
-                HighscoreLabel.Visible = true;
-                HighscoreName1.Visible = true;
-                HighscoreName2.Visible = true;
-                HighscoreName3.Visible = true;
-                HighscoreName4.Visible = true;
-                HighscoreName5.Visible = true;
-                Highscore1.Visible = true;
-                Highscore2.Visible = true;
-                Highscore3.Visible = true;
-                Highscore4.Visible = true;
-                Highscore5.Visible = true;
+                    //display highscore board
+                    GameOverLabel.Visible = true;
+                    HighscorePanel.Visible = true;
+                    HighscoreTable.Visible = true;
+                    HighscoreLabel.Visible = true;
+                    HighscoreName1.Visible = true;
+                    HighscoreName2.Visible = true;
+                    HighscoreName3.Visible = true;
+                    HighscoreName4.Visible = true;
+                    HighscoreName5.Visible = true;
+                    Highscore1.Visible = true;
+                    Highscore2.Visible = true;
+                    Highscore3.Visible = true;
+                    Highscore4.Visible = true;
+                    Highscore5.Visible = true;
 
-                String[] temp = new string[5];
+                    String[] temp = new string[5];
 
-                //write to file
-                for (int i = 0; i < 5; i++) {
-                    temp[i] = highScores[i].getName() + " " + highScores[i].getScore().ToString();
+                    //write to file
+                    for (int i = 0; i < 5; i++) {
+                        temp[i] = highScores[i].getName() + " " + highScores[i].getScore().ToString();
+                    }
+
+                    File.WriteAllLines(@"C:\Users\alex.berthon\source\repos\PacMan\highscoredata.txt", temp);
                 }
-
-                File.WriteAllLines(@"C:\Users\alex.berthon\source\repos\PacMan\highscoredata.txt", temp);
-            }
             }
         }
 
