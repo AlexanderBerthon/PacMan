@@ -31,6 +31,11 @@ namespace PacMan {
         "1"         -  Full space / orb
         "3"         -  Special orb / power up
         _______________________________________________
+
+    BUGS
+    - highscore not working??
+
+
     */
 
     public partial class Form1 : Form {
