@@ -31,11 +31,6 @@ namespace PacMan {
         "1"         -  Full space / orb
         "3"         -  Special orb / power up
         _______________________________________________
-
-    BUGS
-    - highscore not working??
-
-
     */
 
     public partial class Form1 : Form {
@@ -599,6 +594,7 @@ namespace PacMan {
             if(newHighScore) {
                 //display new highscore menu
                 NewHighscorePanel.Visible = true;
+                NewHighscorePanel.BringToFront();
                 NewHighscoreLabel.Visible = true;
                 NewHighScoreTextBox.Visible = true;
                 ConfirmUserInput.Visible = true;
@@ -619,6 +615,7 @@ namespace PacMan {
                 //display highscore board
                 GameOverLabel.Visible = true;
                 HighscorePanel.Visible = true;
+                HighscorePanel.BringToFront();
                 HighscoreTable.Visible = true;
                 HighscoreLabel.Visible = true;
                 HighscoreName1.Visible = true;
@@ -788,6 +785,7 @@ namespace PacMan {
                     //display highscore board
                     GameOverLabel.Visible = true;
                     HighscorePanel.Visible = true;
+                    HighscorePanel.BringToFront();
                     HighscoreTable.Visible = true;
                     HighscoreLabel.Visible = true;
                     HighscoreName1.Visible = true;
@@ -813,6 +811,10 @@ namespace PacMan {
             }
         }
 
+        /// <summary>
+        /// Helper function, clears the error code message that displays when the user puts an invalid name for a new highscore.
+        /// Makes communicating errors easier to understand / removes confusion for multiple bad entries
+        /// </summary>
         private void NewHighScoreTextBox_TextChanged(object sender, EventArgs e) {
             UserInputErrorLabel.Visible = false;
         }
