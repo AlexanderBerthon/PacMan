@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 /**
  * This project replicates the game "Pac Man" using winforms
  * 
@@ -62,8 +63,17 @@ namespace PacMan {
             InitializeComponent();
 
             //Initialize highscore variables
+            string[] inputData;
             highScores = new Highscore[5];
-            string[] inputData = System.IO.File.ReadAllLines(@"C:\Users\alex.berthon\source\repos\PacMan\highscoredata.txt");
+
+            //create the highscore file if it doesn't exist
+            if (!File.Exists("C:\\Users\\" + Environment.UserName + "\\Desktop\\Pacman_Highscores.txt")) {
+                string[] temp = { "Jeff 0", "Kenny 0", "Taylor 0", "Alex 0", "Martin 0" };
+                File.WriteAllLines("C:\\Users\\" + Environment.UserName + "\\Desktop\\Pacman_Highscores.txt", temp); //creates files and populates with dummy data
+            }
+
+            inputData = System.IO.File.ReadAllLines("C:\\Users\\" + Environment.UserName + "\\Desktop\\Pacman_Highscores.txt");
+            //need to test and write error checking here
 
             if (inputData.Length > 0) {
                 for(int i = 0; i<inputData.Length; i++) {
