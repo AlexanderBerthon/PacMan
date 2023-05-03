@@ -73,7 +73,6 @@ namespace PacMan {
             }
 
             inputData = System.IO.File.ReadAllLines("C:\\Users\\" + Environment.UserName + "\\Desktop\\Pacman_Highscores.txt");
-            //need to test and write error checking here
 
             if (inputData.Length > 0) {
                 for(int i = 0; i<inputData.Length; i++) {
@@ -646,7 +645,7 @@ namespace PacMan {
                     temp[i] = highScores[i].getName() + " " + highScores[i].getScore().ToString();
                 }
 
-                File.WriteAllLines(@"C:\Users\alex.berthon\source\repos\PacMan\highscoredata.txt", temp);
+                File.WriteAllLines("C:\\Users\\" + Environment.UserName + "\\Desktop\\Pacman_Highscores.txt", temp);
             }
         }
 
@@ -816,7 +815,7 @@ namespace PacMan {
                         temp[i] = highScores[i].getName() + " " + highScores[i].getScore().ToString();
                     }
 
-                    File.WriteAllLines(@"C:\Users\alex.berthon\source\repos\PacMan\highscoredata.txt", temp);
+                    File.WriteAllLines("C:\\Users\\" + Environment.UserName + "\\Desktop\\Pacman_Highscores.txt", temp);
                 }
             }
         }
