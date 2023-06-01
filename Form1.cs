@@ -1,25 +1,6 @@
 using System.Text.RegularExpressions;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-/**
- * This project replicates the game "Pac Man" using winforms
- * 
- * the goal of the game is to collect all of the orbs on the board without colliding with any ghosts
- * there are several "special" orbs on the board that will temporarily make all the ghosts on the board vulnerable
- * colliding with a ghost in it's vulnerable state will send it back to it's spawn point and award bonus points
- * upon collecting all of the orbs on the board, the board will refresh but the score will remain the same
- * try to get the highest score possible!
- * 
- * CONTROLS
- * W - move up
- * S - move down
- * D - move right
- * A - move left
- * 
- * Pac man will continue in the input direction as long as there is space available (you don't need to hit a key for every space)
- * if pac man hits a wall, it will stop until another movement key is input
- * 
- * Enjoy!
- */
+
 namespace PacMan {
     /* TAG KEY
         _______________________________________________
@@ -33,7 +14,6 @@ namespace PacMan {
         "3"         -  Special orb / power up
         _______________________________________________
     */
-
     public partial class Form1 : Form {
         //highscore variables
         Highscore[] highScores;
@@ -106,7 +86,7 @@ namespace PacMan {
             animationTimer.Tick += new EventHandler(TimerEventProcessor2);
 
             //ghost creation
-            ghosts[0] = new Ghost(71, 10); //start index, delay(# of game tick cycles)
+            ghosts[0] = new Ghost(71, 10); //(start index, delay / # of game tick cycles)
             ghosts[1] = new Ghost(72, 0);
             ghosts[2] = new Ghost(73, 20);
             ghosts[3] = new Ghost(87, 30);
@@ -467,7 +447,7 @@ namespace PacMan {
             }
         }
 
-        /// Function to restart the game on game over. Begins the game anew, without having to relaunch the entire application.
+        ///Allows the game to restart without having to relaunch the entire application.
         private void continuebutton_Click(object sender, EventArgs e) {
             //hide highscore board
             GameOverLabel.Visible = false;
@@ -545,10 +525,6 @@ namespace PacMan {
                         break;
                 }
             }
-
-            //begin anew
-            //timer.Start();
-            //animationTimer.Start();
         }
 
         /// Exits the application when the button is clicked. Button shown on game over. 
@@ -563,8 +539,8 @@ namespace PacMan {
             exitbutton.Visible = true;
             continuebutton.Visible = true;
             Playagainlabel.Visible = true;
-
             Boolean newHighScore = false;
+
             //check for new highscore
             for(int i = 0; i < 5; i++) {
                 if(score >= highScores[i].getScore()) {
@@ -648,9 +624,9 @@ namespace PacMan {
             }
         }
 
-        /// Function to reset the game board for the next stage upon the player collecting all of the orbs.
+        /// Function to reset the game board for the next stage once all orbs are collected.
         /// Similar to the restart function but the score is maintained
-        /// now that I think about it I could probably combine the 2 functions and pass an argument to determine is the score is persistent or not //TODO:
+        /// lot of reused code here, could I combine the two functions?
         private void nextStage() {
             currentIndex = 120;
             trajectory = 0;
@@ -711,9 +687,6 @@ namespace PacMan {
                         break;
                 }
             }
-
-            //timer.Start();
-            //animationTimer.Start();
         }
 
         private void ConfirmUserInput_Click(object sender, EventArgs e) {
