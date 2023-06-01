@@ -1,25 +1,6 @@
 using System.Text.RegularExpressions;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-/**
- * This project replicates the game "Pac Man" using winforms
- * 
- * the goal of the game is to collect all of the orbs on the board without colliding with any ghosts
- * there are several "special" orbs on the board that will temporarily make all the ghosts on the board vulnerable
- * colliding with a ghost in it's vulnerable state will send it back to it's spawn point and award bonus points
- * upon collecting all of the orbs on the board, the board will refresh but the score will remain the same
- * try to get the highest score possible!
- * 
- * CONTROLS
- * W - move up
- * S - move down
- * D - move right
- * A - move left
- * 
- * Pac man will continue in the input direction as long as there is space available (you don't need to hit a key for every space)
- * if pac man hits a wall, it will stop until another movement key is input
- * 
- * Enjoy!
- */
+
 namespace PacMan {
     /* TAG KEY
         _______________________________________________
@@ -33,10 +14,7 @@ namespace PacMan {
         "3"         -  Special orb / power up
         _______________________________________________
     */
-
     public partial class Form1 : Form {
-        //global variables :(
-
         //highscore variables
         Highscore[] highScores;
 
@@ -108,7 +86,7 @@ namespace PacMan {
             animationTimer.Tick += new EventHandler(TimerEventProcessor2);
 
             //ghost creation
-            ghosts[0] = new Ghost(71, 10); //start index, delay(# of game tick cycles)
+            ghosts[0] = new Ghost(71, 10); //(start index, delay / # of game tick cycles)
             ghosts[1] = new Ghost(72, 0);
             ghosts[2] = new Ghost(73, 20);
             ghosts[3] = new Ghost(87, 30);
@@ -247,15 +225,13 @@ namespace PacMan {
                         btnArray[currentIndex].BackgroundImage = Properties.Resources.despawn4;
                         break;
                 }
-
             }
         }
-        /// <summary>
+
         /// This function is responsible for the AI Logic and movement
         /// Essentially this function will calculate all moves available for each ghosts and randomly choose a valid move
         /// Maximum of 3 choices, often only 1 choice. Calculated every tick of the movement clock for each of the active ghosts / ghosts who have a delay = 
         /// Movement also encompasses animation, background image swapping, and orb maintenance.
-        /// </summary>
         private void AIMove() {
             Random random = new Random();
             List<int> validMoves = new List<int>();
@@ -414,9 +390,7 @@ namespace PacMan {
             }
         }
 
-        /// <summary>
         /// This function is responsible for the logic behind player movement and collision
-        /// </summary>
         private void move() {
             
             if (trajectory != 0) {
@@ -473,28 +447,12 @@ namespace PacMan {
             }
         }
 
-        /// <summary>
-        /// Function to restart the game on game over. Begins the game anew, without having to relaunch the entire application.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        ///Allows the game to restart without having to relaunch the entire application.
         private void continuebutton_Click(object sender, EventArgs e) {
             //hide highscore board
             GameOverLabel.Visible = false;
-            HighscorePanel.Visible = false;
-            HighscoreTable.Visible = false;
-            HighscoreLabel.Visible = false;
-            HighscoreName1.Visible = false;
-            HighscoreName2.Visible = false;
-            HighscoreName3.Visible = false;
-            HighscoreName4.Visible = false;
-            HighscoreName5.Visible = false;
-            Highscore1.Visible = false;
-            Highscore2.Visible = false;
-            Highscore3.Visible = false;
-            Highscore4.Visible = false;
-            Highscore5.Visible = false;
-
+            HighscorePanel.Visible = false;            
+            NewHighscorePanel.Visible = false;
             continuebutton.Visible = false;
             exitbutton.Visible = false;
             Playagainlabel.Visible = false;
@@ -567,32 +525,22 @@ namespace PacMan {
                         break;
                 }
             }
-
-            //begin anew
-            timer.Start();
-            animationTimer.Start();
         }
 
-        /// <summary>
         /// Exits the application when the button is clicked. Button shown on game over. 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void exitbutton_Click(object sender, EventArgs e) {
             timer.Stop();
             animationTimer.Stop();
             Application.Exit();
         }
         
-        /// <summary>
         /// Simple helper function that stops the game and displays game over menus when called.
-        /// </summary>
         private void endGame() {
             exitbutton.Visible = true;
             continuebutton.Visible = true;
             Playagainlabel.Visible = true;
-
             Boolean newHighScore = false;
+
             //check for new highscore
             for(int i = 0; i < 5; i++) {
                 if(score >= highScores[i].getScore()) {
@@ -649,10 +597,7 @@ namespace PacMan {
             }
         }
 
-        /// <summary>
         /// Helper function to identify, remove, and replace a ghost object in the ghosts[] array
-        /// </summary>
-        /// <param name="index"></param> the index of the ghost in ghosts[] array that is to be recreated. 
         private void destroyGhost(int index) {
             btnArray[ghosts[index].getIndex()].BackgroundImage = null;
             btnArray[ghosts[index].getIndex()].Tag = "";
@@ -679,11 +624,9 @@ namespace PacMan {
             }
         }
 
-        /// <summary>
-        /// Function to reset the game board for the next stage upon the player collecting all of the orbs.
+        /// Function to reset the game board for the next stage once all orbs are collected.
         /// Similar to the restart function but the score is maintained
-        /// now that I think about it I could probably combine the 2 functions and pass an argument to determine is the score is persistent or not //TODO:
-        /// </summary>
+        /// lot of reused code here, could I combine the two functions?
         private void nextStage() {
             currentIndex = 120;
             trajectory = 0;
@@ -744,9 +687,6 @@ namespace PacMan {
                         break;
                 }
             }
-
-            timer.Start();
-            animationTimer.Start();
         }
 
         private void ConfirmUserInput_Click(object sender, EventArgs e) {
@@ -820,10 +760,8 @@ namespace PacMan {
             }
         }
 
-        /// <summary>
         /// Helper function, clears the error code message that displays when the user puts an invalid name for a new highscore.
         /// Makes communicating errors easier to understand / removes confusion for multiple bad entries
-        /// </summary>
         private void NewHighScoreTextBox_TextChanged(object sender, EventArgs e) {
             UserInputErrorLabel.Visible = false;
         }
